@@ -2,7 +2,7 @@ package it.dsmailand.abirechner;
 
 /**
  *
- * @author lux
+ * @author StrawberryLemonade
  */
 public class AbiRechner {
 
