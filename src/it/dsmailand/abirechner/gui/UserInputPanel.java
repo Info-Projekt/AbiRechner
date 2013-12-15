@@ -15,7 +15,9 @@ public class UserInputPanel extends javax.swing.JPanel {
      */
     public UserInputPanel() {
         initComponents();
+        addReferences();
     }
+    SubjectUI[] inputReferences = new SubjectUI[12];
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,10 +79,10 @@ public class UserInputPanel extends javax.swing.JPanel {
         markTextField46 = new javax.swing.JTextField();
         markTextField47 = new javax.swing.JTextField();
         markTextField48 = new javax.swing.JTextField();
-        markTextField49 = new javax.swing.JTextField();
-        markTextField50 = new javax.swing.JTextField();
-        markTextField51 = new javax.swing.JTextField();
-        markTextField52 = new javax.swing.JTextField();
+        markTextField4 = new javax.swing.JTextField();
+        markTextField3 = new javax.swing.JTextField();
+        markTextField2 = new javax.swing.JTextField();
+        markTextField1 = new javax.swing.JTextField();
         sMatheLabel = new javax.swing.JLabel();
         sGeschichteLabel = new javax.swing.JLabel();
         sFilosofiaLabel = new javax.swing.JLabel();
@@ -367,27 +369,27 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField49.addActionListener(new java.awt.event.ActionListener() {
+        markTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                markTextField49ActionPerformed(evt);
+                markTextField4ActionPerformed(evt);
             }
         });
 
-        markTextField50.addActionListener(new java.awt.event.ActionListener() {
+        markTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                markTextField50ActionPerformed(evt);
+                markTextField3ActionPerformed(evt);
             }
         });
 
-        markTextField51.addActionListener(new java.awt.event.ActionListener() {
+        markTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                markTextField51ActionPerformed(evt);
+                markTextField2ActionPerformed(evt);
             }
         });
 
-        markTextField52.addActionListener(new java.awt.event.ActionListener() {
+        markTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                markTextField52ActionPerformed(evt);
+                markTextField1ActionPerformed(evt);
             }
         });
 
@@ -522,13 +524,13 @@ public class UserInputPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(markTextField45, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(markTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(markTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(markTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(markTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(markTextField50, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(markTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(markTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(markTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -544,11 +546,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sDeutschLabel)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(markTextField52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(markTextField51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(markTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(markTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(markTextField50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(markTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(markTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(markTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sItaLabel)
@@ -659,6 +661,7 @@ public class UserInputPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // <editor-fold defaultstate="collapsed" desc="Useless ActionPerformed code">
     private void markTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_markTextField5ActionPerformed
@@ -835,72 +838,72 @@ public class UserInputPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_markTextField48ActionPerformed
 
-    private void markTextField49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField49ActionPerformed
+    private void markTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_markTextField49ActionPerformed
+    }//GEN-LAST:event_markTextField4ActionPerformed
 
-    private void markTextField50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField50ActionPerformed
+    private void markTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_markTextField50ActionPerformed
+    }//GEN-LAST:event_markTextField3ActionPerformed
 
-    private void markTextField51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField51ActionPerformed
+    private void markTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_markTextField51ActionPerformed
+    }//GEN-LAST:event_markTextField2ActionPerformed
 
-    private void markTextField52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField52ActionPerformed
+    private void markTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_markTextField52ActionPerformed
-
+    }//GEN-LAST:event_markTextField1ActionPerformed
+    // </editor-fold> 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField markTextField10;
-    private javax.swing.JTextField markTextField11;
-    private javax.swing.JTextField markTextField12;
-    private javax.swing.JTextField markTextField13;
-    private javax.swing.JTextField markTextField14;
-    private javax.swing.JTextField markTextField15;
-    private javax.swing.JTextField markTextField16;
-    private javax.swing.JTextField markTextField17;
-    private javax.swing.JTextField markTextField18;
-    private javax.swing.JTextField markTextField19;
-    private javax.swing.JTextField markTextField20;
-    private javax.swing.JTextField markTextField21;
-    private javax.swing.JTextField markTextField22;
-    private javax.swing.JTextField markTextField23;
-    private javax.swing.JTextField markTextField24;
-    private javax.swing.JTextField markTextField25;
-    private javax.swing.JTextField markTextField26;
-    private javax.swing.JTextField markTextField27;
-    private javax.swing.JTextField markTextField28;
-    private javax.swing.JTextField markTextField29;
-    private javax.swing.JTextField markTextField30;
-    private javax.swing.JTextField markTextField31;
-    private javax.swing.JTextField markTextField32;
-    private javax.swing.JTextField markTextField33;
-    private javax.swing.JTextField markTextField34;
-    private javax.swing.JTextField markTextField35;
-    private javax.swing.JTextField markTextField36;
-    private javax.swing.JTextField markTextField37;
-    private javax.swing.JTextField markTextField38;
-    private javax.swing.JTextField markTextField39;
-    private javax.swing.JTextField markTextField40;
-    private javax.swing.JTextField markTextField41;
-    private javax.swing.JTextField markTextField42;
-    private javax.swing.JTextField markTextField43;
-    private javax.swing.JTextField markTextField44;
-    private javax.swing.JTextField markTextField45;
-    private javax.swing.JTextField markTextField46;
-    private javax.swing.JTextField markTextField47;
-    private javax.swing.JTextField markTextField48;
-    private javax.swing.JTextField markTextField49;
-    private javax.swing.JTextField markTextField5;
-    private javax.swing.JTextField markTextField50;
-    private javax.swing.JTextField markTextField51;
-    private javax.swing.JTextField markTextField52;
-    private javax.swing.JTextField markTextField6;
-    private javax.swing.JTextField markTextField7;
-    private javax.swing.JTextField markTextField8;
-    private javax.swing.JTextField markTextField9;
+    javax.swing.JTextField markTextField1;
+    javax.swing.JTextField markTextField10;
+    javax.swing.JTextField markTextField11;
+    javax.swing.JTextField markTextField12;
+    javax.swing.JTextField markTextField13;
+    javax.swing.JTextField markTextField14;
+    javax.swing.JTextField markTextField15;
+    javax.swing.JTextField markTextField16;
+    javax.swing.JTextField markTextField17;
+    javax.swing.JTextField markTextField18;
+    javax.swing.JTextField markTextField19;
+    javax.swing.JTextField markTextField2;
+    javax.swing.JTextField markTextField20;
+    javax.swing.JTextField markTextField21;
+    javax.swing.JTextField markTextField22;
+    javax.swing.JTextField markTextField23;
+    javax.swing.JTextField markTextField24;
+    javax.swing.JTextField markTextField25;
+    javax.swing.JTextField markTextField26;
+    javax.swing.JTextField markTextField27;
+    javax.swing.JTextField markTextField28;
+    javax.swing.JTextField markTextField29;
+    javax.swing.JTextField markTextField3;
+    javax.swing.JTextField markTextField30;
+    javax.swing.JTextField markTextField31;
+    javax.swing.JTextField markTextField32;
+    javax.swing.JTextField markTextField33;
+    javax.swing.JTextField markTextField34;
+    javax.swing.JTextField markTextField35;
+    javax.swing.JTextField markTextField36;
+    javax.swing.JTextField markTextField37;
+    javax.swing.JTextField markTextField38;
+    javax.swing.JTextField markTextField39;
+    javax.swing.JTextField markTextField4;
+    javax.swing.JTextField markTextField40;
+    javax.swing.JTextField markTextField41;
+    javax.swing.JTextField markTextField42;
+    javax.swing.JTextField markTextField43;
+    javax.swing.JTextField markTextField44;
+    javax.swing.JTextField markTextField45;
+    javax.swing.JTextField markTextField46;
+    javax.swing.JTextField markTextField47;
+    javax.swing.JTextField markTextField48;
+    javax.swing.JTextField markTextField5;
+    javax.swing.JTextField markTextField6;
+    javax.swing.JTextField markTextField7;
+    javax.swing.JTextField markTextField8;
+    javax.swing.JTextField markTextField9;
     private javax.swing.JLabel sDeutschLabel;
     private javax.swing.JLabel sFilosofiaLabel;
     private javax.swing.JLabel sGeschichteLabel;
@@ -915,4 +918,10 @@ public class UserInputPanel extends javax.swing.JPanel {
     private javax.swing.JLabel semesterLabel2;
     private javax.swing.JLabel semesterLabel3;
     // End of variables declaration//GEN-END:variables
+
+    private void addReferences() {
+        //DEUTSCH
+        inputReferences[0].setSemesterTextFields(markTextField1, markTextField2, markTextField3, markTextField4);
+        inputReferences[0].setDisplayNameLabel(sDeutschLabel);
+    }
 }

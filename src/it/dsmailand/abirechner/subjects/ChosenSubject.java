@@ -7,7 +7,7 @@ package it.dsmailand.abirechner.subjects;
 public class ChosenSubject extends Subject{
     
     private void getSubjectData(){
-        int subjectIndex = //TODO get from sPanel;
+        int subjectIndex = //TODO get from guiReference;
         if (subjectIndex < 3){
             area = 1;
             foreignLang = true;

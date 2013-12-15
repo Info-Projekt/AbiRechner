@@ -1,4 +1,5 @@
 package it.dsmailand.abirechner.subjects;
+import it.dsmailand.abirechner.gui.*;
 
 /**
  *
@@ -11,15 +12,17 @@ public class Subject {
     boolean writtenExamSubject;
     boolean oralExamSubject;
     int[] semesterMark = new int[4];
-    SubjectPanel sPanel;
+    SubjectUI guiReference;
     
-    void setPanel(SubjectPanel sPanel){
-        this.sPanel = sPanel;
+    void setPanel(SubjectUI sPanel){
+        this.guiReference = sPanel;
     }
     
     public void getData(){
-        //Gonna do it as soon as I know how the heck you built the panel
-        semesterMark = /*TODO*/;
+        
+        semesterMark = guiReference.getMarks();
+
+        //What the heck is this? Well, you ain't gettin' it from my GUI ;)
         writtenExamSubject = /*TODO*/;
         oralExamSubject = /*TODO*/;
     }
