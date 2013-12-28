@@ -41,18 +41,35 @@ public class ChoiceManagement {
             //put all items up for grabs
             Collections.addAll(availableSubjects1, lingSubjects1);
             Collections.addAll(availableSubjects1, scienceSubjects1);
+            int numberOfLing = 0, numberOfSci = 0;
             
             //remove selected items from availList
             for (JComboBox thisBox : box) {
-                String selectedName = thisBox.getSelectedItem().toString();
+                String selectedName = thisBox.getSelectedItem().toString(); //Get the selected subject by name
                 System.out.println(selectedName);
-                //availableSubjects1.
-                /*for(int i=0; i<availableSubjects1.size(); i++){
-                    if(availableSubjects1.get(i).)
-                }*/
+                
+                for(Subject thisSubject:availableSubjects1) {       //Search and destroty the corres. object
+                    if(thisSubject.name.equals(selectedName)) {     //in availableSubjects1
+                        if(thisSubject.foreignLang) numberOfLing++;
+                        if(thisSubject.naturalScience)  numberOfSci++;
+                        availableSubjects1.remove(thisSubject);
+                    }
+                }
             }
             //if two sci/ling subjects are selected, remove all other sci/ling subjects
-            //repopulate non-selected comboBoxes
+            if (numberOfLing > 1) {
+                for (Subject thisSubject : availableSubjects1) {
+                    if(thisSubject.foreignLang) availableSubjects1.remove(thisSubject);
+                }
+            }
+            if (numberOfSci > 1) {
+                for (Subject thisSubject : availableSubjects1) {
+                    if(thisSubject.naturalScience) availableSubjects1.remove(thisSubject);
+                }
+            }
+            //repopulate unchanged comboBoxes
+            
+            /*TODO*/
             initialize();
             for (JComboBox thisBox : box) {
                 for (Iterator<String> it = availableSubjects.iterator(); it.hasNext();) {
@@ -62,15 +79,15 @@ public class ChoiceManagement {
 
                 }
                 /*Object source = ae.getSource();
-                for (JComboBox thisBox : box) {
-                    //
-                    if (thisBox == source) {
-                        //get selected item
-                        ///remove item from available 
-                        //put previous choice back
-                        System.out.println("Source identified as CB");
-                    }    //TODO: Make it do something
-                }   */
+                 for (JComboBox thisBox : box) {
+                 //
+                 if (thisBox == source) {
+                 //get selected item
+                 ///remove item from available 
+                 //put previous choice back
+                 System.out.println("Source identified as CB");
+                 }    //TODO: Make it do something
+                 }   */
             }
         }
     };
