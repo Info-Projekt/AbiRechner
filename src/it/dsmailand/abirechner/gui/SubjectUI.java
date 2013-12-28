@@ -15,13 +15,16 @@ public class SubjectUI {
     JTextField[] semesterMarkInputField = new JTextField[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
+    boolean choice;
 
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
+        choice = true;
     }
 
     public void setDisplayNameLabel(JLabel displayNameLabel) {
         this.displayNameLabel = displayNameLabel;
+        choice = false;
     }
 
     public void setSemesterTextFields(JTextField s12_1, JTextField s12_2, JTextField s13_1, JTextField s13_2) {

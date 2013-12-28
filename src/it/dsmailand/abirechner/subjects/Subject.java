@@ -22,9 +22,9 @@ public class Subject {
         
         semesterMark = guiReference.getMarks();
 
-        //What the heck is this? Well, you ain't gettin' it from my GUI ;)
         writtenExamSubject = /*TODO*/;
-        oralExamSubject = /*TODO*/;
+        oralExamSubject = /*TODO*/; 
     }
     
+
 }

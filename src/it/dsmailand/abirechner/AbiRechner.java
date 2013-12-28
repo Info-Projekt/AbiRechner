@@ -7,6 +7,6 @@ package it.dsmailand.abirechner;
 public class AbiRechner {
 
     public static void main(String[] args) {
-        
+        it.dsmailand.abirechner.gui.MainFrame.main(args);
     }
 }
