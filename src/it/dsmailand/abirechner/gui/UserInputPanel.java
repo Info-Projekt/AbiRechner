@@ -445,6 +445,11 @@ public class UserInputPanel extends javax.swing.JPanel {
         sReligionEthikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Religion", "Ethik" }));
 
         sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sWahlfach4ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sWahlfach4ComboBoxActionPerformed(evt);
+            }
+        });
 
         sWahlfach3_1ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -860,6 +865,10 @@ public class UserInputPanel extends javax.swing.JPanel {
     private void markTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_markTextField1ActionPerformed
+
+    private void sWahlfach4ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sWahlfach4ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sWahlfach4ComboBoxActionPerformed
     // </editor-fold> 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator1;

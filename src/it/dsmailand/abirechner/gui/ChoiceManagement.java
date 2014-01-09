@@ -37,7 +37,8 @@ public class ChoiceManagement {
     ActionListener actionPerformed = new ActionListener() {
 
         @Override
-        public void actionPerformed(ActionEvent ae) {
+        public void actionPerformed(ActionEvent ae) {}
+        public void actionPerformed2(ActionEvent ae) {
             //put all items up for grabs
             Collections.addAll(availableSubjects1, lingSubjects1);
             Collections.addAll(availableSubjects1, scienceSubjects1);
