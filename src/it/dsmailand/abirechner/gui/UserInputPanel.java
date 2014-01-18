@@ -17,8 +17,9 @@ public class UserInputPanel extends javax.swing.JPanel {
      */
     public UserInputPanel() {
         this.inputReferences = new SubjectUI[12];
-        for(int i = 0; i<inputReferences.length;i++)   inputReferences[i] = new SubjectUI();
-        inputReferences[0] = new SubjectUI();
+        for (int i = 0; i < inputReferences.length; i++) {
+            inputReferences[i] = new SubjectUI();
+        }
         initComponents();
         addReferences();
     }
@@ -940,8 +941,7 @@ public class UserInputPanel extends javax.swing.JPanel {
 
     private void addReferences() {
         //DEUTSCH
-        SubjectUI testui = inputReferences[0];  //SubjectNumber.deutsch
-                testui.setSemesterTextFields(markTextField1, markTextField2, markTextField3, markTextField4);
+        inputReferences[SubjectNumber.deutsch].setSemesterTextFields(markTextField1, markTextField2, markTextField3, markTextField4);
         inputReferences[SubjectNumber.deutsch].setDisplayNameLabel(sDeutschLabel);
         //ITA
         inputReferences[SubjectNumber.ita].setSemesterTextFields(markTextField8, markTextField7, markTextField6, markTextField5);
@@ -976,11 +976,11 @@ public class UserInputPanel extends javax.swing.JPanel {
         //Wahlfach3
         inputReferences[SubjectNumber.wahlfach3_2].setSemesterTextFields(markTextField48, markTextField47, markTextField46, markTextField45);
         inputReferences[SubjectNumber.wahlfach3_2].setComboBox(sWahlfach3_2ComboBox);
-        
+
         //Combobox-Management
         choiceManagement.setComboBoxes(inputReferences[SubjectNumber.wahlfach4].comboBox, inputReferences[SubjectNumber.wahlfach3_1].comboBox, inputReferences[SubjectNumber.wahlfach3_2].comboBox);
         choiceManagement.initialize();
-        
+
         inputReferences[SubjectNumber.wahlfach4].comboBox.addActionListener(choiceManagement.actionPerformed);
     }
 }

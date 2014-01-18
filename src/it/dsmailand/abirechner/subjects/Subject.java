@@ -14,11 +14,12 @@ public class Subject {
     transient public boolean naturalScience; //needed
     boolean writtenExamSubject;
     boolean oralExamSubject;
-    int[] semesterMark = new int[4];
+    int[] semesterMarks = new int[4];
     SubjectUI guiReference;
 
-    public Subject(int subjectNumber) {
+    public Subject(SubjectUI guiReference) {
         foreignLang = true;
+        this.guiReference = guiReference;
     }
 
     public Subject(String name, boolean langAndNotScience) {
@@ -31,9 +32,9 @@ public class Subject {
         this.guiReference = sPanel;
     }
 
-    public void getData() {
+    public void fetchMarks() {
 
-        semesterMark = guiReference.getMarks();
+        semesterMarks = guiReference.getMarks();
 
         //writtenExamSubject = /*TODO*/;
         //oralExamSubject = /*TODO*/;

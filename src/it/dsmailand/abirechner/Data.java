@@ -4,21 +4,28 @@
  */
 package it.dsmailand.abirechner;
 
+import it.dsmailand.abirechner.gui.SubjectUI;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
 
 /**
- *
+ * Contains all the subject data, as 
  * @author PortableUser
  */
 public class Data implements Serializable {
+
     Subject[] subjects = new Subject[12];
-    
-    
-    public Data(){
+
+    public Data(SubjectUI sUI) {
         //initialize subjects
-        for(int i = 0; i<subjects.length; i++)   {
-            subjects[i] = new Subject(i);
+        for (int i = 0; i < subjects.length; i++) {
+            subjects[i] = new Subject(sUI);
+        }
+    }
+
+    public void read() {
+        for (Subject thisSubject:subjects) {
+            thisSubject.fetchMarks();
         }
     }
 

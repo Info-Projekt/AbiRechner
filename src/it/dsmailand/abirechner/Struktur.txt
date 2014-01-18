@@ -1,0 +1,4 @@
+Abirechner                                      <cloud>Funktionen zur Datenverarbeitung</cloud>
+Data            MainFrame
+Subjects        UserInputPanel  OutputPanel
+                SubjectUI[]     
