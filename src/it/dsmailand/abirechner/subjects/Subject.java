@@ -8,14 +8,17 @@ import it.dsmailand.abirechner.gui.*;
  */
 public class Subject {
 
-    public String name;        //TODO: add "name" to various subclasses
-    int area; //can be 1, 2 or 3
-    transient final public boolean foreignLang; //needed
-    transient public boolean naturalScience; //needed
+    transient public String name;        //TODO: add "name" to various subclasses
+    transient int area; //can be 1, 2 or 3        needed?
+    transient public boolean foreignLang;
+    transient public boolean naturalScience;
+    
+    //Variables that depend on user input
+    int[] semesterMarks = new int[4];
     boolean writtenExamSubject;
     boolean oralExamSubject;
-    int[] semesterMarks = new int[4];
-    SubjectUI guiReference;
+    
+    transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
 
     public Subject(SubjectUI guiReference) {
         foreignLang = true;
@@ -26,10 +29,6 @@ public class Subject {
         this.name = name;
         foreignLang = langAndNotScience;
         naturalScience = !langAndNotScience;
-    }
-
-    void setPanel(SubjectUI sPanel) {
-        this.guiReference = sPanel;
     }
 
     public void fetchMarks() {

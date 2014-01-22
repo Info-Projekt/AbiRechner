@@ -5,6 +5,8 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.subjects.SubjectNumber;
+import java.awt.Color;
+import javax.swing.JTextField;
 
 /**
  *
@@ -23,7 +25,7 @@ public class UserInputPanel extends javax.swing.JPanel {
         initComponents();
         addReferences();
     }
-    SubjectUI[] inputReferences;
+    public SubjectUI[] inputReferences;
     ChoiceManagement choiceManagement = new ChoiceManagement();
 
     /**
@@ -224,6 +226,11 @@ public class UserInputPanel extends javax.swing.JPanel {
         markTextField20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField20ActionPerformed(evt);
+            }
+        });
+        markTextField20.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markFieldFocusGained(evt);
             }
         });
 
@@ -871,6 +878,14 @@ public class UserInputPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_sWahlfach4ComboBoxActionPerformed
     // </editor-fold> 
+    
+    //TODO: make this work
+    private void markFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markFieldFocusGained
+        JTextField markField = (JTextField) evt.getSource();
+        markField.setBackground(Color.yellow);
+        markField.selectAll();
+    }//GEN-LAST:event_markFieldFocusGained
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator1;
     javax.swing.JTextField markTextField1;

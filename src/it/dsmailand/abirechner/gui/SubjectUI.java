@@ -4,6 +4,7 @@
  */
 package it.dsmailand.abirechner.gui;
 
+import java.awt.Color;
 import javax.swing.*;
 
 /**
@@ -40,5 +41,12 @@ public class SubjectUI {
             marks[i] = Integer.parseInt(semesterMarkInputField[i].getText());
         }
         return marks;
+    }
+    
+    /*
+     * Highlights a specific InputBox so the user can see whether the input is incorrect
+     */
+    public void setMarkInputFieldHIghlight(int number, Color color)    {
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 }

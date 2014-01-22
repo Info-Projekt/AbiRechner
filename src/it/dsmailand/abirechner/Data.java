@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.gui.SubjectUI;
@@ -9,47 +5,34 @@ import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
 
 /**
- * Contains all the subject data, as 
- * @author PortableUser
+ * Contains all the subject data, organized in Subject objects. Can be saved to
+ * disk *TO BE IMPLEMENTED
+ *
+ *
+ * @author MasterCarl
+ * @param sUI: reference to the GUI
+ * @version 0.1 - incomplete
+ * @serial The various subjects with marks and choice preferences
  */
 public class Data implements Serializable {
 
-    Subject[] subjects = new Subject[12];
+    Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
 
-    public Data(SubjectUI sUI) {
-        //initialize subjects
+    public Data(SubjectUI[] sUI) {
+        //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
-            subjects[i] = new Subject(sUI);
+            subjects[i] = new Subject(sUI[i]);
         }
     }
 
-    public void read() {
-        for (Subject thisSubject:subjects) {
+    /*
+     * Routine that updates the contents of data, to be called before every calculation
+     * @TODO add other stuff to be fetched
+     */
+    public void readFromGUI() {
+        for (Subject thisSubject : subjects) {
             thisSubject.fetchMarks();
         }
     }
+} 
 
-    public void save() {
-        ObjectOutputStream oos = null;
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream("C:/test.ser");
-            oos = new ObjectOutputStream(fos);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (oos != null) {
-                try {
-                    oos.close();
-                } catch (IOException e) {
-                }
-            }
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                }
-            }
-        }
-    }
-}
