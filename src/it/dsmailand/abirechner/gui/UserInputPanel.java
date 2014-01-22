@@ -123,11 +123,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField5ActionPerformed(evt);
             }
         });
+        markTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField6.setText("15");
         markTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField6ActionPerformed(evt);
+            }
+        });
+        markTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -137,11 +147,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField7ActionPerformed(evt);
             }
         });
+        markTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField8.setText("15");
         markTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField8ActionPerformed(evt);
+            }
+        });
+        markTextField8.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -151,11 +171,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField9ActionPerformed(evt);
             }
         });
+        markTextField9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField10.setText("15");
         markTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField10ActionPerformed(evt);
+            }
+        });
+        markTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -165,6 +195,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField11ActionPerformed(evt);
             }
         });
+        markTextField11.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField12.setText("15");
         markTextField12.addActionListener(new java.awt.event.ActionListener() {
@@ -172,11 +207,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField12ActionPerformed(evt);
             }
         });
+        markTextField12.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField13.setText("15");
         markTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField13ActionPerformed(evt);
+            }
+        });
+        markTextField13.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -193,11 +238,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField15ActionPerformed(evt);
             }
         });
+        markTextField15.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField16.setText("15");
         markTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField16ActionPerformed(evt);
+            }
+        });
+        markTextField16.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -207,6 +262,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField17ActionPerformed(evt);
             }
         });
+        markTextField17.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField18.setText("15");
         markTextField18.addActionListener(new java.awt.event.ActionListener() {
@@ -214,11 +274,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField18ActionPerformed(evt);
             }
         });
+        markTextField18.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField19.setText("15");
         markTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField19ActionPerformed(evt);
+            }
+        });
+        markTextField19.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -230,7 +300,7 @@ public class UserInputPanel extends javax.swing.JPanel {
         });
         markTextField20.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                markFieldFocusGained(evt);
+                markTextFieldFocusGained(evt);
             }
         });
 
@@ -240,11 +310,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField21ActionPerformed(evt);
             }
         });
+        markTextField21.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField22.setText("15");
         markTextField22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField22ActionPerformed(evt);
+            }
+        });
+        markTextField22.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -254,11 +334,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField23ActionPerformed(evt);
             }
         });
+        markTextField23.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField24.setText("15");
         markTextField24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField24ActionPerformed(evt);
+            }
+        });
+        markTextField24.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -268,6 +358,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField25ActionPerformed(evt);
             }
         });
+        markTextField25.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField26.setText("15");
         markTextField26.addActionListener(new java.awt.event.ActionListener() {
@@ -275,13 +370,28 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField26ActionPerformed(evt);
             }
         });
+        markTextField26.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField27.setText("15");
+        markTextField27.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField28.setText("15");
         markTextField28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField28ActionPerformed(evt);
+            }
+        });
+        markTextField28.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -291,11 +401,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField29ActionPerformed(evt);
             }
         });
+        markTextField29.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField30.setText("15");
         markTextField30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField30ActionPerformed(evt);
+            }
+        });
+        markTextField30.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -305,6 +425,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField31ActionPerformed(evt);
             }
         });
+        markTextField31.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField32.setText("15");
         markTextField32.addActionListener(new java.awt.event.ActionListener() {
@@ -312,15 +437,35 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField32ActionPerformed(evt);
             }
         });
+        markTextField32.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField33.setText("15");
+        markTextField33.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField34.setText("15");
+        markTextField34.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField35.setText("15");
         markTextField35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField35ActionPerformed(evt);
+            }
+        });
+        markTextField35.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -330,11 +475,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField36ActionPerformed(evt);
             }
         });
+        markTextField36.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField37.setText("15");
         markTextField37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField37ActionPerformed(evt);
+            }
+        });
+        markTextField37.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -344,6 +499,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField38ActionPerformed(evt);
             }
         });
+        markTextField38.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField39.setText("15");
         markTextField39.addActionListener(new java.awt.event.ActionListener() {
@@ -351,13 +511,28 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField39ActionPerformed(evt);
             }
         });
+        markTextField39.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField40.setText("15");
+        markTextField40.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField41.setText("15");
         markTextField41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField41ActionPerformed(evt);
+            }
+        });
+        markTextField41.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -367,11 +542,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField42ActionPerformed(evt);
             }
         });
+        markTextField42.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField43.setText("15");
         markTextField43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField43ActionPerformed(evt);
+            }
+        });
+        markTextField43.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -381,11 +566,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField44ActionPerformed(evt);
             }
         });
+        markTextField44.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField45.setText("15");
         markTextField45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField45ActionPerformed(evt);
+            }
+        });
+        markTextField45.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -395,6 +590,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField46ActionPerformed(evt);
             }
         });
+        markTextField46.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField47.setText("15");
         markTextField47.addActionListener(new java.awt.event.ActionListener() {
@@ -402,13 +602,28 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField47ActionPerformed(evt);
             }
         });
+        markTextField47.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField48.setText("15");
+        markTextField48.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField4.setText("15");
         markTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField4ActionPerformed(evt);
+            }
+        });
+        markTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
 
@@ -418,6 +633,11 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField3ActionPerformed(evt);
             }
         });
+        markTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField2.setText("15");
         markTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -425,11 +645,21 @@ public class UserInputPanel extends javax.swing.JPanel {
                 markTextField2ActionPerformed(evt);
             }
         });
+        markTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
+            }
+        });
 
         markTextField1.setText("15"); // NOI18N
         markTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField1ActionPerformed(evt);
+            }
+        });
+        markTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                markTextField14FocusGained(evt);
             }
         });
         markTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -879,12 +1109,13 @@ public class UserInputPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_sWahlfach4ComboBoxActionPerformed
     // </editor-fold> 
     
-    //TODO: make this work
-    private void markFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markFieldFocusGained
-        JTextField markField = (JTextField) evt.getSource();
-        markField.setBackground(Color.yellow);
-        markField.selectAll();
-    }//GEN-LAST:event_markFieldFocusGained
+    private void markTextField14FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markTextField14FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_markTextField14FocusGained
+
+    private void markTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markTextFieldFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_markTextFieldFocusGained
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator1;

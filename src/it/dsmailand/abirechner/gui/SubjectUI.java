@@ -5,15 +5,20 @@
 package it.dsmailand.abirechner.gui;
 
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.*;
 
 /**
- *
- * @author Carl
+ * Contains the references to all of the GUI elements that belong to a certain Subject.
+ * Additionally provides methods to highlight certain input fields
+ * and a FocusListener to automatically select the text when the user selects a JTextField.
+ * @author MasterCarl
  */
-public class SubjectUI {
+public class SubjectUI implements FocusListener {
 
     JTextField[] semesterMarkInputField = new JTextField[4];
+    HighlightMode[] markFieldHighlighted = new HighlightMode[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
     boolean choice;
@@ -33,6 +38,9 @@ public class SubjectUI {
         semesterMarkInputField[1] = s12_2;
         semesterMarkInputField[2] = s13_1;
         semesterMarkInputField[3] = s13_2;
+        for (int i = 0; i < 4; i++) {
+            semesterMarkInputField[i].addFocusListener(this);
+        }
     }
 
     public int[] getMarks() {
@@ -42,11 +50,32 @@ public class SubjectUI {
         }
         return marks;
     }
-    
+
     /*
-     * Highlights a specific InputBox so the user can see whether the input is incorrect
+     * Highlights a specific InputBox to provide visual feedback
      */
-    public void setMarkInputFieldHIghlight(int number, Color color)    {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public void setMarkInputFieldHighlight(int number, HighlightMode hl) {
+        markFieldHighlighted[number] = hl;
+        switch(hl)  {
+            case none:    semesterMarkInputField[number].setBackground(Color.WHITE);
+                break;
+                case error:    semesterMarkInputField[number].setBackground(Color.RED);
+                break;
+        }
+    }
+
+    @Override
+    public void focusGained(FocusEvent fe) {
+        JTextField thisField = (JTextField) fe.getSource();
+        thisField.selectAll();
+    }
+
+    @Override
+    public void focusLost(FocusEvent fe) {
+        //TODO: trigger a validity checker
+    }
+    
+    public enum HighlightMode  {
+        none, error
     }
 }
