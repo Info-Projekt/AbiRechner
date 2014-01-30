@@ -74,6 +74,12 @@ public class SubjectUI implements FocusListener {
     public void focusLost(FocusEvent fe) {
         //TODO: trigger a validity checker
     }
+
+    public void setMarks(int[] semesterMarks) {
+        for (int i = 0; i < 4; i++) {
+            semesterMarkInputField[i].setText(String.valueOf(semesterMarks[i]));
+        }
+    }
     
     public enum HighlightMode  {
         none, error

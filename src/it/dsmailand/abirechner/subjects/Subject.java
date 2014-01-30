@@ -1,12 +1,13 @@
 package it.dsmailand.abirechner.subjects;
 
 import it.dsmailand.abirechner.gui.*;
+import java.io.Serializable;
 
 /**
  *
  * @author StrawberryLemonade
  */
-public class Subject {
+public class Subject implements Serializable{
 
     transient public String name;        //TODO: add "name" to various subclasses
     transient int area; //can be 1, 2 or 3        needed?
@@ -37,6 +38,10 @@ public class Subject {
 
         //writtenExamSubject = /*TODO*/;
         //oralExamSubject = /*TODO*/;
+    }
+
+    public void writeMarks() {
+        guiReference.setMarks(semesterMarks);
     }
     
 

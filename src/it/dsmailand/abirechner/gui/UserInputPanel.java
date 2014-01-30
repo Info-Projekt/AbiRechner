@@ -5,9 +5,6 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.subjects.SubjectNumber;
-import java.awt.Color;
-import javax.swing.JTextField;
-
 /**
  *
  * @author Carl

@@ -34,5 +34,10 @@ public class Data implements Serializable {
             thisSubject.fetchMarks();
         }
     }
+    public void writeToGUI(){
+        for (Subject thisSubject : subjects) {
+            thisSubject.writeMarks();
+        }
+    }
 } 
 

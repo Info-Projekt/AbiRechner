@@ -18,6 +18,8 @@ public class InputValidityChecker {
     }
     
     public int check(){
-        return new Integer('0');
+        return new Integer(0b0);
     }
+    
+    public static boolean 
 }
