@@ -1093,8 +1093,8 @@ public class UserInputPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_markTextField2ActionPerformed
 
     private void markTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_markTextFieldKeyTyped
-        javax.swing.JTextField jt = (javax.swing.JTextField) evt.getSource();
-        System.out.println(jt.getText());
+        //javax.swing.JTextField jt = (javax.swing.JTextField) evt.getSource();
+        //System.out.println(jt.getText());
     }//GEN-LAST:event_markTextFieldKeyTyped
 
     private void markTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markTextField1ActionPerformed

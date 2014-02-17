@@ -21,5 +21,5 @@ public class InputValidityChecker {
         return new Integer(0b0);
     }
     
-    public static boolean 
+    //public static boolean 
 }

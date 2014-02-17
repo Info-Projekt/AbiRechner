@@ -7,18 +7,20 @@ package it.dsmailand.abirechner.gui;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.Serializable;
 import javax.swing.*;
 
 /**
- * Contains the references to all of the GUI elements that belong to a certain Subject.
- * Additionally provides methods to highlight certain input fields
- * and a FocusListener to automatically select the text when the user selects a JTextField.
+ * Contains the references to all of the GUI elements that belong to a certain
+ * Subject. Additionally provides methods to highlight certain input fields and
+ * a FocusListener to automatically select the text when the user selects a
+ * JTextField.
+ *
  * @author MasterCarl
  */
-public class SubjectUI implements FocusListener {
+public class SubjectUI implements FocusListener, Serializable {
 
     JTextField[] semesterMarkInputField = new JTextField[4];
-    HighlightMode[] markFieldHighlighted = new HighlightMode[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
     boolean choice;
@@ -54,12 +56,13 @@ public class SubjectUI implements FocusListener {
     /*
      * Highlights a specific InputBox to provide visual feedback
      */
-    public void setMarkInputFieldHighlight(int number, HighlightMode hl) {
-        markFieldHighlighted[number] = hl;
-        switch(hl)  {
-            case none:    semesterMarkInputField[number].setBackground(Color.WHITE);
+    public void setMarkInputFieldHighlight(JTextField field, HighlightMode hl) {
+        switch (hl) {
+            case none:
+                field.setBackground(Color.WHITE);
                 break;
-                case error:    semesterMarkInputField[number].setBackground(Color.RED);
+            case error:
+                field.setBackground(Color.RED);
                 break;
         }
     }
@@ -72,7 +75,18 @@ public class SubjectUI implements FocusListener {
 
     @Override
     public void focusLost(FocusEvent fe) {
-        //TODO: trigger a validity checker
+        System.out.println("Focus lost!");
+        JTextField thisField = (JTextField) fe.getSource();
+        try {
+            int inputNumber = Integer.parseInt(thisField.getText());
+            if (inputNumber < 0 || inputNumber < 15) {
+                setMarkInputFieldHighlight(thisField, HighlightMode.error);
+            }
+        } catch (Exception e) {
+            setMarkInputFieldHighlight(thisField, HighlightMode.error);
+        }
+        setMarkInputFieldHighlight(thisField, HighlightMode.none);
+
     }
 
     public void setMarks(int[] semesterMarks) {
@@ -80,8 +94,9 @@ public class SubjectUI implements FocusListener {
             semesterMarkInputField[i].setText(String.valueOf(semesterMarks[i]));
         }
     }
-    
-    public enum HighlightMode  {
+
+    public enum HighlightMode {
+
         none, error
     }
 }

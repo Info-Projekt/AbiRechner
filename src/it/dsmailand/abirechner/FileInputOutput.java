@@ -15,33 +15,42 @@ import java.util.logging.Logger;
 public class FileInputOutput {
 
     Data data;
+    Data dataNew;
 
     public FileInputOutput(Data data) {
         this.data = data;
     }
 
+    /*
+     * @source http://www.tutorialspoint.com/java/java_serialization.htm
+     */
+    
     public void saveToDisk() {
-        try (
-                OutputStream file = new FileOutputStream("AbiRechnerData.ser");
-                OutputStream buffer = new BufferedOutputStream(file);
-                ObjectOutput output = new ObjectOutputStream(buffer);) {
-            output.writeObject(data);
-        } catch (IOException ex) {
-            fLogger.log(Level.SEVERE, "Cannot perform output.", ex);
+        try {
+            FileOutputStream fileOut =
+                    new FileOutputStream("userinput.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(data);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in userinput.ser");
+        } catch (IOException e) {
+            fLogger.log(Level.SEVERE, "Cannot perform output.", e);
         }
     }
 
     public void readFromDisk() {
-        try (
-                InputStream file = new FileInputStream("AbiRechnerData.ser");
-                InputStream buffer = new BufferedInputStream(file);
-                ObjectInput input = new ObjectInputStream(buffer);) {
-            data = (Data) input.readObject();
-            System.out.println("Einlesen fertig!");
-        } catch (ClassNotFoundException ex) {
-            fLogger.log(Level.SEVERE, "Cannot perform input. Class not found.", ex);
-        } catch (IOException ex) {
-            fLogger.log(Level.SEVERE, "Cannot perform input.", ex);
+        try {
+            FileInputStream fileIn = new FileInputStream("userinput.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            dataNew = (Data) in.readObject();
+            data = dataNew;
+            in.close();
+            fileIn.close();
+        } catch (IOException e) {
+            fLogger.log(Level.SEVERE, "Cannot perform input.", e);
+        } catch (ClassNotFoundException e) {
+            fLogger.log(Level.SEVERE, "Cannot perform output. Class not found.", e);
         }
     }
     private static final Logger fLogger =
