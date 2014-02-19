@@ -1,4 +1,6 @@
-Abirechner                                      <cloud>Funktionen zur Datenverarbeitung</cloud>
-Data            MainFrame
-Subjects        UserInputPanel  OutputPanel
-                SubjectUI[]     
+                                                    <static>Funktionen zur Datenverarbeitung</static>
+                                                    <static>FileIO</static>
+Abirechner
+Data       --updates->     MainFrame                           Listeners
+                           UserInputPanel  OutputPanel
+Subjects    <=is passed==  SubjectUI[]

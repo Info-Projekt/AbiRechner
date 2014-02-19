@@ -1,11 +1,6 @@
 package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.gui.*;
-import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 /**
  * Behold, the class that unites the GUI and the backend
@@ -14,32 +9,15 @@ import java.io.InputStreamReader;
  */
 public class AbiRechner {
 
-    private void test() {
-        System.out.println("Teste Speicherung. Fortfahren (y/n)");
-        // Well, that's why it wouldn't save what I entered. data.readFromGUI();
-        try {
-            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
-            if (bufferRead.readLine().equals("y")) {
-                data.readFromGUI();
-                fifo.saveToDisk();
-            }
-            System.out.println("Fortfahren mit einlesen? (y/n)");
-            if (bufferRead.readLine().equals("y")) {
-                fifo.readFromDisk();
-                data.writeToGUI();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
     MainFrame mainFrame;
     Data data;
-    FileInputOutput fifo;
+    Listeners listeners;
+    
 
     public static void main(String[] args) {
         AbiRechner abiRechner = new AbiRechner();
         abiRechner.initialize();
-        abiRechner.test();
     }
 
     void initialize() {
@@ -47,15 +25,14 @@ public class AbiRechner {
         mainFrame = new it.dsmailand.abirechner.gui.MainFrame();
         mainFrame.setVisible(true);
 
-        data = new Data(mainFrame.userInputPanel.inputReferences);
+        data = new Data(mainFrame.userInputPanel.subjectUI);
 
-        fifo = new FileInputOutput(data);
+        listeners = new Listeners(this);
 
-        /*mainFrame.mainActionJButton.addListener(new ActionListener() {
-         @Override
-         public void actionPerformed(ActionEvent evt) {
-         data.
-         }
-         });*/
+        //Add Listeners to buttons
+        mainFrame.loadFileJButton.addActionListener(listeners.loadButtonListener);  //Load
+        mainFrame.saveAsJButton.addActionListener(listeners.saveButtonListener);    //Save As...
+        mainFrame.saveJButton.addActionListener(listeners.saveButtonListener);      //Save
+
     }
 }

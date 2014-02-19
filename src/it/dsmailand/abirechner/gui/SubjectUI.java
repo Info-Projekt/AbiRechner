@@ -14,9 +14,12 @@ import javax.swing.*;
  * Contains the references to all of the GUI elements that belong to a certain
  * Subject. Additionally provides methods to highlight certain input fields and
  * a FocusListener to automatically select the text when the user selects a
- * JTextField.
+ * JTextField. Currently, an array of SubjectUI instances is created by
+ * mainFrame.userInputPanel and then passed to data.Subjects by AbiRechner. This
+ * is kind of complicated.
  *
  * @author MasterCarl
+ * @TODO complete FocusLost()
  */
 public class SubjectUI implements FocusListener, Serializable {
 
@@ -53,9 +56,15 @@ public class SubjectUI implements FocusListener, Serializable {
         return marks;
     }
 
+    public void setMarks(int[] semesterMarks) {
+        for (int i = 0; i < 4; i++) {
+            semesterMarkInputField[i].setText(String.valueOf(semesterMarks[i]));
+        }
+    }
     /*
      * Highlights a specific InputBox to provide visual feedback
      */
+
     public void setMarkInputFieldHighlight(JTextField field, HighlightMode hl) {
         switch (hl) {
             case none:
@@ -75,7 +84,7 @@ public class SubjectUI implements FocusListener, Serializable {
 
     @Override
     public void focusLost(FocusEvent fe) {
-        System.out.println("Focus lost!");
+        //System.out.println("Focus lost!");
         JTextField thisField = (JTextField) fe.getSource();
         try {
             int inputNumber = Integer.parseInt(thisField.getText());
@@ -87,12 +96,6 @@ public class SubjectUI implements FocusListener, Serializable {
         }
         setMarkInputFieldHighlight(thisField, HighlightMode.none);
 
-    }
-
-    public void setMarks(int[] semesterMarks) {
-        for (int i = 0; i < 4; i++) {
-            semesterMarkInputField[i].setText(String.valueOf(semesterMarks[i]));
-        }
     }
 
     public enum HighlightMode {

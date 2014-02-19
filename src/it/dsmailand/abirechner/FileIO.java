@@ -12,41 +12,38 @@ import java.util.logging.Logger;
  *
  * @author Carl
  */
-public class FileInputOutput {
+public class FileIO {
 
-    Data data;
-    Data dataNew;
-
-    public FileInputOutput(Data data) {
-        this.data = data;
-    }
 
     /*
      * @source http://www.tutorialspoint.com/java/java_serialization.htm
      */
-    
-    public void saveToDisk() {
+    public static void saveToDisk(Data data, File file) {
         try {
             FileOutputStream fileOut =
-                    new FileOutputStream("userinput.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                    new FileOutputStream(file);
+            OutputStream buffer = new BufferedOutputStream(fileOut);
+            ObjectOutputStream out = new ObjectOutputStream(buffer);
+            
             out.writeObject(data);
             out.close();
             fileOut.close();
-            System.out.println("Serialized data is saved in userinput.ser");
+            fLogger.log(Level.FINE, "Saving data to \"{0}\"", file.getPath());
         } catch (IOException e) {
             fLogger.log(Level.SEVERE, "Cannot perform output.", e);
         }
     }
 
-    public void readFromDisk() {
+    public static void readFromDisk(File file, Data data) {
         try {
-            FileInputStream fileIn = new FileInputStream("userinput.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            dataNew = (Data) in.readObject();
-            data = dataNew;
+            FileInputStream fileIn = new FileInputStream(file);
+            InputStream buffer = new BufferedInputStream(fileIn);
+            ObjectInputStream in = new ObjectInputStream(buffer);
+            
+            data = (Data) in.readObject();
             in.close();
             fileIn.close();
+            fLogger.log(Level.FINE, "Reading data from \"{0}\"", file.getPath());
         } catch (IOException e) {
             fLogger.log(Level.SEVERE, "Cannot perform input.", e);
         } catch (ClassNotFoundException e) {
