@@ -14,12 +14,14 @@ public class Subject implements Serializable{
     transient public boolean foreignLang;
     transient public boolean naturalScience;
     
+    
     //Variables that depend on user input
-    int[] semesterMarks = new int[4];
-    boolean writtenExamSubject;
-    boolean oralExamSubject;
+    public int[] semesterMarks = new int[4];
+    public boolean writtenExamSubject;
+    public boolean oralExamSubject;
     
     transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
+    transient public boolean[] alreadyUsed = new boolean[4]; //True if corresponding semesterMark adds to the final mark
 
     public Subject(SubjectUI guiReference) {
         foreignLang = true;
