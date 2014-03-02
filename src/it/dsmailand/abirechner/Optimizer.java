@@ -129,22 +129,34 @@ public class Optimizer {
         
         //Geschichte: 2 hjs mandatory
         if(myData.subjects[3].writtenExamSubject!=true){
-            int hjsToAdd;
-            int bestHj;
+            int geHjsToAdd;
+            int geBestHj;
             if(myData.subjects[3].oralExamSubject==true){
-                hjsToAdd = 1; //since 13.2 is already in C
-            } else {hjsToAdd = 2;}
+                geHjsToAdd = 1; //since 13.2 is already in C
+            } else {geHjsToAdd = 2;}
             
-            for (int i=0; i<hjsToAdd; i++){
-                bestHj = getBestSubjectHj(3);
-                bPoints += myData.subjects[3].semesterMarks[bestHj];
-                myData.subjects[3].alreadyUsed[bestHj] = true;
+            for (int i=0; i<geHjsToAdd; i++){
+                geBestHj = getBestSubjectHj(3);
+                bPoints += myData.subjects[3].semesterMarks[geBestHj];
+                myData.subjects[3].alreadyUsed[geBestHj] = true;
             }
+        }
             
         //Kunst/Musik: 3 hjs mandatory
-            
-            
+
+        int kumuHjsToAdd;
+        int kumuBestHj;
+        if(myData.subjects[6].oralExamSubject==true){
+            kumuHjsToAdd = 2; //since 13.2 is already in C
+        } else {kumuHjsToAdd = 3;}
+
+        for (int i=0; i<kumuHjsToAdd; i++){
+            kumuBestHj = getBestSubjectHj(6);
+            bPoints += myData.subjects[6].semesterMarks[kumuBestHj];
+            myData.subjects[6].alreadyUsed[kumuBestHj] = true;
         }
+            
+        
         return bPoints;
     }
     
