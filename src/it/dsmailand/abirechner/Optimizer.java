@@ -143,7 +143,6 @@ public class Optimizer {
         }
             
         //Kunst/Musik: 3 hjs mandatory
-
         int kumuHjsToAdd;
         int kumuBestHj;
         if(myData.subjects[6].oralExamSubject==true){
@@ -156,6 +155,17 @@ public class Optimizer {
             myData.subjects[6].alreadyUsed[kumuBestHj] = true;
         }
             
+        // Sector 2: 2hjs out of GE, FI, POWI, RE/ET
+        // TODO (maybe): catch Exception (shouldn't actually be possible)
+        int[] subjectNo = new int[]{3,4,7,8};
+        for(int i=0; i<2; i++){
+            int bestSubjectNo = getSubjectOfBestHj(subjectNo);
+            int sec2BestHj = getBestSubjectHj(bestSubjectNo);
+            bPoints += myData.subjects[bestSubjectNo].semesterMarks[sec2BestHj];
+            myData.subjects[bestSubjectNo].alreadyUsed[sec2BestHj] = true;
+        }
+        
+        
         
         return bPoints;
     }
@@ -178,5 +188,21 @@ public class Optimizer {
             }
         }
         return bestHj;
+    }
+    
+    /**
+     * Returns the subject with the best not-used semester
+     * 
+     * @param subjectNo: int[] holding SubjectNumbers to choose from
+     * @return SubjectNumber whose BestSubjectHj is highest
+     */
+    private int getSubjectOfBestHj(int[] subjectNo){
+        int bestSubjectNo = subjectNo[0];
+        for(int subjectIndex=1; subjectIndex<subjectNo.length; subjectIndex++){
+            if (getBestSubjectHj(subjectIndex)>getBestSubjectHj(bestSubjectNo)){
+                bestSubjectNo = subjectNo[subjectIndex];
+            }
+        }
+        return bestSubjectNo;
     }
 }
