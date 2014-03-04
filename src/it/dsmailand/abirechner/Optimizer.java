@@ -8,8 +8,6 @@ package it.dsmailand.abirechner;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -46,6 +44,26 @@ public class Optimizer {
         }
         return oESubject;
     }
+    
+    /**
+     * Searches for all Natural Science Subjects
+     * @return Array of the NatScSubjects' SubjectNumbers
+     */
+    public int[] searchForNatScSubjects(){
+        List<Integer> natScSubjectList = new ArrayList();
+        for(int wahlfachNo=9; wahlfachNo<12; wahlfachNo++){
+            if (myData.subjects[wahlfachNo].naturalScience){
+                natScSubjectList.add(wahlfachNo);
+            }
+        }
+        int[] natScSubjects = new int[natScSubjectList.size()];
+        for(int i=0; i<natScSubjectList.size(); i++){
+            natScSubjects[i] = natScSubjectList.get(i);
+        }
+        return natScSubjects;
+    }
+    
+
     
     public void optimize(){
         
@@ -88,25 +106,6 @@ public class Optimizer {
         //examScore TODO
         
         return cPoints;
-    }
-    
-    private List createArrayListception(){
-        /**
-         * inner ArrayList => single Subject
-         * Element => single Mark
-         * Every time a mark gets counted, it is deleted from the Array
-         */
-        List<List<Integer>> semesterMarks = new ArrayList<>();
-        for(int subjectNo=0; subjectNo<12; subjectNo++){
-            List<Integer> newSubject = new ArrayList<>();
-            for(int hj=0; hj<4; hj++){
-                int mark = myData.subjects[subjectNo].semesterMarks[hj];
-                newSubject.add(mark);
-            }
-            semesterMarks.add(newSubject);
-        }
-        return semesterMarks;
-        
     }
     
     
@@ -157,14 +156,37 @@ public class Optimizer {
             
         // Sector 2: 2hjs out of GE, FI, POWI, RE/ET
         // TODO (maybe): catch Exception (shouldn't actually be possible)
+        // TODO: dammit forgot wES and oES
         int[] subjectNo = new int[]{3,4,7,8};
         for(int i=0; i<2; i++){
-            int bestSubjectNo = getSubjectOfBestHj(subjectNo);
-            int sec2BestHj = getBestSubjectHj(bestSubjectNo);
-            bPoints += myData.subjects[bestSubjectNo].semesterMarks[sec2BestHj];
-            myData.subjects[bestSubjectNo].alreadyUsed[sec2BestHj] = true;
+            int bestSec2SubjectNo = getSubjectOfBestHj(subjectNo);
+            int sec2BestHj = getBestSubjectHj(bestSec2SubjectNo);
+            bPoints += myData.subjects[bestSec2SubjectNo].semesterMarks[sec2BestHj];
+            myData.subjects[bestSec2SubjectNo].alreadyUsed[sec2BestHj] = true;
         }
         
+        //NaturalSciences: 4 hjs mandatory
+        //TODO: see if Wahlfach==wES->doNothing()
+        // if Wahlfach==oES->add 3
+        // if Wahlfach!=eS->add 4
+        int [] natScSubjectNo = searchForNatScSubjects();
+        int natScHjsToAdd = 4; // 4 is default
+        for(int subject=0; subject<natScSubjectNo.length; subject++){
+            if(myData.subjects[natScSubjectNo[subject]].writtenExamSubject){
+                natScHjsToAdd = 0; // A and C already have 4hjs
+                break;
+            }
+            if(myData.subjects[natScSubjectNo[subject]].oralExamSubject){
+                natScHjsToAdd = 3; // C already has 1 hj
+            }
+        }
+        
+        for(int i=0; i<natScHjsToAdd; i++){
+            int bestNatScSubjectNo = getSubjectOfBestHj(natScSubjectNo);
+            int natScBestHj = getBestSubjectHj(bestNatScSubjectNo);
+            bPoints += myData.subjects[bestNatScSubjectNo].semesterMarks[natScBestHj];
+            myData.subjects[bestNatScSubjectNo].alreadyUsed[natScBestHj] = true;
+        }
         
         
         return bPoints;
