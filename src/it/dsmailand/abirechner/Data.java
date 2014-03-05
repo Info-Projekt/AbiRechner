@@ -5,8 +5,7 @@ import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
 
 /**
- * Contains all the subject data, organized in Subject objects. Can be saved to
- * disk *TO BE IMPLEMENTED
+ * Contains all the subject data, organized in Subject objects. Serializable
  *
  *
  * @author MasterCarl
@@ -31,12 +30,12 @@ public class Data implements Serializable {
      */
     public void readFromGUI() {
         for (Subject thisSubject : subjects) {
-            thisSubject.fetchMarks();
+            thisSubject.updateContent();
         }
     }
     public void writeToGUI(){
         for (Subject thisSubject : subjects) {
-            thisSubject.writeMarks();
+            thisSubject.applyContent();
         }
     }
 } 

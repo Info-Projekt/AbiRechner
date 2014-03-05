@@ -18,6 +18,7 @@ public class Subject implements Serializable{
     int[] semesterMarks = new int[4];
     boolean writtenExamSubject;
     boolean oralExamSubject;
+    int wahlfachType;   //equals the selected index of the ComboBox
     
     transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
 
@@ -32,16 +33,17 @@ public class Subject implements Serializable{
         naturalScience = !langAndNotScience;
     }
 
-    public void fetchMarks() {
+    public void updateContent() {
 
         semesterMarks = guiReference.getMarks();
-
+        if(guiReference.choice) wahlfachType = guiReference.getComboBoxState();
         //writtenExamSubject = /*TODO*/;
         //oralExamSubject = /*TODO*/;
     }
 
-    public void writeMarks() {
+    public void applyContent() {
         guiReference.setMarks(semesterMarks);
+        if(guiReference.choice) guiReference.setComboBoxState(wahlfachType);
     }
     
 

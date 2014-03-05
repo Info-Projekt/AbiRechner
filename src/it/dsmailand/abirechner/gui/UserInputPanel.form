@@ -944,11 +944,13 @@
     <Component class="javax.swing.JComboBox" name="sWahlfach4ComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Englisch"/>
+            <StringItem index="1" value="Franz&#xf6;sisch"/>
+            <StringItem index="2" value="Latein"/>
+            <StringItem index="3" value="Biologie"/>
+            <StringItem index="4" value="Physik"/>
+            <StringItem index="5" value="Chemie"/>
           </StringArray>
         </Property>
       </Properties>
@@ -959,25 +961,31 @@
     <Component class="javax.swing.JComboBox" name="sWahlfach3_1ComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Englisch"/>
+            <StringItem index="1" value="Franz&#xf6;sisch"/>
+            <StringItem index="2" value="Latein"/>
+            <StringItem index="3" value="Biologie"/>
+            <StringItem index="4" value="Physik"/>
+            <StringItem index="5" value="Chemie"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="sWahlfach3_2ComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Englisch"/>
+            <StringItem index="1" value="Franz&#xf6;sisch"/>
+            <StringItem index="2" value="Latein"/>
+            <StringItem index="3" value="Biologie"/>
+            <StringItem index="4" value="Physik"/>
+            <StringItem index="5" value="Chemie"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
     </Component>
   </SubComponents>

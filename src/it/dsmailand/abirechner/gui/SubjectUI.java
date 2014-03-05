@@ -26,13 +26,22 @@ public class SubjectUI implements FocusListener, Serializable {
     JTextField[] semesterMarkInputField = new JTextField[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
-    boolean choice;
+    public boolean choice;
 
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
         choice = true;
     }
 
+    public int getComboBoxState() {
+        if(!choice) return -1;
+        return comboBox.getSelectedIndex();
+    }
+    
+    public void setComboBoxState(int wahlfachType) {
+       comboBox.setSelectedIndex(wahlfachType);
+    }
+    
     public void setDisplayNameLabel(JLabel displayNameLabel) {
         this.displayNameLabel = displayNameLabel;
         choice = false;

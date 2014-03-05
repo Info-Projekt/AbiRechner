@@ -679,16 +679,18 @@ public class UserInputPanel extends javax.swing.JPanel {
 
         sReligionEthikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Religion", "Ethik" }));
 
-        sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Englisch", "Französisch", "Latein", "Biologie", "Physik", "Chemie" }));
         sWahlfach4ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sWahlfach4ComboBoxActionPerformed(evt);
             }
         });
 
-        sWahlfach3_1ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sWahlfach3_1ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Englisch", "Französisch", "Latein", "Biologie", "Physik", "Chemie" }));
+        sWahlfach3_1ComboBox.setSelectedIndex(1);
 
-        sWahlfach3_2ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sWahlfach3_2ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Englisch", "Französisch", "Latein", "Biologie", "Physik", "Chemie" }));
+        sWahlfach3_2ComboBox.setSelectedIndex(2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
