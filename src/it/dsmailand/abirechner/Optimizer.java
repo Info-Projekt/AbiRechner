@@ -15,67 +15,27 @@ import java.util.List;
  */
 public class Optimizer {
     Data myData;
+    int[] wESubjects;
+    int oESubject;
+    int[] natScSubjects;
+    int[] fLangSubjects;
     
     public Optimizer(Data myData){
         this.myData = myData;
     }
     
-    public int[] searchForWESubjects(){
-        int[] wESubjects = new int[3];
-        int arrayField = 0;
-        for(int subjectNo=0; subjectNo<12; subjectNo++){
-            if (myData.subjects[subjectNo].writtenExamSubject==true){               
-                wESubjects[arrayField++] = subjectNo;
-            }
-        }
-        return wESubjects;
-    }
-
-    /**
-     * Searches for the selected OESubject
-     * @return SubjectNumber of ther OESubject (if 0=> error)
-     */
-    public int searchForOESubject(){
-        int oESubject = 0;
-        for(int subjectNo=0; subjectNo<12; subjectNo++){
-            if (myData.subjects[subjectNo].writtenExamSubject==true){               
-                oESubject = subjectNo;
-            }
-        }
-        return oESubject;
-    }
-    
-    /**
-     * Searches for all Natural Science Subjects
-     * @return Array of the NatScSubjects' SubjectNumbers
-     */
-    public int[] searchForNatScSubjects(){
-        List<Integer> natScSubjectList = new ArrayList();
-        for(int wahlfachNo=9; wahlfachNo<12; wahlfachNo++){
-            if (myData.subjects[wahlfachNo].naturalScience){
-                natScSubjectList.add(wahlfachNo);
-            }
-        }
-        int[] natScSubjects = new int[natScSubjectList.size()];
-        for(int i=0; i<natScSubjectList.size(); i++){
-            natScSubjects[i] = natScSubjectList.get(i);
-        }
-        return natScSubjects;
-    }
-    
-
-    
     public void optimize(){
         
-        int[] wESubjects = searchForWESubjects();
-        int oESubject = searchForOESubject();
-        getAPoints(wESubjects);
-        getCPoints(wESubjects, oESubject);
-        
-        
+        wESubjects = OptSearcher.searchForWESubjects(myData);
+        oESubject = OptSearcher.searchForOESubject(myData);
+        natScSubjects = OptSearcher.searchForNatScSubjects(myData);
+        createAScore(wESubjects);
+        createCScore(wESubjects, oESubject);
+        createBScore();
+
     }
                     
-    private int getAPoints(int[] wESubjects){
+    private int createAScore(int[] wESubjects){
         //A: 12.1, 12.2, 13.1 of all wESubjects
         int aPoints = 0;
 
@@ -90,7 +50,7 @@ public class Optimizer {
         return aPoints;
     }
     
-    private int getCPoints(int[] wESubjects, int oESubject){
+    private int createCScore(int[] wESubjects, int oESubject){
         //C: (13.2 + 4*examScore) of all wESubjects and oESubject
         int cPoints = 0;
         
@@ -109,7 +69,7 @@ public class Optimizer {
     }
     
     
-    private int optimizeBPoints(){
+    private int createBScore(){
         
         int bPoints = 0;
 
@@ -135,7 +95,7 @@ public class Optimizer {
             } else {geHjsToAdd = 2;}
             
             for (int i=0; i<geHjsToAdd; i++){
-                geBestHj = getBestSubjectHj(3);
+                geBestHj = OptSearcher.getBestSubjectHj(myData, 3);
                 bPoints += myData.subjects[3].semesterMarks[geBestHj];
                 myData.subjects[3].alreadyUsed[geBestHj] = true;
             }
@@ -149,7 +109,7 @@ public class Optimizer {
         } else {kumuHjsToAdd = 3;}
 
         for (int i=0; i<kumuHjsToAdd; i++){
-            kumuBestHj = getBestSubjectHj(6);
+            kumuBestHj = OptSearcher.getBestSubjectHj(myData, 6);
             bPoints += myData.subjects[6].semesterMarks[kumuBestHj];
             myData.subjects[6].alreadyUsed[kumuBestHj] = true;
         }
@@ -159,8 +119,8 @@ public class Optimizer {
         // TODO: dammit forgot wES and oES
         int[] subjectNo = new int[]{3,4,7,8};
         for(int i=0; i<2; i++){
-            int bestSec2SubjectNo = getSubjectOfBestHj(subjectNo);
-            int sec2BestHj = getBestSubjectHj(bestSec2SubjectNo);
+            int bestSec2SubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectNo);
+            int sec2BestHj = OptSearcher.getBestSubjectHj(myData, bestSec2SubjectNo);
             bPoints += myData.subjects[bestSec2SubjectNo].semesterMarks[sec2BestHj];
             myData.subjects[bestSec2SubjectNo].alreadyUsed[sec2BestHj] = true;
         }
@@ -169,21 +129,21 @@ public class Optimizer {
         //TODO: see if Wahlfach==wES->doNothing()
         // if Wahlfach==oES->add 3
         // if Wahlfach!=eS->add 4
-        int [] natScSubjectNo = searchForNatScSubjects();
+        
         int natScHjsToAdd = 4; // 4 is default
-        for(int subject=0; subject<natScSubjectNo.length; subject++){
-            if(myData.subjects[natScSubjectNo[subject]].writtenExamSubject){
+        for(int subject=0; subject<natScSubjects.length; subject++){
+            if(myData.subjects[natScSubjects[subject]].writtenExamSubject){
                 natScHjsToAdd = 0; // A and C already have 4hjs
                 break;
             }
-            if(myData.subjects[natScSubjectNo[subject]].oralExamSubject){
+            if(myData.subjects[natScSubjects[subject]].oralExamSubject){
                 natScHjsToAdd = 3; // C already has 1 hj
             }
         }
         
         for(int i=0; i<natScHjsToAdd; i++){
-            int bestNatScSubjectNo = getSubjectOfBestHj(natScSubjectNo);
-            int natScBestHj = getBestSubjectHj(bestNatScSubjectNo);
+            int bestNatScSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScSubjects);
+            int natScBestHj = OptSearcher.getBestSubjectHj(myData, bestNatScSubjectNo);
             bPoints += myData.subjects[bestNatScSubjectNo].semesterMarks[natScBestHj];
             myData.subjects[bestNatScSubjectNo].alreadyUsed[natScBestHj] = true;
         }
@@ -192,39 +152,5 @@ public class Optimizer {
         return bPoints;
     }
     
-  /**
-   * Returns the best not-used semester of a given subject
-   * 
-   * TODO: Exception if no new bestHj is found
-   * 
-   * @param subjectNo
-   * @return bestHj 
-   */
-    private int getBestSubjectHj(int subjectNo){
-        int bestMark = 0;
-        int bestHj = 20;
-        for(int hj=0; hj<4; hj++){
-            if(myData.subjects[subjectNo].semesterMarks[hj] > bestMark &&
-                    myData.subjects[subjectNo].alreadyUsed[hj] == false){
-                bestHj = hj;
-            }
-        }
-        return bestHj;
-    }
-    
-    /**
-     * Returns the subject with the best not-used semester
-     * 
-     * @param subjectNo: int[] holding SubjectNumbers to choose from
-     * @return SubjectNumber whose BestSubjectHj is highest
-     */
-    private int getSubjectOfBestHj(int[] subjectNo){
-        int bestSubjectNo = subjectNo[0];
-        for(int subjectIndex=1; subjectIndex<subjectNo.length; subjectIndex++){
-            if (getBestSubjectHj(subjectIndex)>getBestSubjectHj(bestSubjectNo)){
-                bestSubjectNo = subjectNo[subjectIndex];
-            }
-        }
-        return bestSubjectNo;
-    }
+  
 }
