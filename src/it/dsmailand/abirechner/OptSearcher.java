@@ -41,21 +41,33 @@ public class OptSearcher {
     }
     
     /**
-     * Searches for all Natural Science Subjects
+     * Searches for all NatSc and FLang Subjects among the ChoiceSubjects
      * @return Array of the NatScSubjects' SubjectNumbers
      */
-    public static int[] searchForNatScSubjects(Data myData){
+    public static int[][] searchForNatScAndFLangSubjects(Data myData){
         List<Integer> natScSubjectList = new ArrayList();
+        List<Integer> fLangSubjectList = new ArrayList();
+        fLangSubjectList.add(1);    //Ita is always ForeignLanguage
+        
         for(int wahlfachNo=9; wahlfachNo<12; wahlfachNo++){
             if (myData.subjects[wahlfachNo].naturalScience){
                 natScSubjectList.add(wahlfachNo);
+            } else {fLangSubjectList.add(wahlfachNo);   
             }
         }
+
         int[] natScSubjects = new int[natScSubjectList.size()];
+        int[] fLangSubjects = new int[fLangSubjectList.size()];
+
         for(int i=0; i<natScSubjectList.size(); i++){
             natScSubjects[i] = natScSubjectList.get(i);
         }
-        return natScSubjects;
+        for(int i=0; i<fLangSubjectList.size(); i++){
+            fLangSubjects[i] = fLangSubjectList.get(i);
+        }
+        
+        int[][] bothArrays = new int[][]{natScSubjects, fLangSubjects};
+        return bothArrays;
     }
     
     /**

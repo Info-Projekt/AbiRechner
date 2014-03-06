@@ -28,7 +28,9 @@ public class Optimizer {
         
         wESubjects = OptSearcher.searchForWESubjects(myData);
         oESubject = OptSearcher.searchForOESubject(myData);
-        natScSubjects = OptSearcher.searchForNatScSubjects(myData);
+        int[][]bothArrays = OptSearcher.searchForNatScAndFLangSubjects(myData);
+        natScSubjects = bothArrays[0];
+        fLangSubjects = bothArrays[1];
         createAScore(wESubjects);
         createCScore(wESubjects, oESubject);
         createBScore();
@@ -125,29 +127,33 @@ public class Optimizer {
             myData.subjects[bestSec2SubjectNo].alreadyUsed[sec2BestHj] = true;
         }
         
-        //NaturalSciences: 4 hjs mandatory
-        //TODO: see if Wahlfach==wES->doNothing()
-        // if Wahlfach==oES->add 3
-        // if Wahlfach!=eS->add 4
+        // ForeignLanguages: 4 hjs mandatory
+        // NaturalSciences: 4 hjs mandatory
+        // Process is identical
+        for(int iteration=0; iteration<2; iteration++){
+            int[] subjectArray;
+            
+            if(iteration==0){subjectArray = natScSubjects;
+            } else{subjectArray = fLangSubjects;}
         
-        int natScHjsToAdd = 4; // 4 is default
-        for(int subject=0; subject<natScSubjects.length; subject++){
-            if(myData.subjects[natScSubjects[subject]].writtenExamSubject){
-                natScHjsToAdd = 0; // A and C already have 4hjs
-                break;
+            int hjsToAdd = 4; // 4 is default
+            for(int subject=0; subject<subjectArray.length; subject++){
+                if(myData.subjects[subjectArray[subject]].writtenExamSubject){
+                    hjsToAdd = 0; // A and C already have 4hjs
+                    break;
+                }
+                if(myData.subjects[subjectArray[subject]].oralExamSubject){
+                    hjsToAdd = 3; // C already has 1 hj
+                }
             }
-            if(myData.subjects[natScSubjects[subject]].oralExamSubject){
-                natScHjsToAdd = 3; // C already has 1 hj
+
+            for(int i=0; i<hjsToAdd; i++){
+                int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectArray);
+                int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
+                bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+                myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
             }
         }
-        
-        for(int i=0; i<natScHjsToAdd; i++){
-            int bestNatScSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScSubjects);
-            int natScBestHj = OptSearcher.getBestSubjectHj(myData, bestNatScSubjectNo);
-            bPoints += myData.subjects[bestNatScSubjectNo].semesterMarks[natScBestHj];
-            myData.subjects[bestNatScSubjectNo].alreadyUsed[natScBestHj] = true;
-        }
-        
         
         return bPoints;
     }
