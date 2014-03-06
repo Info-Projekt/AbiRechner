@@ -33,6 +33,7 @@ public class AbiRechner {
         mainFrame.loadFileJButton.addActionListener(listeners.loadButtonListener);  //Load
         mainFrame.saveAsJButton.addActionListener(listeners.saveButtonListener);    //Save As...
         mainFrame.saveJButton.addActionListener(listeners.saveButtonListener);      //Save
+        mainFrame.clearJButton.addActionListener(listeners.clearButtonListener);
 
     }
 }

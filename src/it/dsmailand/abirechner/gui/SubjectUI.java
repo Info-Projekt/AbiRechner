@@ -35,6 +35,7 @@ public class SubjectUI implements FocusListener, Serializable {
 
     public int getComboBoxState() {
         if(!choice) return -1;
+        System.out.println(comboBox.getSelectedIndex());
         return comboBox.getSelectedIndex();
     }
     
@@ -105,6 +106,16 @@ public class SubjectUI implements FocusListener, Serializable {
         }
         setMarkInputFieldHighlight(thisField, HighlightMode.none);
 
+    }
+
+    public void clearInput() {
+        for (int i = 0; i < 4; i++) {
+            semesterMarkInputField[i].setText("");
+        }
+    }
+
+    public void resetComboBox() {
+        comboBox.setSelectedIndex(0);
     }
 
     public enum HighlightMode {

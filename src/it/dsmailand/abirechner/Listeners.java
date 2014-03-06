@@ -4,6 +4,8 @@
  */
 package it.dsmailand.abirechner;
 
+import it.dsmailand.abirechner.gui.SubjectUI;
+import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -36,6 +38,8 @@ public class Listeners {
                 File file = fc.getSelectedFile();
                 //Read the file to data
                 FileIO.readFromDisk(file, mainClass.data);
+                System.out.print("Loading: ");
+                System.out.println(mainClass.data.subjects[6].wahlfachType);
                 //Update the data in the GUI
                 mainClass.data.writeToGUI();
             }
@@ -62,10 +66,24 @@ public class Listeners {
                 //If the user clicked the "save" button instead of "Save As...", just get the last file
                 file = fc.getSelectedFile();
             }
+            System.out.print("Before: ");
+                System.out.println(mainClass.data.subjects[6].wahlfachType);
             //Get the latest input
             mainClass.data.readFromGUI();
+            System.out.print("After reading: ");
+                System.out.println(mainClass.data.subjects[6].wahlfachType);
             //Save the data
             FileIO.saveToDisk(mainClass.data, file);
         }
+    };
+    ActionListener clearButtonListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            for(SubjectUI thisSubjectUI:mainClass.mainFrame.userInputPanel.subjectUI)    {
+                thisSubjectUI.clearInput();
+                if(thisSubjectUI.choice) thisSubjectUI.resetComboBox();
+            }
+        }
+        
     };
 }

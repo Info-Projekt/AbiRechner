@@ -23,8 +23,8 @@ public class ChoiceManagement {
     Subject[] scienceSubjects1 = new Subject[3];
     String[] lingSubjects = {"Englisch", "Französisch", "Latein"};
     String[] scienceSubjects = {"Biologie", "Physik", "Chemie"};
-    ArrayList<String> availableSubjects = new ArrayList();
-    ArrayList<Subject> availableSubjects1 = new ArrayList();
+    ArrayList<String> availableSubjects = new ArrayList<>();
+    ArrayList<Subject> availableSubjects1 = new ArrayList<>();
 
     void setSubjects() {
         lingSubjects1[0] = new Subject("Englisch", true);

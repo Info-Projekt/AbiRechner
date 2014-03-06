@@ -27,14 +27,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         userInputPanel = new it.dsmailand.abirechner.gui.UserInputPanel();
-        jButton1 = new javax.swing.JButton();
+        clearJButton = new javax.swing.JButton();
         loadFileJButton = new javax.swing.JButton();
         saveJButton = new javax.swing.JButton();
         saveAsJButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Clear");
+        clearJButton.setText("Clear");
 
         loadFileJButton.setText("Load");
 
@@ -51,7 +51,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(clearJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loadFileJButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -70,7 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(userInputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(clearJButton)
                     .addComponent(loadFileJButton)
                     .addComponent(saveJButton)
                     .addComponent(saveAsJButton)))
@@ -107,7 +107,7 @@ public class MainFrame extends javax.swing.JFrame {
         //</editor-fold>
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton clearJButton;
     public javax.swing.JButton loadFileJButton;
     public javax.swing.JButton saveAsJButton;
     public javax.swing.JButton saveJButton;
