@@ -45,8 +45,8 @@ public class OptSearcher {
      * @return Array of the NatScSubjects' SubjectNumbers
      */
     public static int[][] searchForNatScAndFLangSubjects(Data myData){
-        List<Integer> natScSubjectList = new ArrayList();
-        List<Integer> fLangSubjectList = new ArrayList();
+        List<Integer> natScSubjectList = new ArrayList<>();
+        List<Integer> fLangSubjectList = new ArrayList<>();
         fLangSubjectList.add(1);    //Ita is always ForeignLanguage
         
         for(int wahlfachNo=9; wahlfachNo<12; wahlfachNo++){

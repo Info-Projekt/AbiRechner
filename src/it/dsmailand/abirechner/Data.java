@@ -16,6 +16,7 @@ import java.io.*;
 public class Data implements Serializable {
 
     Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
+    private static final long serialVersionUID = 1; //Class ID used to check compatibility with serialized data
 
     public Data(SubjectUI[] sUI) {
         //initializes the subject objects

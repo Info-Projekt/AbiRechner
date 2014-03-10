@@ -27,6 +27,7 @@ public class FileIO {
             
             out.writeObject(data);
             out.close();
+            buffer.close();
             fileOut.close();
             fLogger.log(Level.FINE, "Saving data to \"{0}\"", file.getPath());
         } catch (IOException e) {
@@ -42,6 +43,7 @@ public class FileIO {
             
             data = (Data) in.readObject();
             in.close();
+            buffer.close();
             fileIn.close();
             fLogger.log(Level.FINE, "Reading data from \"{0}\"", file.getPath());
         } catch (IOException e) {
