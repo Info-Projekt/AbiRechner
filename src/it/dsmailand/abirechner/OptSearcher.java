@@ -28,6 +28,7 @@ public class OptSearcher {
 
     /**
      * Searches for the selected OESubject
+     * @param myData
      * @return SubjectNumber of ther OESubject (if 0=> error)
      */
     public static int searchForOESubject(Data myData){
@@ -42,6 +43,7 @@ public class OptSearcher {
     
     /**
      * Searches for all NatSc and FLang Subjects among the ChoiceSubjects
+     * @param myData
      * @return Array of the NatScSubjects' SubjectNumbers
      */
     public static int[][] searchForNatScAndFLangSubjects(Data myData){
@@ -75,6 +77,7 @@ public class OptSearcher {
    * 
    * TODO: Exception if no new bestHj is found
    * 
+   * @param myData
    * @param subjectNo
    * @return bestHj 
    */
@@ -93,7 +96,8 @@ public class OptSearcher {
     /**
      * Returns the subject with the best not-used semester
      * 
-     * @param subjectNo: int[] holding SubjectNumbers to choose from
+     * @param myData
+     * @param subjectNo - int[] holding SubjectNumbers to choose from
      * @return SubjectNumber whose BestSubjectHj is highest
      */
     public static int getSubjectOfBestHj(Data myData, int[] subjectNo){

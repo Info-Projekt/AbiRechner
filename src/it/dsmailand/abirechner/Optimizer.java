@@ -6,9 +6,6 @@
 
 package it.dsmailand.abirechner;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author galurowa
@@ -72,7 +69,7 @@ public class Optimizer {
     
     
     private int createBScore(){
-        
+                
         int bPoints = 0;
 
         //Mathe: 4 hjs mandatory
@@ -154,6 +151,47 @@ public class Optimizer {
                 myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
             }
         }
+        
+        // FLang and NatSc together: 14
+        // Already have at least 8 from step before
+        int hjsToAdd = 14;
+        int fLangAlreadyUsedHjs = 0;
+        int natScAlreadyUsedHjs = 0;
+        
+        // wESubject means 4 hjs already there
+        // oESubject means 4 hjs already there
+        for(int tempNameSubjectNo: fLangSubjects){
+            for(int i: wESubjects){
+                if (tempNameSubjectNo==i)fLangAlreadyUsedHjs += 4;
+            }
+            if (tempNameSubjectNo==oESubject) fLangAlreadyUsedHjs ++;
+        }
+        
+        for(int tempNameSubjectNo: natScSubjects){
+            for(int i: wESubjects){
+                if (tempNameSubjectNo==i) natScAlreadyUsedHjs += 4;
+            }
+            if (tempNameSubjectNo==oESubject) natScAlreadyUsedHjs ++;
+        }
+        
+        //from step before there are at least 4 FLangHjs and 4 NatScHjs
+        if(fLangAlreadyUsedHjs<4) fLangAlreadyUsedHjs = 4;
+        if(natScAlreadyUsedHjs<4) natScAlreadyUsedHjs = 4;
+        
+        hjsToAdd = hjsToAdd - fLangAlreadyUsedHjs - natScAlreadyUsedHjs;
+        
+        // Combines NatSc and FLang SubjectNo-arrays into one
+        int[] natScAndFLang = new int[natScSubjects.length + fLangSubjects.length];
+        System.arraycopy(natScSubjects, 0, natScAndFLang, 0, natScSubjects.length);
+        System.arraycopy(fLangSubjects, 0, natScAndFLang, natScSubjects.length, fLangSubjects.length);
+        
+        for(int i=0; i<hjsToAdd; i++){
+            int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScAndFLang);
+            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
+            bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+            myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
+        }
+        
         
         return bPoints;
     }
