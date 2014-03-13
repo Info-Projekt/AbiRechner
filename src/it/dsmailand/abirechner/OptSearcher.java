@@ -114,4 +114,14 @@ public class OptSearcher {
         }
         return bestSubjectNo;
     }
+    
+    public static int countAlreadyUsed(Data myData){
+        int usedHjs = 0;
+        for(int subjectNo=0; subjectNo<12; subjectNo++){
+            for(int hj=0; hj<4; hj++){
+                if (myData.subjects[subjectNo].alreadyUsed[hj]) usedHjs++;
+            }
+        }
+        return usedHjs;
+    }
 }

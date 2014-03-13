@@ -8,7 +8,6 @@ package it.dsmailand.abirechner;
 
 /**
  * 
- * TODO: fill up hjs
  * TODO: getResults (with points, mandatory hjs, half-m hjs, filled hjs)
  * TODO: check if stuff is legit
  * @author galurowa
@@ -44,6 +43,7 @@ public class Optimizer {
         optimizeFLangOrNatSc(true); // optimizes NatScSubjects
         optimizeFLangOrNatSc(false); // optimizes FLangSubjects
         optimizeFLangAndNatSc();
+        fillUp();
     }
                     
     private void createAScore(){
@@ -200,6 +200,18 @@ public class Optimizer {
         
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScAndFLang);
+            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
+            bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+            myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
+        }
+    }
+    
+    private void fillUp(){
+        int hjsToAdd = 35 - OptSearcher.countAlreadyUsed(myData);
+        int[] allSubjects = new int[12];
+        for(int i=0; i<12; i++){allSubjects[i] = i;}
+        for(int i=0; i<hjsToAdd; i++){
+            int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, allSubjects);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
             bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
             myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
