@@ -10,11 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Static methods used by the Optimizer class, all take Data as param
  * @author galurowa
  */
 public class OptSearcher {
 
+    /**
+     * Searches for the user-selected Written-Exam-Subject
+     * @param myData
+     * @return Array of the WESubjects' SubjectNumbers
+     */
     public static int[] searchForWESubjects(Data myData){
         int[] wESubjects = new int[3];
         int arrayField = 0;
@@ -22,19 +27,20 @@ public class OptSearcher {
             if (myData.subjects[subjectNo].writtenExamSubject==true){               
                 wESubjects[arrayField++] = subjectNo;
             }
+            if(arrayField==3) break;
         }
         return wESubjects;
     }
 
     /**
-     * Searches for the selected OESubject
+     * Searches for the user-selected OESubject
      * @param myData
      * @return SubjectNumber of ther OESubject (if 0=> error)
      */
     public static int searchForOESubject(Data myData){
         int oESubject = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
-            if (myData.subjects[subjectNo].writtenExamSubject==true){               
+            if (myData.subjects[subjectNo].oralExamSubject==true){               
                 oESubject = subjectNo;
             }
         }
@@ -73,7 +79,7 @@ public class OptSearcher {
     }
     
     /**
-   * Returns the best not-used semester of a given subject
+   * Returns the best non-used semester of a given subject
    * 
    * TODO: Exception if no new bestHj is found
    * 
@@ -94,10 +100,9 @@ public class OptSearcher {
     }
     
     /**
-     * Returns the subject with the best not-used semester
-     * 
+     * Returns the subject with the best non-used semester
      * @param myData
-     * @param subjectNo - int[] holding SubjectNumbers to choose from
+     * @param subjectNo int[] holding SubjectNumbers to choose from
      * @return SubjectNumber whose BestSubjectHj is highest
      */
     public static int getSubjectOfBestHj(Data myData, int[] subjectNo){
