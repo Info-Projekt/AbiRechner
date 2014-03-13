@@ -35,22 +35,27 @@ public class FileIO {
         }
     }
 
-    public static void readFromDisk(File file, Data data) {
-        try {
+    public static Data readFromDisk(File file) throws FileNotFoundException, IOException, ClassNotFoundException {
+        Data newData;
             FileInputStream fileIn = new FileInputStream(file);
             InputStream buffer = new BufferedInputStream(fileIn);
             ObjectInputStream in = new ObjectInputStream(buffer);
             
-            data = (Data) in.readObject();
+            newData = (Data) in.readObject();
+            
+            System.out.println("after reading newData");
+            for (int i = 0; i < 4; i++) {
+                System.out.print(newData.subjects[0].semesterMarks[i]);
+            }
+            
             in.close();
+            
             buffer.close();
             fileIn.close();
             fLogger.log(Level.FINE, "Reading data from \"{0}\"", file.getPath());
-        } catch (IOException e) {
-            fLogger.log(Level.SEVERE, "Cannot perform input.", e);
-        } catch (ClassNotFoundException e) {
-            fLogger.log(Level.SEVERE, "Cannot perform output. Class not found.", e);
-        }
+            
+                    return newData;
+
     }
     private static final Logger fLogger =
             Logger.getLogger(Data.class.getPackage().getName());

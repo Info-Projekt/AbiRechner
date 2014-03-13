@@ -15,10 +15,10 @@ import java.io.*;
  */
 public class Data implements Serializable {
 
-    Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
+    public Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
     private static final long serialVersionUID = 1; //Class ID used to check compatibility with serialized data
 
-    public Data(SubjectUI[] sUI) {
+    public void setSUI(SubjectUI[] sUI) {
         //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
             subjects[i] = new Subject(sUI[i]);
@@ -38,6 +38,10 @@ public class Data implements Serializable {
         for (Subject thisSubject : subjects) {
             thisSubject.applyContent();
         }
+        System.out.println("write to gui");
+            for (int i = 0; i < 4; i++) {
+                System.out.print(subjects[0].semesterMarks[i]);
+            }
     }
 } 
 

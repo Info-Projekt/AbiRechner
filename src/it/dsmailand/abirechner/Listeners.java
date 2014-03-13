@@ -9,6 +9,10 @@ import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 
 /**
@@ -20,7 +24,7 @@ public class Listeners {
     //Create a file chooser
 
     JFileChooser fc;
-    private final AbiRechner mainClass;
+    public AbiRechner mainClass;
 
     public Listeners(AbiRechner mainClass) {
         this.mainClass = mainClass;
@@ -36,10 +40,21 @@ public class Listeners {
             //If the user selects a file
             if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File file = fc.getSelectedFile();
-                //Read the file to data
-                FileIO.readFromDisk(file, mainClass.data);
-                System.out.print("Loading: ");
-                System.out.println(mainClass.data.subjects[6].wahlfachType);
+                try {
+                    //Read the file to data
+                    mainClass.data = null;
+                    mainClass.data = FileIO.readFromDisk(file);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                System.out.println("after call in listener");
+            for (int i = 0; i < 4; i++) {
+                System.out.print(mainClass.data.subjects[0].semesterMarks[i]);
+            }
                 //Update the data in the GUI
                 mainClass.data.writeToGUI();
             }
