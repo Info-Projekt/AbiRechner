@@ -123,9 +123,13 @@ public class Optimizer {
     private void optimizeSector2(){
         // Sector 2: 2 more hjs out of GE, FI, POWI, RE/ET
         // TODO (maybe): catch Exception (shouldn't actually be possible)
-        // TODO: dammit forgot wES and oES
+        if(myData.subjects[3].writtenExamSubject) return; // Hjs already filled
         int[] subjectNo = new int[]{3,4,7,8};
-        for(int i=0; i<2; i++){
+        int hjsToAdd = 2; //default
+        for(int i=1; i<4; i++){
+            if (myData.subjects[i].oralExamSubject) hjsToAdd = 1; //13.2 already in C
+        }
+        for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectNo);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
             bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
