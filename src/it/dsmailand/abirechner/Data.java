@@ -21,7 +21,7 @@ public class Data implements Serializable {
     public void setSUI(SubjectUI[] sUI) {
         //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
-            subjects[i] = new Subject(sUI[i]);
+            subjects[i] = new Subject();
         }
     }
 
@@ -29,19 +29,6 @@ public class Data implements Serializable {
      * Routine that updates the contents of data, to be called before every calculation
      * @TODO add other stuff to be fetched
      */
-    public void readFromGUI() {
-        for (Subject thisSubject : subjects) {
-            thisSubject.updateContent();
-        }
-    }
-    public void writeToGUI(){
-        for (Subject thisSubject : subjects) {
-            thisSubject.applyContent();
-        }
-        System.out.println("write to gui");
-            for (int i = 0; i < 4; i++) {
-                System.out.print(subjects[0].semesterMarks[i]);
-            }
-    }
+
 } 
 

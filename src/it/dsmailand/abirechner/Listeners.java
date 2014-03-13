@@ -32,6 +32,7 @@ public class Listeners {
         //TODO: add file filter
     }
     
+    //  LOAD
     ActionListener loadButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -56,10 +57,12 @@ public class Listeners {
                 System.out.print(mainClass.data.subjects[0].semesterMarks[i]);
             }
                 //Update the data in the GUI
-                mainClass.data.writeToGUI();
+                mainClass.mainFrame.userInputPanel.writeDataToGUI(mainClass.data);
             }
         }
     };
+    
+    //  SAVE
     ActionListener saveButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -83,8 +86,9 @@ public class Listeners {
             }
             System.out.print("Before: ");
                 System.out.println(mainClass.data.subjects[6].wahlfachType);
+                
             //Get the latest input
-            mainClass.data.readFromGUI();
+            mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
             System.out.print("After reading: ");
                 System.out.println(mainClass.data.subjects[6].wahlfachType);
             //Save the data

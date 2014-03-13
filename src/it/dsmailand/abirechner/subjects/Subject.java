@@ -15,7 +15,7 @@ public class Subject implements Serializable{
     transient public boolean naturalScience;
     
     private static final long serialVersionUID = 10;
-    transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
+    //transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
     
     //Variables that depend on user input
     public int wahlfachType;   //equals the selected index of the ComboBox
@@ -25,9 +25,8 @@ public class Subject implements Serializable{
     
     transient public boolean[] alreadyUsed = new boolean[4]; //True if corresponding semesterMark adds to the final mark
 
-    public Subject(SubjectUI guiReference) {
+    public Subject() {
         foreignLang = true;
-        this.guiReference = guiReference;
     }
 
     public Subject(String name, boolean langAndNotScience) {
@@ -35,23 +34,5 @@ public class Subject implements Serializable{
         foreignLang = langAndNotScience;
         naturalScience = !langAndNotScience;
     }
-
-    public void updateContent() {
-
-        semesterMarks = guiReference.getMarks();
-        if(guiReference.choice) {
-            wahlfachType = guiReference.getComboBoxState();
-        }
-        //writtenExamSubject = /*TODO*/;
-        //oralExamSubject = /*TODO*/;
-    }
-
-    public void applyContent() {
-        guiReference.setMarks(semesterMarks);
-        if(guiReference.choice) {
-            guiReference.setComboBoxState(wahlfachType);
-        }
-    }
-    
 
 }
