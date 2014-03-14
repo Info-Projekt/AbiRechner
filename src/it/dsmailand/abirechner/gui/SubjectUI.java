@@ -53,6 +53,8 @@ public class SubjectUI implements FocusListener, Serializable {
         semesterMarkInputField[1] = s12_2;
         semesterMarkInputField[2] = s13_1;
         semesterMarkInputField[3] = s13_2;
+        
+        //Add focusListener
         for (int i = 0; i < 4; i++) {
             semesterMarkInputField[i].addFocusListener(this);
         }
@@ -79,9 +81,15 @@ public class SubjectUI implements FocusListener, Serializable {
         switch (hl) {
             case none:
                 field.setBackground(Color.WHITE);
+                field.setToolTipText(null);
                 break;
-            case error:
-                field.setBackground(Color.RED);
+            case numError:
+                field.setBackground(new Color(127, 215, 212));
+                field.setToolTipText("Die eingegebene Note muss zwischen 0 und 15 liegen");
+                break;
+                case invalidInput:
+                field.setBackground(new Color(127, 215, 212));
+                field.setToolTipText("Falsche Eingabe!");
                 break;
         }
     }
@@ -90,6 +98,7 @@ public class SubjectUI implements FocusListener, Serializable {
     public void focusGained(FocusEvent fe) {
         JTextField thisField = (JTextField) fe.getSource();
         thisField.selectAll();
+        setMarkInputFieldHighlight(thisField, HighlightMode.none);
     }
 
     @Override
@@ -98,13 +107,21 @@ public class SubjectUI implements FocusListener, Serializable {
         JTextField thisField = (JTextField) fe.getSource();
         try {
             int inputNumber = Integer.parseInt(thisField.getText());
-            if (inputNumber < 0 || inputNumber < 15) {
-                setMarkInputFieldHighlight(thisField, HighlightMode.error);
+            //System.out.print("Parsed: ");
+             //System.out.println(inputNumber);
+            if (inputNumber < 0 || inputNumber > 15) {
+                setMarkInputFieldHighlight(thisField, HighlightMode.numError);
+            } else {
+                setMarkInputFieldHighlight(thisField, HighlightMode.none);
             }
         } catch (Exception e) {
-            setMarkInputFieldHighlight(thisField, HighlightMode.error);
+            if(thisField.getText() == "")   {
+                setMarkInputFieldHighlight(thisField, HighlightMode.none);
+            }   else {
+                setMarkInputFieldHighlight(thisField, HighlightMode.invalidInput);
+            }
         }
-        setMarkInputFieldHighlight(thisField, HighlightMode.none);
+        
 
     }
 
@@ -119,7 +136,6 @@ public class SubjectUI implements FocusListener, Serializable {
     }
 
     public enum HighlightMode {
-
-        none, error
+        none, numError, invalidInput
     }
 }

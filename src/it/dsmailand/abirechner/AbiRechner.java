@@ -10,8 +10,8 @@ import it.dsmailand.abirechner.gui.*;
 public class AbiRechner {
 
 
-    MainFrame mainFrame;
-    Data data;
+    public MainFrame mainFrame;
+    public Data data;
     Listeners listeners;
     
 
@@ -25,7 +25,8 @@ public class AbiRechner {
         mainFrame = new it.dsmailand.abirechner.gui.MainFrame();
         mainFrame.setVisible(true);
 
-        data = new Data(mainFrame.userInputPanel.subjectUI);
+        data = new Data();
+                data.setSUI(mainFrame.userInputPanel.subjectUI);
 
         listeners = new Listeners(this);
 

@@ -4,7 +4,9 @@
  */
 package it.dsmailand.abirechner.gui;
 
+import it.dsmailand.abirechner.Data;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
+
 /**
  *
  * @author Carl
@@ -24,6 +26,26 @@ public class UserInputPanel extends javax.swing.JPanel {
     }
     public SubjectUI[] subjectUI;
     ChoiceManagement choiceManagement = new ChoiceManagement();
+
+    public void readInputToData(Data data) {
+
+        for (int i = 0; i < data.subjects.length; i++) {
+            data.subjects[i].semesterMarks = subjectUI[i].getMarks();
+            if (subjectUI[i].choice) {
+                data.subjects[i].wahlfachType = subjectUI[i].getComboBoxState();
+            }
+        }
+
+    }
+
+    public void writeDataToGUI(Data data) {
+        for (int i = 0; i < data.subjects.length; i++) {
+            subjectUI[i].setMarks(data.subjects[i].semesterMarks);
+            if (subjectUI[i].choice) {
+                subjectUI[i].setComboBoxState(data.subjects[i].wahlfachType);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1107,7 +1129,7 @@ public class UserInputPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_sWahlfach4ComboBoxActionPerformed
     // </editor-fold> 
-    
+
     private void markTextField14FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markTextField14FocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_markTextField14FocusGained
@@ -1115,7 +1137,6 @@ public class UserInputPanel extends javax.swing.JPanel {
     private void markTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_markTextFieldFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_markTextFieldFocusGained
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSeparator jSeparator1;
     javax.swing.JTextField markTextField1;
