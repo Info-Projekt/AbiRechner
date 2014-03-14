@@ -18,9 +18,9 @@ public class Optimizer {
     int oESubject;
     int[] natScSubjects;
     int[] fLangSubjects;
-    int aPoints = 0;
-    int cPoints = 0;
-    int bPoints = 0;
+    int aScore = 0;
+    int bScore = 0;
+    int cScore = 0;
     
     public Optimizer(Data myData){
         this.myData = myData;
@@ -51,11 +51,11 @@ public class Optimizer {
         for(int arrayField=0; arrayField<3; arrayField++){
             int subjectNo = wESubjects[arrayField];
             for(int hj=0; hj<3; hj++){
-                aPoints += myData.subjects[subjectNo].semesterMarks[hj];
+                aScore += myData.subjects[subjectNo].semesterMarks[hj];
                 myData.subjects[subjectNo].alreadyUsed[hj] = true;
             }
         }
-        aPoints = 2 * aPoints;
+        aScore = 2 * aScore;
     }
     
     private void createCScore(){
@@ -63,10 +63,10 @@ public class Optimizer {
         //13.2
         for(int arrayField=0; arrayField<3; arrayField++){
             int subjectNo = wESubjects[arrayField];
-            cPoints += myData.subjects[subjectNo].semesterMarks[3];
+            bScore += myData.subjects[subjectNo].semesterMarks[3];
             myData.subjects[subjectNo].alreadyUsed[3] = true;
         }
-        cPoints += myData.subjects[oESubject].semesterMarks[3];
+        bScore += myData.subjects[oESubject].semesterMarks[3];
         myData.subjects[oESubject].alreadyUsed[3] = true;
         
         //examScore TODO
@@ -81,7 +81,7 @@ public class Optimizer {
             } else {hjsToAdd = 4;}
             
             for(int hj=0; hj<hjsToAdd; hj++){
-                bPoints += myData.subjects[2].semesterMarks[hj];
+                cScore += myData.subjects[2].semesterMarks[hj];
                 myData.subjects[2].alreadyUsed[hj] = true;
             }
         }
@@ -99,7 +99,7 @@ public class Optimizer {
             
             for (int i=0; i<hjsToAdd; i++){
                 bestHj = OptSearcher.getBestSubjectHj(myData, 3);
-                bPoints += myData.subjects[3].semesterMarks[bestHj];
+                cScore += myData.subjects[3].semesterMarks[bestHj];
                 myData.subjects[3].alreadyUsed[bestHj] = true;
             }
         }
@@ -115,7 +115,7 @@ public class Optimizer {
 
         for (int i=0; i<hjsToAdd; i++){
             bestHj = OptSearcher.getBestSubjectHj(myData, 6);
-            bPoints += myData.subjects[6].semesterMarks[bestHj];
+            cScore += myData.subjects[6].semesterMarks[bestHj];
             myData.subjects[6].alreadyUsed[bestHj] = true;
         }
     }
@@ -132,7 +132,7 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectNo);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+            cScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
             myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
         }
     }
@@ -160,7 +160,7 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubject = OptSearcher.getSubjectOfBestHj(myData, subjectArray);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubject);
-            bPoints += myData.subjects[bestSubject].semesterMarks[bestHj];
+            cScore += myData.subjects[bestSubject].semesterMarks[bestHj];
             myData.subjects[bestSubject].alreadyUsed[bestHj] = true;
         }
         
@@ -201,19 +201,19 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScAndFLang);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+            cScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
             myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
         }
     }
     
     private void fillUp(){
-        int hjsToAdd = 35 - OptSearcher.countAlreadyUsed(myData);
+        int hjsToAdd = 35 - OptSearcher.countAlreadyUsed(myData); //ought to be >= 29
         int[] allSubjects = new int[12];
         for(int i=0; i<12; i++){allSubjects[i] = i;}
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, allSubjects);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bPoints += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
+            cScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
             myData.subjects[bestSubjectNo].alreadyUsed[bestHj] = true;
         }
     }
