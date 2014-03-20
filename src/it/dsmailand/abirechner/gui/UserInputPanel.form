@@ -321,9 +321,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField5ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -333,9 +330,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField6ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -345,9 +339,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField7ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -357,9 +348,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField8ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -369,9 +357,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField9ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -381,9 +366,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField10ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -393,9 +375,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField11">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField11ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -405,9 +384,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField12">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField12ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -417,9 +393,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField13">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField13ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -429,9 +402,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField14">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField14ActionPerformed"/>
       </Events>
@@ -440,9 +410,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField15">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField15ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -452,9 +419,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField16">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField16ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -464,9 +428,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField17">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField17ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -476,9 +437,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField18">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField18ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -488,9 +446,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField19">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField19ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -500,9 +455,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField20">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField20ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextFieldFocusGained"/>
@@ -512,9 +464,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField21">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField21ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -524,9 +473,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField22">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField22ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -536,9 +482,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField23">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField23ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -548,9 +491,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField24">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField24ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -560,9 +500,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField25">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField25ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -572,9 +509,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField26">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField26ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -584,9 +518,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField27">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
       </Events>
@@ -595,9 +526,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField28">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField28ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -607,9 +535,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField29">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField29ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -619,9 +544,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField30">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField30ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -631,9 +553,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField31">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField31ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -643,9 +562,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField32">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField32ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -655,9 +571,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField33">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
       </Events>
@@ -666,9 +579,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField34">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
       </Events>
@@ -677,9 +587,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField35">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField35ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -689,9 +596,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField36">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField36ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -701,9 +605,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField37">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField37ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -713,9 +614,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField38">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField38ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -725,9 +623,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField39">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField39ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -737,9 +632,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField40">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
       </Events>
@@ -748,9 +640,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField41">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField41ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -760,9 +649,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField42">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField42ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -772,9 +658,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField43">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField43ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -784,9 +667,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField44">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField44ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -796,9 +676,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField45">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField45ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -808,9 +685,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField46">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField46ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -820,9 +694,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField47">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField47ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -832,9 +703,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField48">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
       </Events>
@@ -843,9 +711,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField4ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -855,9 +720,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField3ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -867,9 +729,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField2ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>
@@ -879,9 +738,6 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="markTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="15" noResource="true"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="markTextField1ActionPerformed"/>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="markTextField14FocusGained"/>

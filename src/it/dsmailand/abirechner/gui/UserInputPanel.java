@@ -136,7 +136,6 @@ public class UserInputPanel extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        markTextField5.setText("15");
         markTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField5ActionPerformed(evt);
@@ -148,7 +147,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField6.setText("15");
         markTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField6ActionPerformed(evt);
@@ -160,7 +158,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField7.setText("15");
         markTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField7ActionPerformed(evt);
@@ -172,7 +169,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField8.setText("15");
         markTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField8ActionPerformed(evt);
@@ -184,7 +180,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField9.setText("15");
         markTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField9ActionPerformed(evt);
@@ -196,7 +191,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField10.setText("15");
         markTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField10ActionPerformed(evt);
@@ -208,7 +202,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField11.setText("15");
         markTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField11ActionPerformed(evt);
@@ -220,7 +213,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField12.setText("15");
         markTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField12ActionPerformed(evt);
@@ -232,7 +224,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField13.setText("15");
         markTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField13ActionPerformed(evt);
@@ -244,14 +235,12 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField14.setText("15");
         markTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField14ActionPerformed(evt);
             }
         });
 
-        markTextField15.setText("15");
         markTextField15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField15ActionPerformed(evt);
@@ -263,7 +252,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField16.setText("15");
         markTextField16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField16ActionPerformed(evt);
@@ -275,7 +263,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField17.setText("15");
         markTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField17ActionPerformed(evt);
@@ -287,7 +274,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField18.setText("15");
         markTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField18ActionPerformed(evt);
@@ -299,7 +285,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField19.setText("15");
         markTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField19ActionPerformed(evt);
@@ -311,7 +296,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField20.setText("15");
         markTextField20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField20ActionPerformed(evt);
@@ -323,7 +307,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField21.setText("15");
         markTextField21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField21ActionPerformed(evt);
@@ -335,7 +318,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField22.setText("15");
         markTextField22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField22ActionPerformed(evt);
@@ -347,7 +329,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField23.setText("15");
         markTextField23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField23ActionPerformed(evt);
@@ -359,7 +340,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField24.setText("15");
         markTextField24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField24ActionPerformed(evt);
@@ -371,7 +351,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField25.setText("15");
         markTextField25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField25ActionPerformed(evt);
@@ -383,7 +362,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField26.setText("15");
         markTextField26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField26ActionPerformed(evt);
@@ -395,14 +373,12 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField27.setText("15");
         markTextField27.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 markTextField14FocusGained(evt);
             }
         });
 
-        markTextField28.setText("15");
         markTextField28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField28ActionPerformed(evt);
@@ -414,7 +390,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField29.setText("15");
         markTextField29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField29ActionPerformed(evt);
@@ -426,7 +401,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField30.setText("15");
         markTextField30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField30ActionPerformed(evt);
@@ -438,7 +412,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField31.setText("15");
         markTextField31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField31ActionPerformed(evt);
@@ -450,7 +423,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField32.setText("15");
         markTextField32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField32ActionPerformed(evt);
@@ -462,21 +434,18 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField33.setText("15");
         markTextField33.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 markTextField14FocusGained(evt);
             }
         });
 
-        markTextField34.setText("15");
         markTextField34.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 markTextField14FocusGained(evt);
             }
         });
 
-        markTextField35.setText("15");
         markTextField35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField35ActionPerformed(evt);
@@ -488,7 +457,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField36.setText("15");
         markTextField36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField36ActionPerformed(evt);
@@ -500,7 +468,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField37.setText("15");
         markTextField37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField37ActionPerformed(evt);
@@ -512,7 +479,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField38.setText("15");
         markTextField38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField38ActionPerformed(evt);
@@ -524,7 +490,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField39.setText("15");
         markTextField39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField39ActionPerformed(evt);
@@ -536,14 +501,12 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField40.setText("15");
         markTextField40.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 markTextField14FocusGained(evt);
             }
         });
 
-        markTextField41.setText("15");
         markTextField41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField41ActionPerformed(evt);
@@ -555,7 +518,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField42.setText("15");
         markTextField42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField42ActionPerformed(evt);
@@ -567,7 +529,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField43.setText("15");
         markTextField43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField43ActionPerformed(evt);
@@ -579,7 +540,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField44.setText("15");
         markTextField44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField44ActionPerformed(evt);
@@ -591,7 +551,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField45.setText("15");
         markTextField45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField45ActionPerformed(evt);
@@ -603,7 +562,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField46.setText("15");
         markTextField46.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField46ActionPerformed(evt);
@@ -615,7 +573,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField47.setText("15");
         markTextField47.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField47ActionPerformed(evt);
@@ -627,14 +584,12 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField48.setText("15");
         markTextField48.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 markTextField14FocusGained(evt);
             }
         });
 
-        markTextField4.setText("15");
         markTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField4ActionPerformed(evt);
@@ -646,7 +601,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField3.setText("15");
         markTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField3ActionPerformed(evt);
@@ -658,7 +612,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField2.setText("15");
         markTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField2ActionPerformed(evt);
@@ -670,7 +623,6 @@ public class UserInputPanel extends javax.swing.JPanel {
             }
         });
 
-        markTextField1.setText("15"); // NOI18N
         markTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 markTextField1ActionPerformed(evt);
@@ -943,7 +895,7 @@ public class UserInputPanel extends javax.swing.JPanel {
                     .addComponent(markTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(markTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sWahlfach3_2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
