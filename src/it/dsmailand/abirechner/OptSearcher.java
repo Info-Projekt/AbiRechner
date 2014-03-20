@@ -92,7 +92,7 @@ public class OptSearcher {
         int bestHj = 20;
         for(int hj=0; hj<4; hj++){
             if(myData.subjects[subjectNo].semesterMarks[hj] > bestMark &&
-                    myData.subjects[subjectNo].alreadyUsed[hj] == false){
+                    myData.subjects[subjectNo].usedState[hj] == Data.UsedState.none){
                 bestHj = hj;
             }
         }
@@ -119,7 +119,9 @@ public class OptSearcher {
         int usedHjs = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             for(int hj=0; hj<4; hj++){
-                if (myData.subjects[subjectNo].alreadyUsed[hj]) usedHjs++;
+                if (myData.subjects[subjectNo].usedState[hj] != Data.UsedState.none){
+                    usedHjs++;
+                }
             }
         }
         return usedHjs;

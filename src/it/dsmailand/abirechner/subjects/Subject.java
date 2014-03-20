@@ -1,6 +1,6 @@
 package it.dsmailand.abirechner.subjects;
 
-import it.dsmailand.abirechner.gui.*;
+import it.dsmailand.abirechner.*;
 import java.io.Serializable;
 
 /**
@@ -22,9 +22,8 @@ public class Subject implements Serializable{
     public int[] semesterMarks = new int[4];
     public boolean writtenExamSubject;
     public boolean oralExamSubject;
+    transient public Data.UsedState[] usedState = new Data.UsedState[4]; 
     
-    transient public boolean[] alreadyUsed = new boolean[4]; //True if corresponding semesterMark adds to the final mark
-
     public Subject() {
         foreignLang = true;
     }

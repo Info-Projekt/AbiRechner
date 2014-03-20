@@ -17,7 +17,8 @@ public class Data implements Serializable {
 
     public Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
     private static final long serialVersionUID = 1; //Class ID used to check compatibility with serialized data
-
+    public enum UsedState{mandatory, eligible, mandLegible, none}
+    
     public void setSUI(SubjectUI[] sUI) {
         //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
