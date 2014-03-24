@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package it.dsmailand.abirechner;
+package it.dsmailand.abirechner.data;
 
+import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.subjects.Subject;
 
 /**

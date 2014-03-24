@@ -4,7 +4,7 @@
  */
 package it.dsmailand.abirechner.gui;
 
-import it.dsmailand.abirechner.Data;
+import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
 
 /**

@@ -1,5 +1,6 @@
 package it.dsmailand.abirechner.subjects;
 
+import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.*;
 import java.io.Serializable;
 
