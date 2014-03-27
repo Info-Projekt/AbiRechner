@@ -6,7 +6,7 @@
 
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.data.Data.UsedState;
 import it.dsmailand.abirechner.subjects.Subject;
 
 /**
@@ -15,11 +15,14 @@ import it.dsmailand.abirechner.subjects.Subject;
  */
 public class InputValidityChecker {
   
-    public void check(Data data){
+    public void checkInputData(Data data){
         checkForWESubjects(data);
         checkForOESubject(data);
     }
-     
+    
+    public void checkOutputData(Data data){
+        countUsedHJs(data);
+    }
     /**
     * Converts markStrings into ints if possible
     * Checks if marks are ints from 0 to 15
@@ -37,7 +40,7 @@ public class InputValidityChecker {
             if (data.subjects[subjectNo].writtenExamSubject==true){
                 wESubjects++;
             }
-            if (wESubjects!=3) throw new IllegalArgumentException();
+            if (wESubjects!=3) throw new WeFuckedUpException();
         }
     }
     
@@ -47,7 +50,22 @@ public class InputValidityChecker {
             if (data.subjects[subjectNo].oralExamSubject==true){
                 oESubjects++;
             }
-            if (oESubjects!=1) throw new IllegalArgumentException();
+            if (oESubjects!=1) throw new WeFuckedUpException();
+        }
+    }
+    
+    public static void countUsedHJs(Data data){
+        int usedHJs = 0;
+        for(Subject subjects: data.subjects){
+            for(UsedState usedState: subjects.usedState){
+                if(usedState != UsedState.none){
+                    usedHJs++;
+                }
+            }
+        }
+        
+        if (usedHJs!= 35){
+            throw new WeFuckedUpException();
         }
     }
 }
