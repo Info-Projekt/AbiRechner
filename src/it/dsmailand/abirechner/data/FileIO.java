@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.dsmailand.abirechner;
+package it.dsmailand.abirechner.data;
 
+import it.dsmailand.abirechner.data.Data;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;

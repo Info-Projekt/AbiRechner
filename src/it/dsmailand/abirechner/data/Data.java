@@ -1,4 +1,4 @@
-package it.dsmailand.abirechner;
+package it.dsmailand.abirechner.data;
 
 import it.dsmailand.abirechner.gui.SubjectUI;
 import it.dsmailand.abirechner.subjects.Subject;

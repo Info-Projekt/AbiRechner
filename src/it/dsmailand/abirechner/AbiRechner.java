@@ -1,5 +1,6 @@
 package it.dsmailand.abirechner;
 
+import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.gui.*;
 
 /**
