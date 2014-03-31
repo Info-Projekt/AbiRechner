@@ -1,0 +1,3 @@
+The alreadyUsed indicators in SubjectUI must be reset if the user returns to editing content
+The labels in the OutputPanel should actually display something
+Decide how to use foreground/background colors for highlighting input

@@ -4,6 +4,7 @@
  */
 package it.dsmailand.abirechner.gui;
 
+import it.dsmailand.abirechner.subjects.Semester.UsedState;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -34,15 +35,17 @@ public class SubjectUI implements FocusListener, Serializable {
     }
 
     public int getComboBoxState() {
-        if(!choice) return -1;
+        if (!choice) {
+            return -1;
+        }
         System.out.println(comboBox.getSelectedIndex());
         return comboBox.getSelectedIndex();
     }
-    
+
     public void setComboBoxState(int wahlfachType) {
-       comboBox.setSelectedIndex(wahlfachType);
+        comboBox.setSelectedIndex(wahlfachType);
     }
-    
+
     public void setDisplayNameLabel(JLabel displayNameLabel) {
         this.displayNameLabel = displayNameLabel;
         choice = false;
@@ -53,7 +56,7 @@ public class SubjectUI implements FocusListener, Serializable {
         semesterMarkInputField[1] = s12_2;
         semesterMarkInputField[2] = s13_1;
         semesterMarkInputField[3] = s13_2;
-        
+
         //Add focusListener
         for (int i = 0; i < 4; i++) {
             semesterMarkInputField[i].addFocusListener(this);
@@ -87,9 +90,31 @@ public class SubjectUI implements FocusListener, Serializable {
                 field.setBackground(new Color(127, 215, 212));
                 field.setToolTipText("Die eingegebene Note muss zwischen 0 und 15 liegen");
                 break;
-                case invalidInput:
+            case invalidInput:
                 field.setBackground(new Color(127, 215, 212));
                 field.setToolTipText("Falsche Eingabe!");
+                break;
+        }
+    }
+
+    public void setMarkInputFieldHighlight(JTextField field, UsedState us) {
+        //us: mandatory, eligible, mandLegible, none
+        switch (us) {
+            case none:
+                field.setBackground(Color.WHITE);
+                field.setToolTipText("Nicht eingebracht");
+                break;
+            case mandatory:
+                //field.setBackground(new Color(127, 215, 212));
+                field.setToolTipText("Pflichtfach");
+                break;
+            case eligible:
+                //field.setBackground(new Color(127, 215, 212));
+                field.setToolTipText(null);
+                break;
+            case mandLegible:
+                //field.setBackground(new Color(127, 215, 212));
+                field.setToolTipText(null);
                 break;
         }
     }
@@ -108,20 +133,19 @@ public class SubjectUI implements FocusListener, Serializable {
         try {
             int inputNumber = Integer.parseInt(thisField.getText());
             //System.out.print("Parsed: ");
-             //System.out.println(inputNumber);
+            //System.out.println(inputNumber);
             if (inputNumber < 0 || inputNumber > 15) {
                 setMarkInputFieldHighlight(thisField, HighlightMode.numError);
             } else {
                 setMarkInputFieldHighlight(thisField, HighlightMode.none);
             }
-        } catch (Exception e) {
-            if(thisField.getText() == "")   {
+        } catch (NumberFormatException e) {
+            if (thisField.getText().equals("")) {
                 setMarkInputFieldHighlight(thisField, HighlightMode.none);
-            }   else {
+            } else {
                 setMarkInputFieldHighlight(thisField, HighlightMode.invalidInput);
             }
         }
-        
 
     }
 
@@ -136,6 +160,7 @@ public class SubjectUI implements FocusListener, Serializable {
     }
 
     public enum HighlightMode {
+
         none, numError, invalidInput
     }
 }
