@@ -6,8 +6,12 @@
 
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data.*;
+import it.dsmailand.abirechner.data.Data.WeFuckedUpException;
+import it.dsmailand.abirechner.subjects.Semester;
+import it.dsmailand.abirechner.subjects.Semester.UsedState;
 import it.dsmailand.abirechner.subjects.Subject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,12 +20,20 @@ import it.dsmailand.abirechner.subjects.Subject;
 public class InputValidityChecker {
   
     public void checkInputData(Data data){
-        checkForWESubjects(data);
-        checkForOESubject(data);
+        try {
+            checkForWESubjects(data);
+            checkForOESubject(data);
+        } catch (WeFuckedUpException ex) {
+            Logger.getLogger(InputValidityChecker.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void checkOutputData(Data data){
-        countUsedHJs(data);
+        try {
+            countUsedHJs(data);
+        } catch (WeFuckedUpException ex) {
+            Logger.getLogger(InputValidityChecker.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
     * Converts markStrings into ints if possible
@@ -56,9 +68,9 @@ public class InputValidityChecker {
     
     public static void countUsedHJs(Data data) throws WeFuckedUpException{
         int usedHJs = 0;
-        for(Subject subjects: data.subjects){
-            for(UsedState usedState: subjects.usedState){
-                if(usedState != UsedState.none){
+        for(Subject thisSubject: data.subjects){
+            for(Semester thisSemester : thisSubject.semesters){
+                if(thisSemester.usedState != UsedState.none){
                     usedHJs++;
                 }
             }

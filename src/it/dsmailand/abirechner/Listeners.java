@@ -55,7 +55,7 @@ public class Listeners {
                 }
                 System.out.println("after call in listener");
             for (int i = 0; i < 4; i++) {
-                System.out.print(mainClass.data.subjects[0].semesterMarks[i]);
+                System.out.print(mainClass.data.subjects[0].semesters[i].mark);
             }
                 //Update the data in the GUI
                 mainClass.mainFrame.userInputPanel.writeDataToGUI(mainClass.data);

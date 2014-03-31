@@ -30,7 +30,7 @@ public class UserInputPanel extends javax.swing.JPanel {
     public void readInputToData(Data data) {
 
         for (int i = 0; i < data.subjects.length; i++) {
-            data.subjects[i].semesterMarks = subjectUI[i].getMarks();
+            data.subjects[i].setMarks(subjectUI[i].getMarks());
             if (subjectUI[i].choice) {
                 data.subjects[i].wahlfachType = subjectUI[i].getComboBoxState();
             }
@@ -40,7 +40,7 @@ public class UserInputPanel extends javax.swing.JPanel {
 
     public void writeDataToGUI(Data data) {
         for (int i = 0; i < data.subjects.length; i++) {
-            subjectUI[i].setMarks(data.subjects[i].semesterMarks);
+            subjectUI[i].setMarks(data.subjects[i].getMarks());
             if (subjectUI[i].choice) {
                 subjectUI[i].setComboBoxState(data.subjects[i].wahlfachType);
             }

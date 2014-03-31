@@ -1,7 +1,6 @@
 package it.dsmailand.abirechner.subjects;
 
 import it.dsmailand.abirechner.data.Data;
-import it.dsmailand.abirechner.*;
 import java.io.Serializable;
 
 /**
@@ -15,15 +14,14 @@ public class Subject implements Serializable{
     transient public boolean foreignLang;
     transient public boolean naturalScience;
     
-    private static final long serialVersionUID = 10;
+    private static final long serialVersionUID = 11;
     //transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
     
     //Variables that depend on user input
     public int wahlfachType;   //equals the selected index of the ComboBox
-    public int[] semesterMarks = new int[4];
+    public Semester[] semesters = new Semester[4];
     public boolean writtenExamSubject;
     public boolean oralExamSubject;
-    transient public Data.UsedState[] usedState = new Data.UsedState[4]; 
     
     public Subject() {
         foreignLang = true;
@@ -33,6 +31,20 @@ public class Subject implements Serializable{
         this.name = name;
         foreignLang = langAndNotScience;
         naturalScience = !langAndNotScience;
+    }
+
+    public void setMarks(int[] marks) {
+        for(int i = 0; i<4; i++)    {
+            semesters[i].mark = marks[i];
+        }
+    }
+
+    public int[] getMarks() {
+        int[] returnMarks = new int[4];
+        for(int i = 0; i<4; i++)    {
+            returnMarks[i] = semesters[i].mark;
+        }
+        return returnMarks;
     }
 
 }

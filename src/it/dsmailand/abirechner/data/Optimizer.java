@@ -6,7 +6,7 @@
 
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.subjects.Semester;
 
 /**
  * 
@@ -53,8 +53,8 @@ public class Optimizer {
         for(int arrayField=0; arrayField<3; arrayField++){
             int subjectNo = wESubjects[arrayField];
             for(int hj=0; hj<3; hj++){
-                aScore += myData.subjects[subjectNo].semesterMarks[hj];
-                myData.subjects[subjectNo].usedState[hj] = Data.UsedState.mandatory;
+                aScore += myData.subjects[subjectNo].semesters[hj].mark;
+                myData.subjects[subjectNo].semesters[hj].usedState = Semester.UsedState.mandatory;
             }
         }
         aScore = 2 * aScore;
@@ -65,11 +65,11 @@ public class Optimizer {
         //13.2
         for(int arrayField=0; arrayField<3; arrayField++){
             int subjectNo = wESubjects[arrayField];
-            cScore += myData.subjects[subjectNo].semesterMarks[3];
-            myData.subjects[subjectNo].usedState[3] = Data.UsedState.mandatory;
+            cScore += myData.subjects[subjectNo].semesters[3].mark;
+            myData.subjects[subjectNo].semesters[3].usedState = Semester.UsedState.mandatory;
         }
-        cScore += myData.subjects[oESubject].semesterMarks[3];
-        myData.subjects[oESubject].usedState[3] = Data.UsedState.mandatory;
+        cScore += myData.subjects[oESubject].semesters[3].mark;
+        myData.subjects[oESubject].semesters[3].usedState = Semester.UsedState.mandatory;
         
         //examScore TODO
     }
@@ -83,8 +83,8 @@ public class Optimizer {
             } else {hjsToAdd = 4;}
             
             for(int hj=0; hj<hjsToAdd; hj++){
-                bScore += myData.subjects[2].semesterMarks[hj];
-                myData.subjects[2].usedState[hj] = Data.UsedState.mandLegible;
+                bScore += myData.subjects[2].semesters[hj].mark;
+                myData.subjects[2].semesters[hj].usedState = Semester.UsedState.mandLegible;
             }
         }
     }
@@ -101,8 +101,8 @@ public class Optimizer {
             
             for (int i=0; i<hjsToAdd; i++){
                 bestHj = OptSearcher.getBestSubjectHj(myData, 3);
-                bScore += myData.subjects[3].semesterMarks[bestHj];
-                myData.subjects[3].usedState[bestHj] = Data.UsedState.mandLegible;
+                bScore += myData.subjects[3].semesters[bestHj].mark;
+                myData.subjects[3].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
             }
         }
     }
@@ -117,8 +117,8 @@ public class Optimizer {
 
         for (int i=0; i<hjsToAdd; i++){
             bestHj = OptSearcher.getBestSubjectHj(myData, 6);
-            bScore += myData.subjects[6].semesterMarks[bestHj];
-            myData.subjects[6].usedState[bestHj] = Data.UsedState.mandLegible;
+            bScore += myData.subjects[6].semesters[bestHj].mark;
+            myData.subjects[6].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
         }
     }
     
@@ -134,8 +134,8 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectNo);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
-            myData.subjects[bestSubjectNo].usedState[bestHj] = Data.UsedState.mandLegible;
+            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
+            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
         }
     }
     
@@ -162,8 +162,8 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubject = OptSearcher.getSubjectOfBestHj(myData, subjectArray);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubject);
-            bScore += myData.subjects[bestSubject].semesterMarks[bestHj];
-            myData.subjects[bestSubject].usedState[bestHj] = Data.UsedState.mandLegible;
+            bScore += myData.subjects[bestSubject].semesters[bestHj].mark;
+            myData.subjects[bestSubject].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
         }
         
     }
@@ -203,8 +203,8 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScAndFLang);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
-            myData.subjects[bestSubjectNo].usedState[bestHj] = Data.UsedState.mandLegible;
+            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
+            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
         }
     }
     
@@ -215,8 +215,8 @@ public class Optimizer {
         for(int i=0; i<hjsToAdd; i++){
             int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, allSubjects);
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesterMarks[bestHj];
-            myData.subjects[bestSubjectNo].usedState[bestHj] = Data.UsedState.eligible;
+            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
+            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.eligible;
         }
     }
 }

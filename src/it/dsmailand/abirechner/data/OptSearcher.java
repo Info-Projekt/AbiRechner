@@ -6,7 +6,7 @@
 
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.subjects.Semester;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,8 +92,8 @@ public class OptSearcher {
         int bestMark = 0;
         int bestHj = 20;
         for(int hj=0; hj<4; hj++){
-            if(myData.subjects[subjectNo].semesterMarks[hj] > bestMark &&
-                    myData.subjects[subjectNo].usedState[hj] == Data.UsedState.none){
+            if(myData.subjects[subjectNo].semesters[hj].mark > bestMark &&
+                    myData.subjects[subjectNo].semesters[hj].usedState == Semester.UsedState.none){
                 bestHj = hj;
             }
         }
@@ -120,7 +120,7 @@ public class OptSearcher {
         int usedHjs = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             for(int hj=0; hj<4; hj++){
-                if (myData.subjects[subjectNo].usedState[hj] != Data.UsedState.none){
+                if (myData.subjects[subjectNo].semesters[hj].usedState != Semester.UsedState.none){
                     usedHjs++;
                 }
             }

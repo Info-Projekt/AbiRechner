@@ -30,7 +30,6 @@ public class Data implements Serializable {
     }
 //</editor-fold>
     
-    public enum UsedState{mandatory, eligible, mandLegible, none}
     public int finalPoints;
     
     public void setSUI(SubjectUI[] sUI) {

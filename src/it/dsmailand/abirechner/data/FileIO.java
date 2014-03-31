@@ -46,7 +46,7 @@ public class FileIO {
             
             System.out.println("after reading newData");
             for (int i = 0; i < 4; i++) {
-                System.out.print(newData.subjects[0].semesterMarks[i]);
+                System.out.print(newData.subjects[0].semesters[i].mark);
             }
             
             in.close();
