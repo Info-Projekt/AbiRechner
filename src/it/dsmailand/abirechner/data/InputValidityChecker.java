@@ -6,7 +6,7 @@
 
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data.UsedState;
+import it.dsmailand.abirechner.data.Data.*;
 import it.dsmailand.abirechner.subjects.Subject;
 
 /**
@@ -34,7 +34,7 @@ public class InputValidityChecker {
         return mark;
     }
     
-    public static void checkForWESubjects(Data data){
+    public static void checkForWESubjects(Data data) throws WeFuckedUpException{
         int wESubjects = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             if (data.subjects[subjectNo].writtenExamSubject==true){
@@ -44,7 +44,7 @@ public class InputValidityChecker {
         }
     }
     
-    public static void checkForOESubject(Data data){
+    public static void checkForOESubject(Data data) throws WeFuckedUpException{
         int oESubjects = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             if (data.subjects[subjectNo].oralExamSubject==true){
@@ -54,7 +54,7 @@ public class InputValidityChecker {
         }
     }
     
-    public static void countUsedHJs(Data data){
+    public static void countUsedHJs(Data data) throws WeFuckedUpException{
         int usedHJs = 0;
         for(Subject subjects: data.subjects){
             for(UsedState usedState: subjects.usedState){

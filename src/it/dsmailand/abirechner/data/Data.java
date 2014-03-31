@@ -9,14 +9,27 @@ import java.io.*;
  *
  *
  * @author MasterCarl
- * @param sUI: reference to the GUI
- * @version 0.1 - incomplete
+ * @version 1.1         //Who's using this anyway
  * @serial The various subjects with marks and choice preferences
  */
 public class Data implements Serializable {
 
     public Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
-    private static final long serialVersionUID = 1; //Class ID used to check compatibility with serialized data
+    
+    private static final long serialVersionUID = 2; //Class version ID used to check compatibility with serialized data
+
+    //<editor-fold defaultstate="collapsed" desc="Exceptions declaration (no other code)">
+    public static class YouFailException extends Exception {
+        public YouFailException() {
+        }
+    }
+    
+    public static class WeFuckedUpException extends Exception {
+        public WeFuckedUpException() {
+        }
+    }
+//</editor-fold>
+    
     public enum UsedState{mandatory, eligible, mandLegible, none}
     public int finalPoints;
     
@@ -35,8 +48,10 @@ public class Data implements Serializable {
     /**
      * Returns the final mark. Exception if called before Optimizer.optimize
      * @return String with AbiMark in the format "X,X"
+     * @throws it.dsmailand.abirechner.data.Data.YouFailException
+     * @throws it.dsmailand.abirechner.data.Data.WeFuckedUpException
      */
-    public String createAbiMark(){
+    public String createAbiMark() throws YouFailException, WeFuckedUpException{
         if(finalPoints<300){throw new YouFailException();}
         else if(finalPoints<301){return "4,0";}
         else if(finalPoints<319){return "3,9";}
