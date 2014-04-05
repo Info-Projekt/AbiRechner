@@ -2,6 +2,7 @@ package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.gui.*;
+import javax.swing.*;
 
 /**
  * Behold, the class that unites the GUI and the backend
@@ -10,11 +11,9 @@ import it.dsmailand.abirechner.gui.*;
  */
 public class AbiRechner {
 
-
     public MainFrame mainFrame;
     public Data data;
     Listeners listeners;
-    
 
     public static void main(String[] args) {
         AbiRechner abiRechner = new AbiRechner();
@@ -22,12 +21,21 @@ public class AbiRechner {
     }
 
     void initialize() {
-        MainFrame.setNimbus();
+        //<editor-fold defaultstate="collapsed" desc="Set look and feel (system)">
+        //MainFrame.setNimbus();
+        try {
+            // Set System L&F
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+            // handle exception
+        }
+//</editor-fold>
         mainFrame = new it.dsmailand.abirechner.gui.MainFrame();
         mainFrame.setVisible(true);
 
         data = new Data();
-                data.setSUI(mainFrame.userInputPanel.subjectUI);
+        data.setSUI(mainFrame.userInputPanel.subjectUI);
 
         listeners = new Listeners(this);
 

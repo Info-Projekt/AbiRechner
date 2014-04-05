@@ -32,9 +32,11 @@ public class OutputPanel extends javax.swing.JPanel {
         finalMarkLabel = new javax.swing.JLabel();
         nextMarkPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        nextBetterLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         nextWorseLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        nextBetterLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("Punkte:");
 
@@ -46,13 +48,21 @@ public class OutputPanel extends javax.swing.JPanel {
         finalMarkLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         finalMarkLabel.setText("###");
 
-        jLabel5.setText("Punkte zur nächsten besseren Note:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel5.setText("Punkte zur nächsten");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel7.setText("Punkte zur nächsten");
+
+        nextWorseLabel.setText("###");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel2.setText("besseren Note:");
 
         nextBetterLabel.setText("###");
 
-        jLabel7.setText("Punkte zur nächsten schlechteren Note:");
-
-        nextWorseLabel.setText("###");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel4.setText("schlechteren Note:");
 
         javax.swing.GroupLayout nextMarkPanelLayout = new javax.swing.GroupLayout(nextMarkPanel);
         nextMarkPanel.setLayout(nextMarkPanelLayout);
@@ -61,19 +71,25 @@ public class OutputPanel extends javax.swing.JPanel {
             .addGroup(nextMarkPanelLayout.createSequentialGroup()
                 .addGroup(nextMarkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(nextBetterLabel)
+                    .addComponent(jLabel2)
                     .addComponent(jLabel7)
-                    .addComponent(nextWorseLabel))
-                .addGap(0, 3, Short.MAX_VALUE))
+                    .addComponent(nextWorseLabel)
+                    .addComponent(nextBetterLabel)
+                    .addComponent(jLabel4))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
         nextMarkPanelLayout.setVerticalGroup(
             nextMarkPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nextMarkPanelLayout.createSequentialGroup()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nextBetterLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nextWorseLabel))
         );
@@ -85,20 +101,17 @@ public class OutputPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nextMarkPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(scoreLabel)
-                            .addComponent(jLabel3)
-                            .addComponent(finalMarkLabel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(nextMarkPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(scoreLabel)
+                    .addComponent(jLabel3)
+                    .addComponent(finalMarkLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scoreLabel)
@@ -106,15 +119,17 @@ public class OutputPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(finalMarkLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addComponent(nextMarkPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel finalMarkLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel nextBetterLabel;
