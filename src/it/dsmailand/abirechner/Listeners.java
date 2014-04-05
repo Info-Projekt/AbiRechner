@@ -33,6 +33,14 @@ public class Listeners {
         //TODO: add file filter
     }
     
+    //  CALCULATE
+        ActionListener calculateButtonListener = new ActionListener()   {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+                
+        };
     //  LOAD
     ActionListener loadButtonListener = new ActionListener() {
         @Override
@@ -106,4 +114,9 @@ public class Listeners {
         }
         
     };
-}
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    }
