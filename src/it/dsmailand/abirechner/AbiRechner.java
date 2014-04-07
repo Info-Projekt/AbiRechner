@@ -1,6 +1,7 @@
 package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.data.Optimizer;
 import it.dsmailand.abirechner.gui.*;
 import javax.swing.*;
 
@@ -14,6 +15,7 @@ public class AbiRechner {
     public MainFrame mainFrame;
     public Data data;
     Listeners listeners;
+    Optimizer optimizer;
 
     public static void main(String[] args) {
         AbiRechner abiRechner = new AbiRechner();
@@ -36,7 +38,8 @@ public class AbiRechner {
 
         data = new Data();
         data.setSUI(mainFrame.userInputPanel.subjectUI);
-
+        optimizer = new Optimizer(data);
+        
         listeners = new Listeners(this);
 
         //Add Listeners to buttons

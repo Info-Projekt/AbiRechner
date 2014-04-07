@@ -150,12 +150,12 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton calculateButton;
     private it.dsmailand.abirechner.gui.ChoicePanel choicePanel2;
-    private it.dsmailand.abirechner.gui.ChoicePanel choicePanel3;
+    public it.dsmailand.abirechner.gui.ChoicePanel choicePanel3;
     public javax.swing.JButton clearJButton;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
     public javax.swing.JButton loadFileJButton;
-    private it.dsmailand.abirechner.gui.OutputPanel outputPanel1;
+    public it.dsmailand.abirechner.gui.OutputPanel outputPanel1;
     public javax.swing.JButton saveAsJButton;
     public javax.swing.JButton saveJButton;
     public it.dsmailand.abirechner.gui.UserInputPanel userInputPanel;

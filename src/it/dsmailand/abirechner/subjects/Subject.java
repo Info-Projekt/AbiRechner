@@ -24,10 +24,16 @@ public class Subject implements Serializable{
     public boolean oralExamSubject;
     
     public Subject() {
+        for(int i = 0;i<4;i++)  {
+            semesters[i] = new Semester();
+        }
         foreignLang = true;
     }
 
     public Subject(String name, boolean langAndNotScience) {
+        for(int i = 0;i<4;i++)  {
+            semesters[i] = new Semester();
+        }
         this.name = name;
         foreignLang = langAndNotScience;
         naturalScience = !langAndNotScience;

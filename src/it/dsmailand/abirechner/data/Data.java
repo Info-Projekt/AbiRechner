@@ -18,7 +18,7 @@ public class Data implements Serializable {
     
     private static final long serialVersionUID = 2; //Class version ID used to check compatibility with serialized data
 
-    //<editor-fold defaultstate="collapsed" desc="Exceptions declaration (no other code)">
+    //<editor-fold defaultstate="collapsed" desc="Exception declarations">
     public static class YouFailException extends Exception {
         public YouFailException() {
         }
@@ -50,8 +50,9 @@ public class Data implements Serializable {
      * @throws it.dsmailand.abirechner.data.Data.YouFailException
      * @throws it.dsmailand.abirechner.data.Data.WeFuckedUpException
      */
-    public String createAbiMark() throws YouFailException, WeFuckedUpException{
-        if(finalPoints<300){throw new YouFailException();}
+    public String createAbiMark() { //throws YouFailException, WeFuckedUpException
+        if(finalPoints<300)//{throw new YouFailException();}
+        {return "nicht bestanden";}
         else if(finalPoints<301){return "4,0";}
         else if(finalPoints<319){return "3,9";}
         else if(finalPoints<337){return "3,8";}
@@ -83,7 +84,8 @@ public class Data implements Serializable {
         else if(finalPoints<805){return "1,2";}
         else if(finalPoints<823){return "1,1";}
         else if(finalPoints<901){return "1,0";}
-        else throw new WeFuckedUpException();
+        else //throw new WeFuckedUpException();
+        {return "<1,0";}
     }
 } 
 

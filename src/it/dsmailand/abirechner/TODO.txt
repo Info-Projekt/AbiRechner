@@ -1,5 +1,13 @@
 The alreadyUsed indicators in SubjectUI must be reset if the user returns to editing content
 The labels in the OutputPanel should actually display something
 Decide how to use foreground/background colors for highlighting input
+Actually highlight input based on usedState
 Add file type filter in Listeners.fc
-Add code to calculateButtonListener
+integrate choicePanel
+Do something with the exceptions thrown in Data (mark below 1,0?)
+See if Subject.foreignLang is needed
+CAPITALIZE SubjectNumbers
+Debug Optimizer
+
+Add EULA, disclaimers
+Easter eggs?

@@ -136,8 +136,14 @@
       </Properties>
     </Component>
     <Component class="it.dsmailand.abirechner.gui.ChoicePanel" name="choicePanel3">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="it.dsmailand.abirechner.gui.OutputPanel" name="outputPanel1">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="calculateButton">
       <Properties>

@@ -32,15 +32,19 @@ public class Listeners {
         fc = new JFileChooser();
         //TODO: add file filter
     }
-    
+
     //  CALCULATE
-        ActionListener calculateButtonListener = new ActionListener()   {
+    ActionListener calculateButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            //Get the latest input
+            mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
+            //Process all the data
+            mainClass.optimizer.optimize();
+            mainClass.mainFrame.outputPanel1.setOutput(mainClass.data.finalPoints, mainClass.data.createAbiMark());
         }
-                
-        };
+
+    };
     //  LOAD
     ActionListener loadButtonListener = new ActionListener() {
         @Override
@@ -61,16 +65,12 @@ public class Listeners {
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                System.out.println("after call in listener");
-            for (int i = 0; i < 4; i++) {
-                System.out.print(mainClass.data.subjects[0].semesters[i].mark);
-            }
                 //Update the data in the GUI
                 mainClass.mainFrame.userInputPanel.writeDataToGUI(mainClass.data);
             }
         }
     };
-    
+
     //  SAVE
     ActionListener saveButtonListener = new ActionListener() {
         @Override
@@ -94,12 +94,12 @@ public class Listeners {
                 file = fc.getSelectedFile();
             }
             System.out.print("Before: ");
-                System.out.println(mainClass.data.subjects[6].wahlfachType);
-                
+            System.out.println(mainClass.data.subjects[6].wahlfachType);
+
             //Get the latest input
             mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
             System.out.print("After reading: ");
-                System.out.println(mainClass.data.subjects[6].wahlfachType);
+            System.out.println(mainClass.data.subjects[6].wahlfachType);
             //Save the data
             FileIO.saveToDisk(mainClass.data, file);
         }
@@ -107,16 +107,13 @@ public class Listeners {
     ActionListener clearButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            for(SubjectUI thisSubjectUI:mainClass.mainFrame.userInputPanel.subjectUI)    {
+            for (SubjectUI thisSubjectUI : mainClass.mainFrame.userInputPanel.subjectUI) {
                 thisSubjectUI.clearInput();
-                if(thisSubjectUI.choice) thisSubjectUI.resetComboBox();
+                if (thisSubjectUI.choice) {
+                    thisSubjectUI.resetComboBox();
+                }
             }
         }
-        
-    };
 
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
+    };
+}
