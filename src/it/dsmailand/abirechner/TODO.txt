@@ -4,6 +4,7 @@ Decide how to use foreground/background colors for highlighting input
 Actually highlight input based on usedState
 Add file type filter in Listeners.fc
 integrate choicePanel
+Populate the ChoicePanel according to chosen subjects
 Do something with the exceptions thrown in Data (mark below 1,0?)
 See if Subject.foreignLang is needed
 CAPITALIZE SubjectNumbers

@@ -36,11 +36,13 @@ public class ChoicePanel extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Deutsch" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mathematik", "Italienisch", "Englisch", "Französisch", "Latein", "Physik", "Chemie", "Biologie", "Geschichte" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mathematik", "Italienisch", "Englisch", "Französisch", "Latein", "Physik", "Chemie", "Biologie", "Geschichte" }));
+        jComboBox3.setSelectedIndex(1);
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mathematik", "Italienisch", "Englisch", "Französisch", "Latein", "Physik", "Chemie", "Biologie", "Geschichte", "Filosofia", "Sport", "Kunst/Musik", "PoWi", "Religion/Ethik" }));
+        jComboBox4.setSelectedIndex(2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
