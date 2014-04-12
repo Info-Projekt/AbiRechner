@@ -1,14 +1,19 @@
+Priorities:
 The alreadyUsed indicators in SubjectUI must be reset if the user returns to editing content
 The labels in the OutputPanel should actually display something
-Decide how to use foreground/background colors for highlighting input
 Actually highlight input based on usedState
-Add file type filter in Listeners.fc
 integrate choicePanel
-Populate the ChoicePanel according to chosen subjects
-Do something with the exceptions thrown in Data (mark below 1,0?)
-See if Subject.foreignLang is needed
-CAPITALIZE SubjectNumbers
+See if Subject.foreignLang is needed 
+    ^ definitely needed by Optimizer, not working atm
 Debug Optimizer
 
+Secondary:
+Do something with the exceptions thrown in Data (mark below 1,0?)
+Add file type filter in Listeners.fc
+Populate the ChoicePanel according to chosen subjects
+Decide how to use foreground/background colors for highlighting input
+
+
+If we got nothing better to do:
 Add EULA, disclaimers
 Easter eggs?
