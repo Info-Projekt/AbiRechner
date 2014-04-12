@@ -1159,46 +1159,46 @@ public class UserInputPanel extends javax.swing.JPanel {
 
     private void addReferences() {
         //DEUTSCH
-        subjectUI[SubjectNumber.deutsch].setSemesterTextFields(markTextField1, markTextField2, markTextField3, markTextField4);
-        subjectUI[SubjectNumber.deutsch].setDisplayNameLabel(sDeutschLabel);
+        subjectUI[SubjectNumber.DEUTSCH].setSemesterTextFields(markTextField1, markTextField2, markTextField3, markTextField4);
+        subjectUI[SubjectNumber.DEUTSCH].setDisplayNameLabel(sDeutschLabel);
         //ITA
-        subjectUI[SubjectNumber.ita].setSemesterTextFields(markTextField8, markTextField7, markTextField6, markTextField5);
-        subjectUI[SubjectNumber.ita].setDisplayNameLabel(sItaLabel);
+        subjectUI[SubjectNumber.ITA].setSemesterTextFields(markTextField8, markTextField7, markTextField6, markTextField5);
+        subjectUI[SubjectNumber.ITA].setDisplayNameLabel(sItaLabel);
         //MATHE
-        subjectUI[SubjectNumber.mathe].setSemesterTextFields(markTextField12, markTextField11, markTextField10, markTextField9);
-        subjectUI[SubjectNumber.mathe].setDisplayNameLabel(sMatheLabel);
+        subjectUI[SubjectNumber.MATHE].setSemesterTextFields(markTextField12, markTextField11, markTextField10, markTextField9);
+        subjectUI[SubjectNumber.MATHE].setDisplayNameLabel(sMatheLabel);
         //GESCHI
-        subjectUI[SubjectNumber.geschichte].setSemesterTextFields(markTextField16, markTextField15, markTextField14, markTextField13);
-        subjectUI[SubjectNumber.geschichte].setDisplayNameLabel(sGeschichteLabel);
+        subjectUI[SubjectNumber.GESCHICHTE].setSemesterTextFields(markTextField16, markTextField15, markTextField14, markTextField13);
+        subjectUI[SubjectNumber.GESCHICHTE].setDisplayNameLabel(sGeschichteLabel);
         //FILOSOFIA
-        subjectUI[SubjectNumber.filosofia].setSemesterTextFields(markTextField20, markTextField19, markTextField18, markTextField17);
-        subjectUI[SubjectNumber.filosofia].setDisplayNameLabel(sFilosofiaLabel);
+        subjectUI[SubjectNumber.FILOSOFIA].setSemesterTextFields(markTextField20, markTextField19, markTextField18, markTextField17);
+        subjectUI[SubjectNumber.FILOSOFIA].setDisplayNameLabel(sFilosofiaLabel);
         //SPORT
-        subjectUI[SubjectNumber.sport].setSemesterTextFields(markTextField24, markTextField23, markTextField22, markTextField21);
-        subjectUI[SubjectNumber.sport].setDisplayNameLabel(sSportLabel);
+        subjectUI[SubjectNumber.SPORT].setSemesterTextFields(markTextField24, markTextField23, markTextField22, markTextField21);
+        subjectUI[SubjectNumber.SPORT].setDisplayNameLabel(sSportLabel);
         //KU/MU
-        subjectUI[SubjectNumber.kunstMusik].setSemesterTextFields(markTextField28, markTextField27, markTextField26, markTextField25);
-        subjectUI[SubjectNumber.kunstMusik].setComboBox(sKunstMusikComboBox);
+        subjectUI[SubjectNumber.KUNST_MUSIK].setSemesterTextFields(markTextField28, markTextField27, markTextField26, markTextField25);
+        subjectUI[SubjectNumber.KUNST_MUSIK].setComboBox(sKunstMusikComboBox);
         //POWI
-        subjectUI[SubjectNumber.poWi].setSemesterTextFields(markTextField32, markTextField31, markTextField30, markTextField29);
-        subjectUI[SubjectNumber.poWi].setComboBox(sKunstMusikComboBox);
+        subjectUI[SubjectNumber.PO_WI].setSemesterTextFields(markTextField32, markTextField31, markTextField30, markTextField29);
+        subjectUI[SubjectNumber.PO_WI].setComboBox(sKunstMusikComboBox);
         //RELIGION/ETHIK
-        subjectUI[SubjectNumber.religionEthik].setSemesterTextFields(markTextField36, markTextField35, markTextField34, markTextField33);
-        subjectUI[SubjectNumber.religionEthik].setComboBox(sKunstMusikComboBox);
+        subjectUI[SubjectNumber.RELIGION_ETHIK].setSemesterTextFields(markTextField36, markTextField35, markTextField34, markTextField33);
+        subjectUI[SubjectNumber.RELIGION_ETHIK].setComboBox(sKunstMusikComboBox);
         //Wahlfach4
-        subjectUI[SubjectNumber.wahlfach4].setSemesterTextFields(markTextField40, markTextField39, markTextField38, markTextField37);
-        subjectUI[SubjectNumber.wahlfach4].setComboBox(sWahlfach4ComboBox);
+        subjectUI[SubjectNumber.WAHLFACH4].setSemesterTextFields(markTextField40, markTextField39, markTextField38, markTextField37);
+        subjectUI[SubjectNumber.WAHLFACH4].setComboBox(sWahlfach4ComboBox);
         //Wahlfach3
-        subjectUI[SubjectNumber.wahlfach3_1].setSemesterTextFields(markTextField44, markTextField43, markTextField42, markTextField41);
-        subjectUI[SubjectNumber.wahlfach3_1].setComboBox(sWahlfach3_1ComboBox);
+        subjectUI[SubjectNumber.WAHLFACH3_1].setSemesterTextFields(markTextField44, markTextField43, markTextField42, markTextField41);
+        subjectUI[SubjectNumber.WAHLFACH3_1].setComboBox(sWahlfach3_1ComboBox);
         //Wahlfach3
-        subjectUI[SubjectNumber.wahlfach3_2].setSemesterTextFields(markTextField48, markTextField47, markTextField46, markTextField45);
-        subjectUI[SubjectNumber.wahlfach3_2].setComboBox(sWahlfach3_2ComboBox);
+        subjectUI[SubjectNumber.WAHLFACH3_2].setSemesterTextFields(markTextField48, markTextField47, markTextField46, markTextField45);
+        subjectUI[SubjectNumber.WAHLFACH3_2].setComboBox(sWahlfach3_2ComboBox);
 
         //Combobox-Management
-        choiceManagement.setComboBoxes(subjectUI[SubjectNumber.wahlfach4].comboBox, subjectUI[SubjectNumber.wahlfach3_1].comboBox, subjectUI[SubjectNumber.wahlfach3_2].comboBox);
+        choiceManagement.setComboBoxes(subjectUI[SubjectNumber.WAHLFACH4].comboBox, subjectUI[SubjectNumber.WAHLFACH3_1].comboBox, subjectUI[SubjectNumber.WAHLFACH3_2].comboBox);
         choiceManagement.initialize();
 
-        subjectUI[SubjectNumber.wahlfach4].comboBox.addActionListener(choiceManagement.actionPerformed);
+        subjectUI[SubjectNumber.WAHLFACH4].comboBox.addActionListener(choiceManagement.actionPerformed);
     }
 }

@@ -93,17 +93,17 @@ public class Optimizer {
     private void optimizeGeschichte(){
         // Geschichte: 2 hjs mandatory
         // If wESubect, quota already filled
-        if(myData.subjects[geschichte].writtenExamSubject==false){
+        if(myData.subjects[GESCHICHTE].writtenExamSubject==false){
             int hjsToAdd;
             int bestHj;
-            if(myData.subjects[geschichte].oralExamSubject==true){
+            if(myData.subjects[GESCHICHTE].oralExamSubject==true){
                 hjsToAdd = 1; //since 13.2 is already in C
             } else {hjsToAdd = 2;}
             
             for (int i=0; i<hjsToAdd; i++){
-                bestHj = OptSearcher.getBestSubjectHj(myData, geschichte);
-                bScore += myData.subjects[geschichte].semesters[bestHj].mark;
-                myData.subjects[geschichte].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+                bestHj = OptSearcher.getBestSubjectHj(myData, GESCHICHTE);
+                bScore += myData.subjects[GESCHICHTE].semesters[bestHj].mark;
+                myData.subjects[GESCHICHTE].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
             }
         }
     }
