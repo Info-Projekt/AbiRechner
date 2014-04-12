@@ -95,6 +95,7 @@ public class OptSearcher {
             if(myData.subjects[subjectNo].semesters[hj].mark > bestMark &&
                     myData.subjects[subjectNo].semesters[hj].usedState == Semester.UsedState.none){
                 bestHj = hj;
+                bestMark = myData.subjects[subjectNo].semesters[hj].mark;
             }
         }
         return bestHj;
