@@ -16,4 +16,7 @@ public class Semester implements Serializable{
     public int mark;
     public transient UsedState usedState;
     public static enum UsedState{mandatory, eligible, mandLegible, none}
+        public Semester(){
+            usedState = UsedState.none;
+        }
 }
