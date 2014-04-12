@@ -5,6 +5,7 @@
 package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.data.FileIO;
+import it.dsmailand.abirechner.data.Optimizer;
 import it.dsmailand.abirechner.gui.SubjectUI;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.event.ActionEvent;
@@ -40,6 +41,7 @@ public class Listeners {
             //Get the latest input
             mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
             //Process all the data
+            mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();
             mainClass.mainFrame.outputPanel1.setOutput(mainClass.data.finalPoints, mainClass.data.createAbiMark());
         }

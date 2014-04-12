@@ -38,7 +38,6 @@ public class AbiRechner {
 
         data = new Data();
         data.setSUI(mainFrame.userInputPanel.subjectUI);
-        optimizer = new Optimizer(data);
         
         listeners = new Listeners(this);
 
