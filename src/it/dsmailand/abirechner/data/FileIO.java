@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  * @author Carl
  */
 public class FileIO {
-
+    public static final String saveFileExtension = "carl";
 
     /*
      * @source http://www.tutorialspoint.com/java/java_serialization.htm

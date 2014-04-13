@@ -11,11 +11,13 @@ import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Contains the various ActionListeners
@@ -26,12 +28,15 @@ public class Listeners {
     //Create a file chooser
 
     JFileChooser fc;
+    
+    FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "Abirechner save files", FileIO.saveFileExtension);
     public AbiRechner mainClass;
 
     public Listeners(AbiRechner mainClass) {
         this.mainClass = mainClass;
         fc = new JFileChooser();
-        //TODO: add file filter
+        fc.setFileFilter(filter);
     }
 
     //  CALCULATE
@@ -78,6 +83,7 @@ public class Listeners {
         @Override
         public void actionPerformed(ActionEvent e) {
             File file;
+            String filePath;
 
             //Check whether "Save As..." has been clicked
             if (e.getSource() == mainClass.mainFrame.saveAsJButton) {
@@ -86,6 +92,12 @@ public class Listeners {
                 //If the user selects a file/destination
                 if (returnVal == JFileChooser.APPROVE_OPTION) {
                     file = fc.getSelectedFile();
+                    filePath = file.getPath();
+                    //Add the correct extension to the file path
+                    if(!filePath.endsWith("." + FileIO.saveFileExtension)){
+                        filePath += ("." + FileIO.saveFileExtension);
+                        file = new File(filePath);
+                    }
                     //To facilitate saving, enable the "Save" button
                     mainClass.mainFrame.saveJButton.setEnabled(true);
                 } else {

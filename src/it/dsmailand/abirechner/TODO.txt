@@ -10,7 +10,6 @@ Debug Optimizer
 
 Secondary:
 Do something with the exceptions thrown in Data (mark below 1,0?)
-Add file type filter in Listeners.fc
 Populate the ChoicePanel according to chosen subjects
 Decide how to use foreground/background colors for highlighting input
 
