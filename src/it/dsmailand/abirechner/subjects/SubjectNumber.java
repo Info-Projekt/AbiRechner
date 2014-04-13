@@ -22,9 +22,4 @@ public class SubjectNumber {
         public static final int WAHLFACH4 = 9;
         public static final int WAHLFACH3_1 = 10;
         public static final int WAHLFACH3_2 = 11;
-        
-        public static boolean[] foreignLang = {false, true, false, false, false, 
-            false, false, false, false, false, false, false};
-        public static boolean[] naturalScience = {false, false, false, false, 
-            false, false, false, false, false, false, false, false};
 }
