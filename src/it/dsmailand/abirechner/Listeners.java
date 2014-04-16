@@ -30,7 +30,7 @@ public class Listeners {
     JFileChooser fc;
     
     FileNameExtensionFilter filter = new FileNameExtensionFilter(
-            "Abirechner save files", FileIO.saveFileExtension);
+            "Abirechner-Speicherdateien", FileIO.saveFileExtension);
     public AbiRechner mainClass;
 
     public Listeners(AbiRechner mainClass) {
