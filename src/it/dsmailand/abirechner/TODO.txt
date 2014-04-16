@@ -1,17 +1,16 @@
 Priorities:
-The alreadyUsed indicators in SubjectUI must be reset if the user returns to editing content
-The labels in the OutputPanel should actually display something
+The two last labels in the OutputPanel should actually display something
 Actually highlight input based on usedState
 integrate choicePanel
 See if Subject.foreignLang is needed 
     ^ definitely needed by Optimizer, not working atm
-Fix saving and loading of Semester.usedState
 Debug Optimizer
 
 Secondary:
 Do something with the exceptions thrown in Data (mark below 1,0?)
 Populate the ChoicePanel according to chosen subjects
 Decide how to use foreground/background colors for highlighting input
+Jump to the next TextField when a valid number is entered
 
 
 If we got nothing better to do:

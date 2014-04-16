@@ -28,6 +28,7 @@ public class SubjectUI implements FocusListener, Serializable {
     JLabel displayNameLabel;
     JComboBox comboBox;
     public boolean choice;
+    private boolean usedStateHighlightersSet = false;
 
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
@@ -98,6 +99,7 @@ public class SubjectUI implements FocusListener, Serializable {
     }
 
     public void setMarkInputFieldHighlight(JTextField field, UsedState us) {
+        usedStateHighlightersSet = true;
         //us: mandatory, eligible, mandLegible, none
         switch (us) {
             case none:
@@ -121,6 +123,10 @@ public class SubjectUI implements FocusListener, Serializable {
 
     @Override
     public void focusGained(FocusEvent fe) {
+        if (usedStateHighlightersSet) {
+            usedStateHighlightersSet = false;
+            resetFieldHighlight();
+        }
         JTextField thisField = (JTextField) fe.getSource();
         thisField.selectAll();
         setMarkInputFieldHighlight(thisField, HighlightMode.none);
@@ -157,6 +163,12 @@ public class SubjectUI implements FocusListener, Serializable {
 
     public void resetComboBox() {
         comboBox.setSelectedIndex(0);
+    }
+
+    private void resetFieldHighlight() {
+        for (int i = 0; i < 4; i++) {
+            setMarkInputFieldHighlight(semesterMarkInputField[i], HighlightMode.none);
+        }
     }
 
     public enum HighlightMode {
