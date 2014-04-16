@@ -7,6 +7,8 @@
 package it.dsmailand.abirechner.data;
 
 import it.dsmailand.abirechner.subjects.Semester;
+import it.dsmailand.abirechner.subjects.Semester.UsedState;
+import it.dsmailand.abirechner.subjects.Subject;
 import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
 
 /**
@@ -30,6 +32,7 @@ public class Optimizer {
     }
     
     public void optimize(){
+        resetUsedStates();
         wESubjects = OptSearcher.searchForWESubjects(myData);
         oESubject = OptSearcher.searchForOESubject(myData);
         int[][]bothArrays = OptSearcher.searchForNatScAndFLangSubjects(myData);
@@ -218,6 +221,14 @@ public class Optimizer {
             int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
             bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
             myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.eligible;
+        }
+    }
+
+    private void resetUsedStates() {
+        for(Subject thisSubject:myData.subjects)    {
+          for(Semester thisSemester:thisSubject.semesters)  {
+              thisSemester.usedState=UsedState.none;
+          }  
         }
     }
 }
