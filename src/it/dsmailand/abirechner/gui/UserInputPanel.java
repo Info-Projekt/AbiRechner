@@ -1181,10 +1181,10 @@ public class UserInputPanel extends javax.swing.JPanel {
         subjectUI[SubjectNumber.KUNST_MUSIK].setComboBox(sKunstMusikComboBox);
         //POWI
         subjectUI[SubjectNumber.PO_WI].setSemesterTextFields(markTextField32, markTextField31, markTextField30, markTextField29);
-        subjectUI[SubjectNumber.PO_WI].setComboBox(sKunstMusikComboBox);
+        subjectUI[SubjectNumber.PO_WI].setComboBox(sPoWiComboBox);
         //RELIGION/ETHIK
         subjectUI[SubjectNumber.RELIGION_ETHIK].setSemesterTextFields(markTextField36, markTextField35, markTextField34, markTextField33);
-        subjectUI[SubjectNumber.RELIGION_ETHIK].setComboBox(sKunstMusikComboBox);
+        subjectUI[SubjectNumber.RELIGION_ETHIK].setComboBox(sReligionEthikComboBox);
         //Wahlfach4
         subjectUI[SubjectNumber.WAHLFACH4].setSemesterTextFields(markTextField40, markTextField39, markTextField38, markTextField37);
         subjectUI[SubjectNumber.WAHLFACH4].setComboBox(sWahlfach4ComboBox);
