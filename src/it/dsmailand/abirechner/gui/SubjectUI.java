@@ -16,11 +16,9 @@ import javax.swing.*;
  * Subject. Additionally provides methods to highlight certain input fields and
  * a FocusListener to automatically select the text when the user selects a
  * JTextField. Currently, an array of SubjectUI instances is created by
- * mainFrame.userInputPanel and then passed to data.Subjects by AbiRechner. This
- * is kind of complicated.
+ * mainFrame.userInputPanel.
  *
  * @author MasterCarl
- * @TODO complete FocusLost()
  */
 public class SubjectUI implements FocusListener, Serializable {
 
@@ -81,10 +79,11 @@ public class SubjectUI implements FocusListener, Serializable {
      * Highlights a specific InputBox to provide visual feedback
      */
 
-    public void setMarkInputFieldHighlight(JTextField field, HighlightMode hl) {
+    private void setMarkInputFieldHighlight(JTextField field, HighlightMode hl) {
         switch (hl) {
             case none:
                 field.setBackground(Color.WHITE);
+                field.setForeground(Color.BLACK);   //Removes any UsedState highlighting
                 field.setToolTipText(null);
                 break;
             case numError:
@@ -98,34 +97,44 @@ public class SubjectUI implements FocusListener, Serializable {
         }
     }
 
-    public void setMarkInputFieldHighlight(JTextField field, UsedState us) {
+    private void setMarkInputFieldHighlight(JTextField field, UsedState us) {
         usedStateHighlightersSet = true;
         //us: mandatory, eligible, mandLegible, none
         switch (us) {
             case none:
-                field.setBackground(Color.WHITE);
+                field.setForeground(Color.GRAY);
+                //field.setBackground(Color.WHITE);
                 field.setToolTipText("Nicht eingebracht");
                 break;
             case mandatory:
-                //field.setBackground(new Color(127, 215, 212));
+                field.setForeground(new Color(30, 144, 255));  //DodgerBlue
                 field.setToolTipText("Pflichtfach");
                 break;
             case eligible:
-                //field.setBackground(new Color(127, 215, 212));
-                field.setToolTipText(null);
+                field.setForeground(new Color(0, 205, 102));    //SpringGreen3
+                field.setToolTipText("Eingebringbar");
                 break;
             case mandLegible:
-                //field.setBackground(new Color(127, 215, 212));
-                field.setToolTipText(null);
+                field.setForeground(new Color(255, 165, 0));  //orange
+                field.setToolTipText("Wahlpflicht");
                 break;
         }
     }
 
+    public void setMarkInputFieldHighlight(int fieldNumber, HighlightMode hl) {
+        setMarkInputFieldHighlight(semesterMarkInputField[fieldNumber], hl);
+    }
+
+    public void setMarkInputFieldHighlight(int fieldNumber, UsedState us) {
+        setMarkInputFieldHighlight(semesterMarkInputField[fieldNumber], us);
+    }
+
+    
     @Override
     public void focusGained(FocusEvent fe) {
         if (usedStateHighlightersSet) {
-            usedStateHighlightersSet = false;
             resetFieldHighlight();
+            usedStateHighlightersSet = false;
         }
         JTextField thisField = (JTextField) fe.getSource();
         thisField.selectAll();
@@ -140,6 +149,8 @@ public class SubjectUI implements FocusListener, Serializable {
             int inputNumber = Integer.parseInt(thisField.getText());
             //System.out.print("Parsed: ");
             //System.out.println(inputNumber);
+
+            //If the user entered a wrong mark, e.g. 16
             if (inputNumber < 0 || inputNumber > 15) {
                 setMarkInputFieldHighlight(thisField, HighlightMode.numError);
             } else {
@@ -147,9 +158,9 @@ public class SubjectUI implements FocusListener, Serializable {
             }
         } catch (NumberFormatException e) {
             if (thisField.getText().equals("")) {
-                setMarkInputFieldHighlight(thisField, HighlightMode.none);
+                setMarkInputFieldHighlight(thisField, HighlightMode.none);              //No input
             } else {
-                setMarkInputFieldHighlight(thisField, HighlightMode.invalidInput);
+                setMarkInputFieldHighlight(thisField, HighlightMode.invalidInput);      //If the input is non-numerical and not empty
             }
         }
 
