@@ -45,6 +45,7 @@ public class Listeners {
         public void actionPerformed(ActionEvent ae) {
             //Get the latest input
             mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
+            mainClass.mainFrame.choicePanel3.readInputToData(mainClass.data);
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();

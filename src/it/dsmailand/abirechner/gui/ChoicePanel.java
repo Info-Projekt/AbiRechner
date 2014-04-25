@@ -4,17 +4,27 @@
  */
 package it.dsmailand.abirechner.gui;
 
+import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.subjects.Subject;
+import java.util.NoSuchElementException;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Luca13
  */
 public class ChoicePanel extends javax.swing.JPanel {
 
+    private JComboBox[] boxes = new JComboBox[4];
     /**
      * Creates new form ChoicePanel
      */
     public ChoicePanel() {
         initComponents();
+        boxes[0]=jComboBox1;
+        boxes[1]=jComboBox2;
+        boxes[2]=jComboBox3;
+        boxes[3]=jComboBox4;
     }
 
     /**
@@ -83,4 +93,23 @@ public class ChoicePanel extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    public void readInputToData(Data data) {
+        data.resetChoices();
+        for(int i = 0; i<4; i++)    {
+            JComboBox thisBox = boxes[i];
+            String selectedSubject = (String) thisBox.getSelectedItem();
+            try{
+                Subject thisSubject = data.findSubject(selectedSubject);
+                if(i<3) {
+                    thisSubject.writtenExamSubject = true;
+                } else {
+                    thisSubject.oralExamSubject = true;
+                }
+            }
+            catch(NoSuchElementException e) {
+                System.err.println("NoSuchElementException: Subject \"" + selectedSubject + "\" not found.");
+            }
+        }
+    }
 }

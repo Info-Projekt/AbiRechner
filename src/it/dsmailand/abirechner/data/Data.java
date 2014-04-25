@@ -1,9 +1,9 @@
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.gui.SubjectUI;
 import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
+import java.util.NoSuchElementException;
 
 /**
  * Contains all the subject data, organized in Subject objects. Serializable
@@ -97,6 +97,21 @@ public class Data implements Serializable {
                 thisSemester.usedState=Semester.UsedState.none;
             }  
         }
+    }
+    public void resetChoices() {
+        for(Subject thisSubject:subjects)    {
+            thisSubject.writtenExamSubject = false;
+            thisSubject.oralExamSubject = false;
+        }
+    }
+    
+    public Subject findSubject(String selectedItem) throws NoSuchElementException{
+        for (Subject thisSubject: subjects) {
+            if(thisSubject.name.equals(selectedItem))   {
+                return thisSubject;
+            }
+        }
+    throw new NoSuchElementException();
     }
 } 
 

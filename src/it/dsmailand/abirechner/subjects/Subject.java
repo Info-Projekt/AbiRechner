@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public class Subject implements Serializable{
 
-    transient public String name;        //TODO: add "name" to various subclasses
+    transient public String name;
     transient int area; //can be 1, 2 or 3        needed?
     transient public boolean foreignLang;
     transient public boolean naturalScience;

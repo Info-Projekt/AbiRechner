@@ -1,15 +1,17 @@
 Priorities:
 The two last labels in the OutputPanel should actually display something
-integrate choicePanel
 See if Subject.foreignLang is needed 
     ^ definitely needed by Optimizer, not working atm
 Debug Optimizer
+Check written/oral exam distinction in readInputToData();
+Assign names to Subjects
 
 Secondary:
 Do something with the exceptions thrown in Data (mark below 1,0?)
 Populate the ChoicePanel according to chosen subjects
 Jump to the next TextField when a valid number is entered
 Think about the choice of colors in SubjectUI.setMarkInputFieldHighlight
+Output saved choices to outputPanel
 
 
 If we got nothing better to do:
