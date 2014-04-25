@@ -1,6 +1,7 @@
 package it.dsmailand.abirechner.data;
 
 import it.dsmailand.abirechner.gui.SubjectUI;
+import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
 
@@ -18,6 +19,8 @@ public class Data implements Serializable {
     
     private static final long serialVersionUID = 2; //Class version ID used to check compatibility with serialized data
 
+
+
     //<editor-fold defaultstate="collapsed" desc="Exception declarations">
     public static class YouFailException extends Exception {
         public YouFailException() {
@@ -32,7 +35,7 @@ public class Data implements Serializable {
     
     public int finalPoints;
     
-    public void setSUI(SubjectUI[] sUI) {
+    public Data() {
         //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
             subjects[i] = new Subject();
@@ -86,6 +89,14 @@ public class Data implements Serializable {
         else if(finalPoints<901){return "1,0";}
         else //throw new WeFuckedUpException();
         {return "<1,0";}
+    }
+    
+    public void resetUsedStates() {
+        for(Subject thisSubject:subjects)    {
+            for(Semester thisSemester:thisSubject.semesters)  {
+                thisSemester.usedState=Semester.UsedState.none;
+            }  
+        }
     }
 } 
 

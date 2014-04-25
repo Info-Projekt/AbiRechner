@@ -32,7 +32,7 @@ public class Optimizer {
     }
     
     public void optimize(){
-        resetUsedStates();
+        myData.resetUsedStates();
         wESubjects = OptSearcher.searchForWESubjects(myData);
         oESubject = OptSearcher.searchForOESubject(myData);
         int[][]bothArrays = OptSearcher.searchForNatScAndFLangSubjects(myData);
@@ -224,11 +224,4 @@ public class Optimizer {
         }
     }
 
-    private void resetUsedStates() {
-        for(Subject thisSubject:myData.subjects)    {
-          for(Semester thisSemester:thisSubject.semesters)  {
-              thisSemester.usedState=UsedState.none;
-          }  
-        }
-    }
 }

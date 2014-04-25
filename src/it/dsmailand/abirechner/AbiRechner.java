@@ -37,7 +37,6 @@ public class AbiRechner {
         mainFrame.setVisible(true);
 
         data = new Data();
-        data.setSUI(mainFrame.userInputPanel.subjectUI);
         
         listeners = new Listeners(this);
 
