@@ -38,7 +38,7 @@ public class Data implements Serializable {
     public Data() {
         //initializes the subject objects
         for (int i = 0; i < subjects.length; i++) {
-            subjects[i] = new Subject();
+            subjects[i] = new Subject(i);
         }
     }
 
@@ -105,13 +105,5 @@ public class Data implements Serializable {
         }
     }
     
-    public Subject findSubject(String selectedItem) throws NoSuchElementException{
-        for (Subject thisSubject: subjects) {
-            if(thisSubject.name.equals(selectedItem))   {
-                return thisSubject;
-            }
-        }
-    throw new NoSuchElementException();
-    }
 } 
 

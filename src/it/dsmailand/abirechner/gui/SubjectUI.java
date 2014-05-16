@@ -5,6 +5,7 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.subjects.Semester.UsedState;
+import it.dsmailand.abirechner.subjects.SubjectNumber;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -22,15 +23,25 @@ import javax.swing.*;
  */
 public class SubjectUI implements FocusListener, Serializable {
 
+    int index;
     JTextField[] semesterMarkInputField = new JTextField[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
     public boolean choice;
     private boolean usedStateHighlightersSet = false;
 
+    public SubjectUI(int index) {
+        this.index = index;
+    }
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
         choice = true;
+        
+        //Populate the list of available choices according to SubjectNumber.name[index]
+        comboBox.removeAllItems();
+        for(String thisName:SubjectNumber.name[index])  {
+            comboBox.addItem(thisName);
+        }
     }
 
     public int getComboBoxState() {
@@ -47,6 +58,7 @@ public class SubjectUI implements FocusListener, Serializable {
 
     public void setDisplayNameLabel(JLabel displayNameLabel) {
         this.displayNameLabel = displayNameLabel;
+        displayNameLabel.setText(SubjectNumber.name[index][0]);
         choice = false;
     }
 

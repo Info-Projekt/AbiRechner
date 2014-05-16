@@ -19,7 +19,7 @@ public class UserInputPanel extends javax.swing.JPanel {
     public UserInputPanel() {
         this.subjectUI = new SubjectUI[12];
         for (int i = 0; i < subjectUI.length; i++) {
-            subjectUI[i] = new SubjectUI();
+            subjectUI[i] = new SubjectUI(i);
         }
         initComponents();
         addReferences();
@@ -653,7 +653,7 @@ public class UserInputPanel extends javax.swing.JPanel {
 
         sReligionEthikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Religion", "Ethik" }));
 
-        sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Englisch", "Französisch", "Latein", "Biologie", "Physik", "Chemie" }));
+        sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Platzhalter" }));
         sWahlfach4ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sWahlfach4ComboBoxActionPerformed(evt);
@@ -895,7 +895,7 @@ public class UserInputPanel extends javax.swing.JPanel {
                     .addComponent(markTextField47, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(markTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sWahlfach3_2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

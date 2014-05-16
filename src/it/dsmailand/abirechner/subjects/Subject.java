@@ -9,7 +9,8 @@ import java.io.Serializable;
  */
 public class Subject implements Serializable{
 
-    transient public String name;
+    int subjectIndex;
+    transient public String name;   //needed?
     transient int area; //can be 1, 2 or 3        needed?
     transient public boolean foreignLang;
     transient public boolean naturalScience;
@@ -18,23 +19,24 @@ public class Subject implements Serializable{
     //transient SubjectUI guiReference;     //Object that contains referneces to the GUI/Swing elements concerning the subject
     
     //Variables that depend on user input
-    public int wahlfachType;   //equals the selected index of the ComboBox
+    public int wahlfachType = 0;   //equals the selected index of the ComboBox, zero if non-negotiable
     public Semester[] semesters = new Semester[4];
     public boolean writtenExamSubject;
     public boolean oralExamSubject;
+    public int abinote;
     
-    public Subject() {
+    public Subject(int subjectIndex) {
         for(int i = 0;i<4;i++)  {
             semesters[i] = new Semester();
         }
-        foreignLang = true;
+        this.subjectIndex = subjectIndex;
+        //foreignLang = true;
     }
 
     public Subject(String name, boolean langAndNotScience) {
         for(int i = 0;i<4;i++)  {
             semesters[i] = new Semester();
         }
-        this.name = name;
         foreignLang = langAndNotScience;
         naturalScience = !langAndNotScience;
     }
@@ -53,4 +55,8 @@ public class Subject implements Serializable{
         return returnMarks;
     }
 
+    @Override
+    public String toString()    {
+        return SubjectNumber.name[subjectIndex][wahlfachType];
+    }
 }
