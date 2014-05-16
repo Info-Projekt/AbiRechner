@@ -7,11 +7,9 @@ package it.dsmailand.abirechner;
 import it.dsmailand.abirechner.data.FileIO;
 import it.dsmailand.abirechner.data.Optimizer;
 import it.dsmailand.abirechner.gui.SubjectUI;
-import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -45,7 +43,7 @@ public class Listeners {
         public void actionPerformed(ActionEvent ae) {
             //Get the latest input
             mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
-            mainClass.mainFrame.choicePanel3.readInputToData(mainClass.data);
+            mainClass.mainFrame.choicePanel.readInputToData(mainClass.data);
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();

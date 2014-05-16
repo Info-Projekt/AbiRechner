@@ -38,6 +38,8 @@ public class AbiRechner {
 
         data = new Data();
         
+        mainFrame.choicePanel.assignSubjects(data.subjects);
+        
         listeners = new Listeners(this);
 
         //Add Listeners to buttons
