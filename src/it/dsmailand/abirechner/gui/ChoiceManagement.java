@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
 /**
  *
  * @author Carl
+ * @deprecated Functional, but no longer used because it added no usability benefit.
  */
 public class ChoiceManagement {
 

@@ -4,7 +4,6 @@
  */
 package it.dsmailand.abirechner.data;
 
-import it.dsmailand.abirechner.data.Data;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
