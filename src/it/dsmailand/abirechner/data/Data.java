@@ -3,6 +3,7 @@ package it.dsmailand.abirechner.data;
 import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.io.*;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -42,10 +43,9 @@ public class Data implements Serializable {
         }
     }
 
-    /*
-     * Routine that updates the contents of data, to be called before every calculation
-     * @TODO add other stuff to be fetched
-     */
+    public Subject[] getWahlfaecher() {
+      return Arrays.copyOfRange(subjects, 9, 12);
+    }
 
     /**
      * Returns the final mark. Exception if called before Optimizer.optimize

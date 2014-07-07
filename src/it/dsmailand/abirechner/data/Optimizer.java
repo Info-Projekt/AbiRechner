@@ -7,7 +7,6 @@
 package it.dsmailand.abirechner.data;
 
 import it.dsmailand.abirechner.subjects.Semester;
-import it.dsmailand.abirechner.subjects.Semester.UsedState;
 import it.dsmailand.abirechner.subjects.Subject;
 import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
 
@@ -19,10 +18,10 @@ import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
  */
 public class Optimizer {
     Data myData;
-    int[] wESubjects;
-    int oESubject;
-    int[] natScSubjects;
-    int[] fLangSubjects;
+    Subject[] wESubjects;
+    Subject oESubject;
+    Subject[] natScSubjects;
+    Subject[] fLangSubjects;
     int aScore = 0;
     int cScore = 0;
     int bScore = 0;
@@ -33,11 +32,10 @@ public class Optimizer {
     
     public void optimize(){
         myData.resetUsedStates();
-        wESubjects = OptSearcher.searchForWESubjects(myData);
-        oESubject = OptSearcher.searchForOESubject(myData);
-        int[][]bothArrays = OptSearcher.searchForNatScAndFLangSubjects(myData);
-        natScSubjects = bothArrays[0];
-        fLangSubjects = bothArrays[1];
+        wESubjects = OptSearcher.findWESubjects(myData);
+        oESubject = OptSearcher.findOESubject(myData);
+        natScSubjects = OptSearcher.findNatScSubjects(myData);
+        fLangSubjects = OptSearcher.findFLangSubjects(myData);
         createAScore();
         createCScore();
         // oSector2 has to be called AFTER oGeschichte
@@ -54,11 +52,10 @@ public class Optimizer {
                     
     private void createAScore(){
         //A: (12.1, 12.2, 13.1 of all wESubjects) * 2
-        for(int arrayField=0; arrayField<3; arrayField++){
-            int subjectNo = wESubjects[arrayField];
+        for(Subject thisWESubject:wESubjects){
             for(int hj=0; hj<3; hj++){
-                aScore += myData.subjects[subjectNo].semesters[hj].mark;
-                myData.subjects[subjectNo].semesters[hj].usedState = Semester.UsedState.mandatory;
+                aScore += thisWESubject.semesters[hj].mark;
+                thisWESubject.semesters[hj].usedState = Semester.UsedState.mandatory;
             }
         }
         aScore = 2 * aScore;
@@ -67,28 +64,27 @@ public class Optimizer {
     private void createCScore(){
         //C: (13.2 + 4*examScore) of all wESubjects and oESubject
         //13.2
-        for(int arrayField=0; arrayField<3; arrayField++){
-            int subjectNo = wESubjects[arrayField];
-            cScore += myData.subjects[subjectNo].semesters[3].mark;
-            myData.subjects[subjectNo].semesters[3].usedState = Semester.UsedState.mandatory;
+        for(Subject thisWESubject:wESubjects){
+            cScore += thisWESubject.semesters[3].mark;
+            thisWESubject.semesters[3].usedState = Semester.UsedState.mandatory;
         }
-        cScore += myData.subjects[oESubject].semesters[3].mark;
-        myData.subjects[oESubject].semesters[3].usedState = Semester.UsedState.mandatory;
+        cScore += oESubject.semesters[3].mark;
+        oESubject.semesters[3].usedState = Semester.UsedState.mandatory;
         
         //examScore TODO
     }
     
     private void optimizeMathe(){
         //Mathe: 4 hjs mandatory
-        if(myData.subjects[2].writtenExamSubject==false){
+        if(myData.subjects[MATHE].writtenExamSubject==false){
             int hjsToAdd;
-            if(myData.subjects[2].oralExamSubject==true){
+            if(myData.subjects[MATHE].oralExamSubject==true){
                 hjsToAdd = 3; //since 13.2 is already in C
             } else {hjsToAdd = 4;}
             
             for(int hj=0; hj<hjsToAdd; hj++){
-                bScore += myData.subjects[2].semesters[hj].mark;
-                myData.subjects[2].semesters[hj].usedState = Semester.UsedState.mandLegible;
+                bScore += myData.subjects[MATHE].semesters[hj].mark;
+                myData.subjects[MATHE].semesters[hj].usedState = Semester.UsedState.mandLegible;
             }
         }
     }
@@ -98,15 +94,15 @@ public class Optimizer {
         // If wESubect, quota already filled
         if(myData.subjects[GESCHICHTE].writtenExamSubject==false){
             int hjsToAdd;
-            int bestHj;
+            Semester bestSemester;
             if(myData.subjects[GESCHICHTE].oralExamSubject==true){
                 hjsToAdd = 1; //since 13.2 is already in C
             } else {hjsToAdd = 2;}
             
             for (int i=0; i<hjsToAdd; i++){
-                bestHj = OptSearcher.getBestSubjectHj(myData, GESCHICHTE);
-                bScore += myData.subjects[GESCHICHTE].semesters[bestHj].mark;
-                myData.subjects[GESCHICHTE].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+                bestSemester = OptSearcher.findBestSubjectSemester(myData.subjects[GESCHICHTE]);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.mandLegible;
             }
         }
     }
@@ -114,15 +110,15 @@ public class Optimizer {
     private void optimizeKunstMusik(){
         // Kunst/Musik: 3 hjs mandatory
         int hjsToAdd;
-        int bestHj;
+        Semester bestSemester;
         if(myData.subjects[6].oralExamSubject==true){
             hjsToAdd = 2; //since 13.2 is already in C
         } else {hjsToAdd = 3;}
 
         for (int i=0; i<hjsToAdd; i++){
-            bestHj = OptSearcher.getBestSubjectHj(myData, 6);
-            bScore += myData.subjects[6].semesters[bestHj].mark;
-            myData.subjects[6].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+            bestSemester = OptSearcher.findBestSubjectSemester(myData.subjects[KUNST_MUSIK]);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.mandLegible;
         }
     }
     
@@ -130,44 +126,48 @@ public class Optimizer {
         // Sector 2: 2 more hjs out of GE, FI, POWI, RE/ET
         // TODO (maybe): catch Exception (shouldn't actually be possible)
         if(myData.subjects[3].writtenExamSubject) return; // Hjs already filled
-        int[] subjectNo = new int[]{3,4,7,8};
+        Subject[] sec2Subjects = new Subject[]{myData.subjects[GESCHICHTE],myData.subjects[FILOSOFIA],myData.subjects[PO_WI],myData.subjects[RELIGION_ETHIK]};
         int hjsToAdd = 2; //default
         for(int i=1; i<4; i++){
             if (myData.subjects[i].oralExamSubject) hjsToAdd = 1; //13.2 already in C
         }
         for(int i=0; i<hjsToAdd; i++){
-            int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, subjectNo);
-            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
-            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+            Subject bestSubject = OptSearcher.findSubjectOfBestHj(myData, sec2Subjects);
+            Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.mandLegible;
         }
     }
     
+    /**
+     * Please review
+     * @param natSc 
+     */
     private void optimizeFLangOrNatSc(boolean natSc){
         // ForeignLanguages: 4 hjs mandatory
         // NaturalSciences: 4 hjs mandatory
         // Process is identical
-        int[] subjectArray;
+        Subject[] subjectArray;
 
         if(natSc){subjectArray = natScSubjects;
         } else{subjectArray = fLangSubjects;}
 
         int hjsToAdd = 4; // 4 is default
-        for(int subject=0; subject<subjectArray.length; subject++){
-            if(myData.subjects[subjectArray[subject]].writtenExamSubject){
+        for(Subject thisSubject:subjectArray){
+            if(thisSubject.writtenExamSubject){
                 hjsToAdd = 0; // A and C already have 4hjs
                 break;
             }
-            if(myData.subjects[subjectArray[subject]].oralExamSubject){
+            if(thisSubject.oralExamSubject){
                 hjsToAdd = 3; // C already has 1 hj
             }
         }
 
         for(int i=0; i<hjsToAdd; i++){
-            int bestSubject = OptSearcher.getSubjectOfBestHj(myData, subjectArray);
-            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubject);
-            bScore += myData.subjects[bestSubject].semesters[bestHj].mark;
-            myData.subjects[bestSubject].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+            Subject bestSubject = OptSearcher.findSubjectOfBestHj(myData, subjectArray);
+            Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.mandLegible;
         }
         
     }
@@ -175,52 +175,51 @@ public class Optimizer {
     private void optimizeFLangAndNatSc(){
         // FLang and NatSc together: 14
         // Already have at least 8 from step before
-        int hjsToAdd = 14;
+        int hjsRemaining; 
+        final int HJS_TO_ADD= 14;
         int fLangAlreadyUsedHjs = 0;
         int natScAlreadyUsedHjs = 0;
         
         // wESubject means 4 hjs already filled
         // oESubject means 1 hj already filled
-        for(int subjectNo: fLangSubjects){
-            if (myData.subjects[subjectNo].writtenExamSubject){
+        for(Subject thisSubject: fLangSubjects){
+            if (thisSubject.writtenExamSubject){
                 fLangAlreadyUsedHjs += 4;
-            } else if (subjectNo==oESubject) fLangAlreadyUsedHjs ++;
+            } else if (thisSubject==oESubject) fLangAlreadyUsedHjs ++;
         }
         
-        for(int subjectNo: natScSubjects){
-            if (myData.subjects[subjectNo].writtenExamSubject){
+        for(Subject thisSubject: natScSubjects){
+            if (thisSubject.writtenExamSubject){
                 natScAlreadyUsedHjs += 4;
-            } else if (subjectNo==oESubject) natScAlreadyUsedHjs ++;
+            } else if (thisSubject==oESubject) natScAlreadyUsedHjs ++;
         }
         
         // At least 4 FLangHjs and 4 NatScHjs already filled in oFLangOrNatSc
         if(fLangAlreadyUsedHjs<4) fLangAlreadyUsedHjs = 4;
         if(natScAlreadyUsedHjs<4) natScAlreadyUsedHjs = 4;
         
-        hjsToAdd = hjsToAdd - fLangAlreadyUsedHjs - natScAlreadyUsedHjs;
+        hjsRemaining = HJS_TO_ADD - fLangAlreadyUsedHjs - natScAlreadyUsedHjs;
         
         // Combines NatSc and FLang SubjectNo-arrays into one
-        int[] natScAndFLang = new int[natScSubjects.length + fLangSubjects.length];
-        System.arraycopy(natScSubjects, 0, natScAndFLang, 0, natScSubjects.length);
-        System.arraycopy(fLangSubjects, 0, natScAndFLang, natScSubjects.length, fLangSubjects.length);
+        Subject[] natScAndFLangSubjects = new Subject[natScSubjects.length + fLangSubjects.length];
+        System.arraycopy(natScSubjects, 0, natScAndFLangSubjects, 0, natScSubjects.length);
+        System.arraycopy(fLangSubjects, 0, natScAndFLangSubjects, natScSubjects.length, fLangSubjects.length);
         
-        for(int i=0; i<hjsToAdd; i++){
-            int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, natScAndFLang);
-            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
-            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.mandLegible;
+        for(int i=0; i<hjsRemaining; i++){
+            Subject bestSubject = OptSearcher.findSubjectOfBestHj(myData, natScAndFLangSubjects);
+            Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.mandLegible;
         }
     }
     
     private void fillUp(){
         int hjsToAdd = 35 - OptSearcher.countAlreadyUsed(myData); //ought to be >= 29
-        int[] allSubjects = new int[12];
-        for(int i=0; i<12; i++){allSubjects[i] = i;}
         for(int i=0; i<hjsToAdd; i++){
-            int bestSubjectNo = OptSearcher.getSubjectOfBestHj(myData, allSubjects);
-            int bestHj = OptSearcher.getBestSubjectHj(myData, bestSubjectNo);
-            bScore += myData.subjects[bestSubjectNo].semesters[bestHj].mark;
-            myData.subjects[bestSubjectNo].semesters[bestHj].usedState = Semester.UsedState.eligible;
+            Subject bestSubject = OptSearcher.findSubjectOfBestHj(myData, myData.subjects);
+            Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
+            bScore += bestSemester.mark;
+            bestSemester.usedState = Semester.UsedState.eligible;
         }
     }
 

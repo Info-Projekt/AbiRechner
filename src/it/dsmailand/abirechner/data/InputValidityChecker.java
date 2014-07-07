@@ -21,8 +21,8 @@ public class InputValidityChecker {
   
     public void checkInputData(Data data){
         try {
-            checkForWESubjects(data);
-            checkForOESubject(data);
+            getNumberOfWESubjects(data);
+            getNumberOfOESubjects(data);
         } catch (WeFuckedUpException ex) {
             Logger.getLogger(InputValidityChecker.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,6 +39,7 @@ public class InputValidityChecker {
     * Converts markStrings into ints if possible
     * Checks if marks are ints from 0 to 15
     * @param markString String from SubjectUI
+    * @deprecated Checks are already performed in gui package
     */
     public static int checkMarks(String markString) throws NumberFormatException{
         int mark = Integer.parseInt(markString);
@@ -46,7 +47,8 @@ public class InputValidityChecker {
         return mark;
     }
     
-    public static void checkForWESubjects(Data data) throws WeFuckedUpException{
+
+    public static void getNumberOfWESubjects(Data data) throws WeFuckedUpException{
         int wESubjects = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             if (data.subjects[subjectNo].writtenExamSubject==true){
@@ -56,7 +58,7 @@ public class InputValidityChecker {
         }
     }
     
-    public static void checkForOESubject(Data data) throws WeFuckedUpException{
+    public static void getNumberOfOESubjects(Data data) throws WeFuckedUpException{
         int oESubjects = 0;
         for(int subjectNo=0; subjectNo<12; subjectNo++){
             if (data.subjects[subjectNo].oralExamSubject==true){

@@ -7,6 +7,7 @@ Check written/oral exam distinction in readInputToData();
 Filter A-Level subjects in ChoicePanel according to eligibility
 Abort the calculation if the input is not correct
 Fix ChoicePanel interaction with Data (saving/loading)
+Review Optimizer.optimizeFLangOrNatSc
 
 Secondary:
 Add a tooltip to the OutputPanel.scoreLabel to show the composition of the score (GK, LK, ABI)
