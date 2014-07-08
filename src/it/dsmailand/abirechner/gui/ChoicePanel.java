@@ -6,6 +6,8 @@ package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.subjects.Subject;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -16,7 +18,8 @@ import javax.swing.JTextField;
  */
 public class ChoicePanel extends javax.swing.JPanel {
 
-    private JComboBox<Subject>[] boxes = new JComboBox[4];
+    //private JComboBox<Subject>[] examComboBoxes = new JComboBox<Subject>[4];
+    ArrayList<JComboBox<Subject>> examComboBoxes = new ArrayList<>();
     private JTextField[] markInputField = new JTextField[4];
 
     /**
@@ -24,10 +27,10 @@ public class ChoicePanel extends javax.swing.JPanel {
      */
     public ChoicePanel() {
         initComponents();
-        boxes[0] = jComboBox1;
-        boxes[1] = jComboBox2;
-        boxes[2] = jComboBox3;
-        boxes[3] = jComboBox4;
+        examComboBoxes.add(0, jComboBox1);
+        examComboBoxes.add(1, jComboBox2);
+        examComboBoxes.add(2, jComboBox3);
+        examComboBoxes.add(3, jComboBox4);
         
         markInputField[0] = markTextField1;
         markInputField[1] = markTextField2;
@@ -236,7 +239,7 @@ public class ChoicePanel extends javax.swing.JPanel {
     public void readInputToData(Data data) {
         data.resetChoices();
         for (int i = 0; i < 4; i++) {
-            JComboBox thisBox = boxes[i];
+            JComboBox thisBox = examComboBoxes.get(i);
             Subject selectedSubject = (Subject) thisBox.getSelectedItem();
             selectedSubject.abinote = Integer.parseInt(markInputField[i].getText());
             if (i < 3) {
@@ -248,11 +251,11 @@ public class ChoicePanel extends javax.swing.JPanel {
     }
 
     public void assignSubjects(Subject[] subjects) {
-        boxes[0].addItem(subjects[0]);  //Deutsch
+        examComboBoxes.get(0).addItem(subjects[0]);  //Deutsch
         
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < subjects.length; j++) {
-                boxes[i].addItem(subjects[j]);
+                examComboBoxes.get(i).addItem(subjects[j]);
             }
         }
     }
