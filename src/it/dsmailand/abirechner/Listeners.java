@@ -47,7 +47,7 @@ public class Listeners {
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();
-            mainClass.mainFrame.outputPanel1.setOutput(mainClass.data.finalPoints, mainClass.data.createAbiMark());
+            mainClass.mainFrame.outputPanel1.setOutput(mainClass.data.finalPoints, mainClass.data.getMark(), mainClass.data.getScoreDiff());
         }
 
     };

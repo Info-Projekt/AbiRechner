@@ -46,10 +46,43 @@ public class Data implements Serializable {
     public Subject[] getWahlfaecher() {
       return Arrays.copyOfRange(subjects, 9, 12);
     }
+    
+    private static int calculateMarkTier(int finalPoints){
+        if(finalPoints>=LBARRIER[LBARRIER.length-1]) return LBARRIER.length-1;
+        for(int i=-1; i<LBARRIER.length; i++)   {
+            if(finalPoints<LBARRIER[i+1])   return i;
+        }
+        throw new UnsupportedOperationException("Reached unreachable statement.");
+    }
 
+    static final int[] LBARRIER = { 300, 301, 319, 337, 355, 373, 391, 409, 427, 445,
+                                    463, 481, 499, 517, 535, 553, 571, 589, 607, 625,
+                                    643, 661, 679, 697, 715, 733, 751, 769, 787, 805,
+                                    823, 901};
+    static final String[] RESULT_STRING = {  "4,0", "3,9", "3,8", "3,7", "3,6",
+                                            "3,5", "3,4", "3,3", "3,2", "3,1",
+                                            "3,0", "2,9", "2,8", "2,7", "2,6",
+                                            "2,5", "2,4", "2,3", "2,2", "2,1",
+                                            "2,0", "1,9", "1,8", "1,7", "1,6",
+                                            "1,5", "1,4", "1,3", "1,2", "1,1",
+                                            "1,0", "<1,0"};
+    
+    public String getMark()   {
+        int markTier = calculateMarkTier(finalPoints);
+        if(markTier==-1) return "nicht bestanden";
+        return RESULT_STRING[markTier];
+    }
+    
+    public int[] getScoreDiff() {
+        int markTier = calculateMarkTier(finalPoints);
+        int better = LBARRIER[markTier+1] - finalPoints;
+        int worse = finalPoints - LBARRIER[markTier];
+        return new int[]{better, worse};
+    }
     /**
      * Returns the final mark. Exception if called before Optimizer.optimize
      * @return String with AbiMark in the format "X,X"
+     * @deprecated Replaced by getMark(), which is based on arrays
      * @throws it.dsmailand.abirechner.data.Data.YouFailException
      * @throws it.dsmailand.abirechner.data.Data.WeFuckedUpException
      */
@@ -87,7 +120,7 @@ public class Data implements Serializable {
         else if(finalPoints<805){return "1,2";}
         else if(finalPoints<823){return "1,1";}
         else if(finalPoints<901){return "1,0";}
-        else //throw new WeFuckedUpException();
+         //else throw new WeFuckedUpException();
         {return "<1,0";}
     }
     

@@ -17,9 +17,11 @@ public class OutputPanel extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setOutput(int score, String finalMark) {
+    public void setOutput(int score, String finalMark, int[] diff) {
         scoreLabel.setText(String.valueOf(score));
         finalMarkLabel.setText(finalMark);
+        nextBetterLabel.setText(String.valueOf(diff[0]));
+        nextWorseLabel.setText(String.valueOf(diff[1]));
     }
     /**
      * This method is called from within the constructor to initialize the form.
