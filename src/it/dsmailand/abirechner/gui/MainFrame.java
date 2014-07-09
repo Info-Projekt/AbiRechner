@@ -5,12 +5,17 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.gui.ChoicePanel.IllegalChoicesException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Carl
  */
 public class MainFrame extends javax.swing.JFrame {
+
+    private static final Logger logger = Logger.getLogger(MainFrame.class.getName());
 
     /**
      * Creates new form MainFrame
@@ -121,7 +126,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void calculateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_calculateButtonActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -170,12 +175,19 @@ public class MainFrame extends javax.swing.JFrame {
         choicePanel.updateOutput(data);
     }
 
-    public void readInputToData(Data data) {
-        //Read marks and choices for choiceSubjects accessible from SubjectUI
-        for (int i = 0; i < data.subjects.length; i++) {
-            userInputPanel.subjectUI[i].readInput(data.subjects[i]);
+    public boolean readInputToData(Data data) {
+        try {
+            //Read marks and choices for choiceSubjects accessible from SubjectUI
+            for (int i = 0; i < data.subjects.length; i++) {
+                userInputPanel.subjectUI[i].readInput(data.subjects[i]);
+            }
+            //Read the selection of exam subjects, exam marks in ChoicePanel
+            choicePanel.readInput(data);
+            
+        } catch (NumberFormatException | IllegalChoicesException ex) {
+            logger.log(Level.FINE, null, ex);
+            return false;
         }
-        //Read the selection of exam subjects, exam marks in ChoicePanel
-        choicePanel.readInput(data);
+        return true;
     }
 }

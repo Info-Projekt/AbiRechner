@@ -5,6 +5,7 @@
 package it.dsmailand.abirechner;
 
 import it.dsmailand.abirechner.data.FileIO;
+import it.dsmailand.abirechner.data.InputValidityChecker;
 import it.dsmailand.abirechner.data.Optimizer;
 import it.dsmailand.abirechner.gui.SubjectUI;
 import java.awt.event.ActionEvent;
@@ -42,8 +43,8 @@ public class Listeners {
         @Override
         public void actionPerformed(ActionEvent ae) {
             //Get the latest input
-            mainClass.mainFrame.readInputToData(mainClass.data);
-            mainClass.mainFrame.choicePanel.readInput(mainClass.data);
+            if(!mainClass.mainFrame.readInputToData(mainClass.data))    return;
+            if(!InputValidityChecker.checkData(mainClass.data)) return;
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();

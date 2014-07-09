@@ -7,6 +7,9 @@ package it.dsmailand.abirechner.gui;
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.data.OptSearcher;
 import it.dsmailand.abirechner.subjects.Subject;
+import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -17,22 +20,24 @@ import javax.swing.JTextField;
  *
  * @author Luca13
  */
-public class ChoicePanel extends javax.swing.JPanel {
+public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
 
     //private JComboBox<Subject>[] examComboBoxes = new JComboBox<Subject>[4];
     ArrayList<JComboBox<Subject>> examComboBoxes = new ArrayList<>();
     private JTextField[] markInputField = new JTextField[4];
+    Color defaultComboBoxColor;
 
     /**
      * Creates new form ChoicePanel
      */
     public ChoicePanel() {
         initComponents();
+        defaultComboBoxColor = jComboBox1.getBackground();
         examComboBoxes.add(0, jComboBox1);
         examComboBoxes.add(1, jComboBox2);
         examComboBoxes.add(2, jComboBox3);
         examComboBoxes.add(3, jComboBox4);
-        
+
         markInputField[0] = markTextField1;
         markInputField[1] = markTextField2;
         markInputField[2] = markTextField3;
@@ -237,11 +242,20 @@ public class ChoicePanel extends javax.swing.JPanel {
     javax.swing.JTextField markTextField4;
     // End of variables declaration//GEN-END:variables
 
-    public void readInput(Data data) {
+    public void readInput(Data data) throws NumberFormatException, IllegalChoicesException {
         data.resetChoices();
         for (int i = 0; i < 4; i++) {
             JComboBox thisBox = examComboBoxes.get(i);
             Subject selectedSubject = (Subject) thisBox.getSelectedItem();
+            
+            resetBackground(thisBox);
+            for (int j = 0; j < i; j++) {
+                if (examComboBoxes.get(j).getSelectedItem().equals(selectedSubject)) {
+                    highlightBoxTemp(examComboBoxes.get(j));
+                    throw new IllegalChoicesException();
+                }
+
+            }
             selectedSubject.abinote = Integer.parseInt(markInputField[i].getText());
             if (i < 3) {
                 selectedSubject.writtenExamSubject = true;
@@ -250,28 +264,66 @@ public class ChoicePanel extends javax.swing.JPanel {
             }
         }
     }
-    
+
     public void updateOutput(Data data) {
         Subject[] writtenExamSubjects = OptSearcher.findWESubjects(data);
         Subject oralExamSubject = OptSearcher.findOESubject(data);
-        
+
         for (int i = 0; i < 4; i++) {
             //Select the wESubjects in the first three cases, then the oESubject
-            Subject thisSubject = (i<3) ? writtenExamSubjects[i] : oralExamSubject;
-            
+            Subject thisSubject = (i < 3) ? writtenExamSubjects[i] : oralExamSubject;
+
             JComboBox thisBox = examComboBoxes.get(i);
             thisBox.setSelectedItem(thisSubject);
+            resetBackground(thisBox);
             markInputField[i].setText(String.valueOf(thisSubject.abinote));
         }
     }
 
     public void assignSubjects(Subject[] subjects) {
         examComboBoxes.get(0).addItem(subjects[0]);  //Deutsch
-        
+
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < subjects.length; j++) {
                 examComboBoxes.get(i).addItem(subjects[j]);
             }
+        }
+    }
+
+    private void highlightBoxTemp(JComboBox<Subject> box) {
+        box.setBackground(Color.RED);
+        box.addFocusListener(this);
+    }
+
+    public void focusGained(FocusEvent e) {
+        JComboBox<Subject> source = (JComboBox<Subject>) e.getSource();
+        resetBackground(source);
+    }
+
+    public void focusLost(FocusEvent fe) {
+    }
+
+    private void resetBackground(JComboBox<Subject> source) {
+        source.setBackground(defaultComboBoxColor);
+        source.removeFocusListener(this);
+    }
+
+    public class IllegalChoicesException extends Exception {
+
+        public IllegalChoicesException() {
+            super();
+        }
+
+        public IllegalChoicesException(String message) {
+            super(message);
+        }
+
+        public IllegalChoicesException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public IllegalChoicesException(Throwable cause) {
+            super(cause);
         }
     }
 }
