@@ -18,7 +18,7 @@ public class Data implements Serializable {
 
     public Subject[] subjects = new Subject[12];       //Subject classes that store the information entered by the user
     
-    private static final long serialVersionUID = 2; //Class version ID used to check compatibility with serialized data
+    private static final long serialVersionUID = 3; //Class version ID used to check compatibility with serialized data
 
 
 

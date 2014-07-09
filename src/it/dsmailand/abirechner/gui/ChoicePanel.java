@@ -245,7 +245,7 @@ public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
     public void readInput(Data data) throws NumberFormatException, IllegalChoicesException {
         data.resetChoices();
         for (int i = 0; i < 4; i++) {
-            JComboBox thisBox = examComboBoxes.get(i);
+            JComboBox<Subject> thisBox = examComboBoxes.get(i);
             Subject selectedSubject = (Subject) thisBox.getSelectedItem();
             
             resetBackground(thisBox);
@@ -273,7 +273,7 @@ public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
             //Select the wESubjects in the first three cases, then the oESubject
             Subject thisSubject = (i < 3) ? writtenExamSubjects[i] : oralExamSubject;
 
-            JComboBox thisBox = examComboBoxes.get(i);
+            JComboBox<Subject> thisBox = examComboBoxes.get(i);
             thisBox.setSelectedItem(thisSubject);
             resetBackground(thisBox);
             markInputField[i].setText(String.valueOf(thisSubject.abinote));

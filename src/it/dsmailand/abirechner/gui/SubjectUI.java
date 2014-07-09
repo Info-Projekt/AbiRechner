@@ -42,7 +42,7 @@ public class SubjectUI implements FocusListener, Serializable {
         //Populate the list of available choices according to SubjectNumber.name[index]
         comboBox.removeAllItems();
         for (String thisName : SubjectNumber.name[index]) {
-            comboBox.addItem(thisName);
+            comboBox.addItem(makeObj(thisName));
         }
     }
 
@@ -207,6 +207,10 @@ public class SubjectUI implements FocusListener, Serializable {
             setMarkInputFieldHighlight(semesterMarkInputField[i], HighlightMode.NONE);
         }
     }
+
+    private Object makeObj(final String item)  {
+     return new Object() { public String toString() { return item; } };
+   }
 
     public enum HighlightMode {
 

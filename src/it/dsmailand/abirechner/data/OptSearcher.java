@@ -62,7 +62,9 @@ public class OptSearcher {
             if(thisWahlfach.getSubjectType()==NATURAL_SCIENCE) results.add(thisWahlfach);
         }
         if(results.isEmpty())   throw new NoSuchElementException();
-        return (Subject[]) results.toArray();
+        Subject[] resultsArr = new Subject[results.size()];
+        resultsArr = results.toArray(resultsArr);
+        return resultsArr;
     }
     
         public static Subject[] findFLangSubjects(Data myData)  {

@@ -29,7 +29,7 @@ public class InputValidityChecker {
             logger.log(Level.SEVERE, "Falsche Anzahl an mündlichen Abiturfächern");
             return false;
         }
-        
+        return true;
     }
 
     public void checkOutputData(Data data) {
