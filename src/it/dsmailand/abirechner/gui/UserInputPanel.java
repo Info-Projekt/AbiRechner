@@ -25,27 +25,7 @@ public class UserInputPanel extends javax.swing.JPanel {
         addReferences();
     }
     public SubjectUI[] subjectUI;
-    ChoiceManagement choiceManagement = new ChoiceManagement();
-
-    public void readInputToData(Data data) {
-
-        for (int i = 0; i < data.subjects.length; i++) {
-            data.subjects[i].setMarks(subjectUI[i].getMarks());
-            if (subjectUI[i].choice) {
-                data.subjects[i].wahlfachType = subjectUI[i].getComboBoxState();
-            }
-        }
-
-    }
-
-    public void writeDataToGUI(Data data) {
-        for (int i = 0; i < data.subjects.length; i++) {
-            subjectUI[i].setMarks(data.subjects[i].getMarks());
-            if (subjectUI[i].choice) {
-                subjectUI[i].setComboBoxState(data.subjects[i].wahlfachType);
-            }
-        }
-    }
+    //ChoiceManagement choiceManagement = new ChoiceManagement();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1196,9 +1176,9 @@ public class UserInputPanel extends javax.swing.JPanel {
         subjectUI[SubjectNumber.WAHLFACH3_2].setComboBox(sWahlfach3_2ComboBox);
 
         //Combobox-Management
-        choiceManagement.setComboBoxes(subjectUI[SubjectNumber.WAHLFACH4].comboBox, subjectUI[SubjectNumber.WAHLFACH3_1].comboBox, subjectUI[SubjectNumber.WAHLFACH3_2].comboBox);
-        choiceManagement.initialize();
+        //choiceManagement.setComboBoxes(subjectUI[SubjectNumber.WAHLFACH4].comboBox, subjectUI[SubjectNumber.WAHLFACH3_1].comboBox, subjectUI[SubjectNumber.WAHLFACH3_2].comboBox);
+        //choiceManagement.initialize();
 
-        subjectUI[SubjectNumber.WAHLFACH4].comboBox.addActionListener(choiceManagement.actionPerformed);
+        //subjectUI[SubjectNumber.WAHLFACH4].comboBox.addActionListener(choiceManagement.actionPerformed);
     }
 }

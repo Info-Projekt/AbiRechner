@@ -42,8 +42,8 @@ public class Listeners {
         @Override
         public void actionPerformed(ActionEvent ae) {
             //Get the latest input
-            mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
-            mainClass.mainFrame.choicePanel.readInputToData(mainClass.data);
+            mainClass.mainFrame.readInputToData(mainClass.data);
+            mainClass.mainFrame.choicePanel.readInput(mainClass.data);
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
             mainClass.optimizer.optimize();
@@ -72,7 +72,7 @@ public class Listeners {
                     Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 //Update the data in the GUI
-                mainClass.mainFrame.userInputPanel.writeDataToGUI(mainClass.data);
+                mainClass.mainFrame.writeDataToGUI(mainClass.data);
             }
         }
     };
@@ -110,7 +110,7 @@ public class Listeners {
             System.out.println(mainClass.data.subjects[6].wahlfachType);
 
             //Get the latest input
-            mainClass.mainFrame.userInputPanel.readInputToData(mainClass.data);
+            mainClass.mainFrame.readInputToData(mainClass.data);
             System.out.print("After reading: ");
             System.out.println(mainClass.data.subjects[6].wahlfachType);
             //Save the data
@@ -122,9 +122,7 @@ public class Listeners {
         public void actionPerformed(ActionEvent ae) {
             for (SubjectUI thisSubjectUI : mainClass.mainFrame.userInputPanel.subjectUI) {
                 thisSubjectUI.clearInput();
-                if (thisSubjectUI.choice) {
-                    thisSubjectUI.resetComboBox();
-                }
+                thisSubjectUI.resetComboBox();
             }
         }
 

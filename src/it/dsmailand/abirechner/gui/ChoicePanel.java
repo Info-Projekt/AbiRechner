@@ -5,6 +5,7 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.data.OptSearcher;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -236,7 +237,7 @@ public class ChoicePanel extends javax.swing.JPanel {
     javax.swing.JTextField markTextField4;
     // End of variables declaration//GEN-END:variables
 
-    public void readInputToData(Data data) {
+    public void readInput(Data data) {
         data.resetChoices();
         for (int i = 0; i < 4; i++) {
             JComboBox thisBox = examComboBoxes.get(i);
@@ -247,6 +248,20 @@ public class ChoicePanel extends javax.swing.JPanel {
             } else {
                 selectedSubject.oralExamSubject = true;
             }
+        }
+    }
+    
+    public void updateOutput(Data data) {
+        Subject[] writtenExamSubjects = OptSearcher.findWESubjects(data);
+        Subject oralExamSubject = OptSearcher.findOESubject(data);
+        
+        for (int i = 0; i < 4; i++) {
+            //Select the wESubjects in the first three cases, then the oESubject
+            Subject thisSubject = (i<3) ? writtenExamSubjects[i] : oralExamSubject;
+            
+            JComboBox thisBox = examComboBoxes.get(i);
+            thisBox.setSelectedItem(thisSubject);
+            markInputField[i].setText(String.valueOf(thisSubject.abinote));
         }
     }
 

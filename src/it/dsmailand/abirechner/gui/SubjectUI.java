@@ -5,6 +5,7 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.subjects.Semester.UsedState;
+import it.dsmailand.abirechner.subjects.Subject;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
@@ -27,33 +28,45 @@ public class SubjectUI implements FocusListener, Serializable {
     JTextField[] semesterMarkInputField = new JTextField[4];
     JLabel displayNameLabel;
     JComboBox comboBox;
-    public boolean choice;
+    private boolean choice;
     private boolean usedStateHighlightersSet = false;
 
     public SubjectUI(int index) {
         this.index = index;
     }
+
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
         choice = true;
-        
+
         //Populate the list of available choices according to SubjectNumber.name[index]
         comboBox.removeAllItems();
-        for(String thisName:SubjectNumber.name[index])  {
+        for (String thisName : SubjectNumber.name[index]) {
             comboBox.addItem(thisName);
         }
     }
 
+    void readInput(Subject subject) {
+        subject.setMarks(this.getMarks());
+        subject.wahlfachType = this.getComboBoxState();
+    }
+    
+    void updateOutput(Subject subject)  {
+        setMarks(subject.getMarks());
+        setComboBoxState(subject.wahlfachType);
+    }
+
     public int getComboBoxState() {
         if (!choice) {
-            return -1;
+            return 0;
         }
-        System.out.println(comboBox.getSelectedIndex());
         return comboBox.getSelectedIndex();
     }
 
     public void setComboBoxState(int wahlfachType) {
-        comboBox.setSelectedIndex(wahlfachType);
+        if (choice) {
+            comboBox.setSelectedIndex(wahlfachType);
+        }
     }
 
     public void setDisplayNameLabel(JLabel displayNameLabel) {
@@ -93,16 +106,16 @@ public class SubjectUI implements FocusListener, Serializable {
 
     private void setMarkInputFieldHighlight(JTextField field, HighlightMode hl) {
         switch (hl) {
-            case none:
+            case NONE:
                 field.setBackground(Color.WHITE);
                 field.setForeground(Color.BLACK);   //Removes any UsedState highlighting
                 field.setToolTipText(null);
                 break;
-            case numError:
+            case NUM_ERROR:
                 field.setBackground(new Color(127, 215, 212));
                 field.setToolTipText("Die eingegebene Note muss zwischen 0 und 15 liegen");
                 break;
-            case invalidInput:
+            case INVALID_INPUT:
                 field.setBackground(new Color(127, 215, 212));
                 field.setToolTipText("Falsche Eingabe!");
                 break;
@@ -141,7 +154,6 @@ public class SubjectUI implements FocusListener, Serializable {
         setMarkInputFieldHighlight(semesterMarkInputField[fieldNumber], us);
     }
 
-    
     @Override
     public void focusGained(FocusEvent fe) {
         if (usedStateHighlightersSet) {
@@ -150,7 +162,7 @@ public class SubjectUI implements FocusListener, Serializable {
         }
         JTextField thisField = (JTextField) fe.getSource();
         thisField.selectAll();
-        setMarkInputFieldHighlight(thisField, HighlightMode.none);
+        setMarkInputFieldHighlight(thisField, HighlightMode.NONE);
     }
 
     @Override
@@ -164,15 +176,15 @@ public class SubjectUI implements FocusListener, Serializable {
 
             //If the user entered a wrong mark, e.g. 16
             if (inputNumber < 0 || inputNumber > 15) {
-                setMarkInputFieldHighlight(thisField, HighlightMode.numError);
+                setMarkInputFieldHighlight(thisField, HighlightMode.NUM_ERROR);
             } else {
-                setMarkInputFieldHighlight(thisField, HighlightMode.none);
+                setMarkInputFieldHighlight(thisField, HighlightMode.NONE);
             }
         } catch (NumberFormatException e) {
             if (thisField.getText().equals("")) {
-                setMarkInputFieldHighlight(thisField, HighlightMode.none);              //No input
+                setMarkInputFieldHighlight(thisField, HighlightMode.NONE);              //No input
             } else {
-                setMarkInputFieldHighlight(thisField, HighlightMode.invalidInput);      //If the input is non-numerical and not empty
+                setMarkInputFieldHighlight(thisField, HighlightMode.INVALID_INPUT);      //If the input is non-numerical and not empty
             }
         }
 
@@ -185,17 +197,19 @@ public class SubjectUI implements FocusListener, Serializable {
     }
 
     public void resetComboBox() {
-        comboBox.setSelectedIndex(0);
+        if (choice) {
+            comboBox.setSelectedIndex(0);
+        }
     }
 
     private void resetFieldHighlight() {
         for (int i = 0; i < 4; i++) {
-            setMarkInputFieldHighlight(semesterMarkInputField[i], HighlightMode.none);
+            setMarkInputFieldHighlight(semesterMarkInputField[i], HighlightMode.NONE);
         }
     }
 
     public enum HighlightMode {
 
-        none, numError, invalidInput
+        NONE, NUM_ERROR, INVALID_INPUT
     }
 }

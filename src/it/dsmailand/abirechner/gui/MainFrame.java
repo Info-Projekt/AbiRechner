@@ -4,6 +4,8 @@
  */
 package it.dsmailand.abirechner.gui;
 
+import it.dsmailand.abirechner.data.Data;
+
 /**
  *
  * @author Carl
@@ -158,4 +160,22 @@ public class MainFrame extends javax.swing.JFrame {
     public javax.swing.JButton saveJButton;
     public it.dsmailand.abirechner.gui.UserInputPanel userInputPanel;
     // End of variables declaration//GEN-END:variables
+
+    public void writeDataToGUI(Data data) {
+        //Write marks and choices for choiceSubjects accessible from SubjectUI
+        for (int i = 0; i < data.subjects.length; i++) {
+            userInputPanel.subjectUI[i].updateOutput(data.subjects[i]);
+        }
+        //Write the selection of exam subjects, exam marks to ChoicePanel
+        choicePanel.updateOutput(data);
+    }
+
+    public void readInputToData(Data data) {
+        //Read marks and choices for choiceSubjects accessible from SubjectUI
+        for (int i = 0; i < data.subjects.length; i++) {
+            userInputPanel.subjectUI[i].readInput(data.subjects[i]);
+        }
+        //Read the selection of exam subjects, exam marks in ChoicePanel
+        choicePanel.readInput(data);
+    }
 }
