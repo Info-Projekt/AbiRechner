@@ -15,7 +15,7 @@ import javax.swing.JComboBox;
 /**
  *
  * @author Carl
- * @deprecated Functional, but no longer used because it added no usability benefit.
+ * @deprecated No longer used because it adds no usability benefit.
  */
 public class ChoiceManagement {
 
@@ -51,7 +51,7 @@ public class ChoiceManagement {
                 System.out.println(selectedName);
                 
                 for(Subject thisSubject:availableSubjects1) {       //Search and destroty the corres. object
-                    if(thisSubject.name.equals(selectedName)) {     //in availableSubjects1
+                    if(thisSubject.toString().equals(selectedName)) {     //in availableSubjects1
                         if(thisSubject.foreignLang) numberOfLing++;
                         if(thisSubject.naturalScience)  numberOfSci++;
                         availableSubjects1.remove(thisSubject);

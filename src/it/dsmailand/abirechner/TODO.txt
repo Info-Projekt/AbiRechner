@@ -1,12 +1,7 @@
 Priorities:
-The two last labels in the OutputPanel should actually display something
-See if Subject.foreignLang is needed 
-    ^ definitely needed by Optimizer, not working atm
 Debug Optimizer
-Check written/oral exam distinction in readInputToData();
 Filter A-Level subjects in ChoicePanel according to eligibility
 Abort the calculation if the input is not correct
-Fix ChoicePanel interaction with Data (saving/loading)
 Review Optimizer.optimizeFLangOrNatSc
 
 Secondary:

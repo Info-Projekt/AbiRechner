@@ -25,6 +25,7 @@ public class OptSearcher {
      * @return Array of the WESubjects' SubjectNumbers
      */
     public static Subject[] findWESubjects(Data myData){
+        //Important: Deutsch should always be at the [0] position (see ChoicePanel.updateOutput() )
         Subject[] wESubjects = new Subject[3];
         int arrayField = 0;
         for(Subject thisSubject:myData.subjects){
