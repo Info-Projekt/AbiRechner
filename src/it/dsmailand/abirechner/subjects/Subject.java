@@ -1,6 +1,7 @@
 package it.dsmailand.abirechner.subjects;
 
 import it.dsmailand.abirechner.data.Data;
+import static it.dsmailand.abirechner.subjects.Subject.SubjectType.*;
 import java.io.Serializable;
 
 /**
@@ -10,8 +11,6 @@ import java.io.Serializable;
 public class Subject implements Serializable{
 
     int subjectIndex;
-    transient public String name;   //needed?
-    transient int area; //can be 1, 2 or 3        needed?
     transient public boolean foreignLang;
     transient public boolean naturalScience;
     
@@ -33,6 +32,11 @@ public class Subject implements Serializable{
         //foreignLang = true;
     }
 
+    /**
+     * @deprecated Only required in ChoiceManagement
+     * @param name
+     * @param langAndNotScience 
+     */
     public Subject(String name, boolean langAndNotScience) {
         for(int i = 0;i<4;i++)  {
             semesters[i] = new Semester();
@@ -58,5 +62,17 @@ public class Subject implements Serializable{
     @Override
     public String toString()    {
         return SubjectNumber.name[subjectIndex][wahlfachType];
+    }
+    
+    public SubjectType getSubjectType() {
+        if(subjectIndex<9) return STANDARD;
+        if(wahlfachType<3)  {
+            return FOREIGN_LANG;
+        } else  {
+            return NATURAL_SCIENCE;
+        }
+    }
+    public enum SubjectType    {
+        STANDARD, FOREIGN_LANG, NATURAL_SCIENCE
     }
 }

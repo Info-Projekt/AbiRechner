@@ -8,7 +8,7 @@ package it.dsmailand.abirechner.data;
 
 import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
-import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
+import static it.dsmailand.abirechner.subjects.Subject.SubjectType.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -58,7 +58,7 @@ public class OptSearcher {
     public static Subject[] findNatScSubjects(Data myData)  {
         List<Subject> results = new ArrayList<>();
         for(Subject thisWahlfach:myData.getWahlfaecher())   {
-            if(thisWahlfach.naturalScience) results.add(thisWahlfach);
+            if(thisWahlfach.getSubjectType()==NATURAL_SCIENCE) results.add(thisWahlfach);
         }
         if(results.isEmpty())   throw new NoSuchElementException();
         return (Subject[]) results.toArray();
@@ -67,7 +67,7 @@ public class OptSearcher {
         public static Subject[] findFLangSubjects(Data myData)  {
         List<Subject> results = new ArrayList<>();
         for(Subject thisWahlfach:myData.getWahlfaecher())   {
-            if(thisWahlfach.foreignLang) results.add(thisWahlfach);
+            if(thisWahlfach.getSubjectType()==FOREIGN_LANG) results.add(thisWahlfach);
         }
         if(results.isEmpty())   throw new NoSuchElementException();
         return (Subject[]) results.toArray();
@@ -78,7 +78,6 @@ public class OptSearcher {
    * 
    * TODO: Exception if no new bestHj is found
    * 
-   * @param myData
    * @param thisSubject
    * @return bestHj 
    */
