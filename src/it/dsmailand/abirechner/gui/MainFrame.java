@@ -6,8 +6,12 @@ package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.gui.ChoicePanel.IllegalChoicesException;
+import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 
 /**
  *

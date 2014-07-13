@@ -95,12 +95,12 @@ public class UserInputPanel extends javax.swing.JPanel {
         sGeschichteLabel = new javax.swing.JLabel();
         sFilosofiaLabel = new javax.swing.JLabel();
         sSportLabel = new javax.swing.JLabel();
-        sKunstMusikComboBox = new javax.swing.JComboBox();
-        sPoWiComboBox = new javax.swing.JComboBox();
-        sReligionEthikComboBox = new javax.swing.JComboBox();
-        sWahlfach4ComboBox = new javax.swing.JComboBox();
-        sWahlfach3_1ComboBox = new javax.swing.JComboBox();
-        sWahlfach3_2ComboBox = new javax.swing.JComboBox();
+        sKunstMusikComboBox = new javax.swing.JComboBox<String>();
+        sPoWiComboBox = new javax.swing.JComboBox<String>();
+        sReligionEthikComboBox = new javax.swing.JComboBox<String>();
+        sWahlfach4ComboBox = new javax.swing.JComboBox<String>();
+        sWahlfach3_1ComboBox = new javax.swing.JComboBox<String>();
+        sWahlfach3_2ComboBox = new javax.swing.JComboBox<String>();
 
         sDeutschLabel.setText("Deutsch");
 
@@ -1123,14 +1123,14 @@ public class UserInputPanel extends javax.swing.JPanel {
     private javax.swing.JLabel sFilosofiaLabel;
     private javax.swing.JLabel sGeschichteLabel;
     private javax.swing.JLabel sItaLabel;
-    private javax.swing.JComboBox sKunstMusikComboBox;
+    private javax.swing.JComboBox<String> sKunstMusikComboBox;
     private javax.swing.JLabel sMatheLabel;
-    private javax.swing.JComboBox sPoWiComboBox;
-    private javax.swing.JComboBox sReligionEthikComboBox;
+    private javax.swing.JComboBox<String> sPoWiComboBox;
+    private javax.swing.JComboBox<String> sReligionEthikComboBox;
     private javax.swing.JLabel sSportLabel;
-    private javax.swing.JComboBox sWahlfach3_1ComboBox;
-    private javax.swing.JComboBox sWahlfach3_2ComboBox;
-    private javax.swing.JComboBox sWahlfach4ComboBox;
+    private javax.swing.JComboBox<String> sWahlfach3_1ComboBox;
+    private javax.swing.JComboBox<String> sWahlfach3_2ComboBox;
+    private javax.swing.JComboBox<String> sWahlfach4ComboBox;
     private javax.swing.JLabel semesterLabel0;
     private javax.swing.JLabel semesterLabel1;
     private javax.swing.JLabel semesterLabel2;

@@ -1,14 +1,17 @@
 package it.dsmailand.abirechner.subjects;
 
-import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.gui.SubjectUI;
 import static it.dsmailand.abirechner.subjects.Subject.SubjectType.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author StrawberryLemonade
  */
-public class Subject implements Serializable{
+public class Subject implements Serializable, ActionListener{
 
     int subjectIndex;
     transient public boolean foreignLang;
@@ -23,6 +26,9 @@ public class Subject implements Serializable{
     public boolean writtenExamSubject;
     public boolean oralExamSubject;
     public int abinote;
+    
+    //Listeners that are notified when content is updated
+    private final ArrayList<ActionListener> listeners = new ArrayList<>();
     
     public Subject(int subjectIndex) {
         for(int i = 0;i<4;i++)  {
@@ -72,7 +78,37 @@ public class Subject implements Serializable{
             return NATURAL_SCIENCE;
         }
     }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //Currently only deals with changes made in the respective SubjectUI object
+        if(ae.getSource() instanceof SubjectUI) {
+            SubjectUI subjectUI = (SubjectUI) ae.getSource();
+            //this.setMarks(subjectUI.getMarks());
+            this.wahlfachType = subjectUI.getComboBoxState();
+            //Notify listeners
+            fireActionEvent(ActionEvent.ACTION_PERFORMED);
+        }
+    }
     public enum SubjectType    {
         STANDARD, FOREIGN_LANG, NATURAL_SCIENCE
+    }
+    
+    /**
+     * Adds an AcionListener to be notified when the wahlfachType is changed.
+     * @param al 
+     */
+    public void addActionListener(ActionListener al)    {
+        listeners.add(al);
+    }
+    public void removeActionListener(ActionListener al)    {
+        listeners.remove(al);
+    }
+    
+    public void fireActionEvent(int id) {
+        if(listeners.isEmpty())   return;
+        for(ActionListener thisListener:listeners)  {
+            thisListener.actionPerformed(new ActionEvent(this, id, null));
+        }
     }
 }

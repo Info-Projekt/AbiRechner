@@ -3,6 +3,7 @@ package it.dsmailand.abirechner;
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.data.Optimizer;
 import it.dsmailand.abirechner.gui.*;
+import it.dsmailand.abirechner.subjects.Subject;
 import javax.swing.*;
 
 /**
@@ -38,6 +39,8 @@ public class AbiRechner {
 
         data = new Data();
         
+        addListeners();
+        
         mainFrame.choicePanel.assignSubjects(data.subjects);
         
         listeners = new Listeners(this);
@@ -49,5 +52,16 @@ public class AbiRechner {
         mainFrame.clearJButton.addActionListener(listeners.clearButtonListener);    //clear input
         mainFrame.calculateButton.addActionListener(listeners.calculateButtonListener); //calculate
 
+    }
+    
+    private void addListeners() {
+        //Add choicePanel listener to VariableSubjects
+        for(Subject thisSubject : data.getVariableSubjects())   {
+            thisSubject.addActionListener(mainFrame.choicePanel.optionUpdater);
+        }
+        for(int i=6; i<mainFrame.userInputPanel.subjectUI.length; i++)    {
+        mainFrame.userInputPanel.subjectUI[i].addActionListener(data.subjects[i]);
+        }
+    
     }
 }

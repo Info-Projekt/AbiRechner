@@ -8,9 +8,12 @@ import it.dsmailand.abirechner.subjects.Semester.UsedState;
 import it.dsmailand.abirechner.subjects.Subject;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -22,28 +25,30 @@ import javax.swing.*;
  *
  * @author MasterCarl
  */
-public class SubjectUI implements FocusListener, Serializable {
+public class SubjectUI implements FocusListener, ActionListener, Serializable {
 
-    int index;
+    final int index;
     JTextField[] semesterMarkInputField = new JTextField[4];
     JLabel displayNameLabel;
-    JComboBox comboBox;
+    JComboBox<String> comboBox;
     private boolean choice;
     private boolean usedStateHighlightersSet = false;
-
+    DefaultComboBoxModel<String> model;
+    private final ArrayList<ActionListener> listeners = new ArrayList<>();
+    
     public SubjectUI(int index) {
         this.index = index;
     }
 
-    public void setComboBox(JComboBox comboBox) {
+    public void setComboBox(JComboBox<String> comboBox) {
         this.comboBox = comboBox;
         choice = true;
 
+        comboBox.addActionListener(this);
         //Populate the list of available choices according to SubjectNumber.name[index]
-        comboBox.removeAllItems();
-        for (String thisName : SubjectNumber.name[index]) {
-            comboBox.addItem(makeObj(thisName));
-        }
+        
+        model = new DefaultComboBoxModel<>(SubjectNumber.name[index]);
+        comboBox.setModel(model);
     }
 
     void readInput(Subject subject) {
@@ -211,6 +216,25 @@ public class SubjectUI implements FocusListener, Serializable {
     private Object makeObj(final String item)  {
      return new Object() { public String toString() { return item; } };
    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //Notify all listeners that a comboBox has changed
+        if(ae.getSource().equals(comboBox)) {
+            if(!listeners.isEmpty())  {
+                for(ActionListener thisListener:listeners)  {
+                    thisListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
+                }
+            }
+        }
+    }
+
+    public void addActionListener(ActionListener al)    {
+        listeners.add(al);
+    }
+    public void removeActionListener(ActionListener al)    {
+        listeners.remove(al);
+    }
 
     public enum HighlightMode {
 

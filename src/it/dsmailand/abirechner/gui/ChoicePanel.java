@@ -6,13 +6,14 @@ package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.data.OptSearcher;
+import static it.dsmailand.abirechner.gui.ComponentHighlighter.highlightTemporarily;
 import it.dsmailand.abirechner.subjects.Subject;
 import java.awt.Color;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.lang.reflect.Array;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
+import java.util.Arrays;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -20,18 +21,21 @@ import javax.swing.JTextField;
  *
  * @author Luca13
  */
-public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
+public class ChoicePanel extends javax.swing.JPanel {
 
     //private JComboBox<Subject>[] examComboBoxes = new JComboBox<Subject>[4];
-    ArrayList<JComboBox<Subject>> examComboBoxes = new ArrayList<>();
+    private ArrayList<JComboBox<Subject>> examComboBoxes = new ArrayList<>();
     private JTextField[] markInputField = new JTextField[4];
     Color defaultComboBoxColor;
+    public OptionUpdater optionUpdater;
+    private Subject[] subjects;
 
     /**
      * Creates new form ChoicePanel
      */
     public ChoicePanel() {
         initComponents();
+        this.optionUpdater = new OptionUpdater();
         defaultComboBoxColor = jComboBox1.getBackground();
         examComboBoxes.add(0, jComboBox1);
         examComboBoxes.add(1, jComboBox2);
@@ -247,11 +251,12 @@ public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
         for (int i = 0; i < 4; i++) {
             JComboBox<Subject> thisBox = examComboBoxes.get(i);
             Subject selectedSubject = (Subject) thisBox.getSelectedItem();
-            
+
             resetBackground(thisBox);
+            //Check for multiple choices of the same subject
             for (int j = 0; j < i; j++) {
                 if (examComboBoxes.get(j).getSelectedItem().equals(selectedSubject)) {
-                    highlightBoxTemp(examComboBoxes.get(j));
+                    highlightTemporarily(examComboBoxes.get(j));
                     throw new IllegalChoicesException();
                 }
 
@@ -281,31 +286,45 @@ public class ChoicePanel extends javax.swing.JPanel implements FocusListener {
     }
 
     public void assignSubjects(Subject[] subjects) {
+        this.subjects = subjects;
         examComboBoxes.get(0).addItem(subjects[0]);  //Deutsch
 
         for (int i = 1; i < 4; i++) {
-            for (int j = 1; j < subjects.length; j++) {
-                examComboBoxes.get(i).addItem(subjects[j]);
-            }
+            DefaultComboBoxModel<Subject> model = new DefaultComboBoxModel<>(Arrays.copyOfRange(subjects, 1, subjects.length));
+            examComboBoxes.get(i).setModel(model);
         }
+        //set pre-selected subjects
+        examComboBoxes.get(2).setSelectedIndex(1);
+        examComboBoxes.get(3).setSelectedIndex(3);
     }
 
-    private void highlightBoxTemp(JComboBox<Subject> box) {
-        box.setBackground(Color.RED);
-        box.addFocusListener(this);
-    }
-
-    public void focusGained(FocusEvent e) {
-        JComboBox<Subject> source = (JComboBox<Subject>) e.getSource();
-        resetBackground(source);
-    }
-
-    public void focusLost(FocusEvent fe) {
-    }
-
-    private void resetBackground(JComboBox<Subject> source) {
+    private void resetBackground(JComboBox source) {
         source.setBackground(defaultComboBoxColor);
-        source.removeFocusListener(this);
+    }
+
+    class OptionUpdater implements ActionListener   {
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            //Update the options given in the ComboBoxes based on changes made in UserInputPanel
+            for (int i = 1; i < 4; i++) {
+                DefaultComboBoxModel<Subject> model = new DefaultComboBoxModel<>(Arrays.copyOfRange(subjects, 1, subjects.length));
+                //Apply the updated model to the comboBox
+                int selectedIndex = examComboBoxes.get(i).getSelectedIndex();
+                examComboBoxes.get(i).setModel(model);
+                examComboBoxes.get(i).setSelectedIndex(selectedIndex);
+            }
+            /*Object source = ae.getSource();
+             for(int i=1; i<4; i++)   {
+             Object selected = examComboBoxes.get(i).getSelectedItem();
+             examComboBoxes.get(i).getModel().
+             for (int i = 1; i < subjects.length; i++) {
+             examComboBoxes.get(i).addItem(subjects[j]);
+             }
+             }
+             */
+        }
+
     }
 
     public class IllegalChoicesException extends Exception {

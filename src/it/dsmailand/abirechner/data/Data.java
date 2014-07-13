@@ -46,6 +46,9 @@ public class Data implements Serializable {
     public Subject[] getWahlfaecher() {
       return Arrays.copyOfRange(subjects, 9, 12);
     }
+    public Subject[] getVariableSubjects() {
+      return Arrays.copyOfRange(subjects, 6, 12);
+    }
     
     private static int calculateMarkTier(int finalPoints){
         if(finalPoints>=LBARRIER[LBARRIER.length-1]) return LBARRIER.length-1;
