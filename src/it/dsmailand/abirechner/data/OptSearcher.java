@@ -104,11 +104,22 @@ public class OptSearcher {
      * @return Subject whose BestSubjectHj is highest
      */
     public static Subject findSubjectOfBestHj(Data myData, Subject[] givenSubjects){
-        Subject bestSubject = givenSubjects[0];
-        for(int i=1; i<givenSubjects.length; i++){
-            if (findBestSubjectSemester(givenSubjects[i]).mark>findBestSubjectSemester(bestSubject).mark){
-                bestSubject = givenSubjects[i];
-            }
+        int i = 0;
+        Subject bestSubject = givenSubjects[i];
+        
+        for(int j=i+1; j<givenSubjects.length; j++){
+            if (findBestSubjectSemester(bestSubject)==null){
+                bestSubject = givenSubjects[j];
+                i = j;
+            } else break;
+        }
+        
+        for(int k=i+1; k<givenSubjects.length; k++){
+            if (findBestSubjectSemester(givenSubjects[k])!=null){
+                if (findBestSubjectSemester(givenSubjects[k]).mark>findBestSubjectSemester(bestSubject).mark){
+                bestSubject = givenSubjects[k];
+                }
+            }    
         }
         return bestSubject;
     }
