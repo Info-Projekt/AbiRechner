@@ -50,6 +50,10 @@ public class Data implements Serializable {
       return Arrays.copyOfRange(subjects, 6, 12);
     }
     
+    public void setFinalPoints(int aScore, int bScore, int cScore){
+        finalPoints = aScore + bScore + cScore;
+    }
+    
     private static int calculateMarkTier(int finalPoints){
         if(finalPoints>=LBARRIER[LBARRIER.length-1]) return LBARRIER.length-1;
         for(int i=-1; i<LBARRIER.length; i++)   {

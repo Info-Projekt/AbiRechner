@@ -48,6 +48,7 @@ public class Optimizer {
         optimizeFLangOrNatSc(false); // optimizes FLangSubjects
         optimizeFLangAndNatSc();
         fillUp();
+        myData.setFinalPoints(aScore, bScore, cScore);
     }
                     
     private void createAScore(){
