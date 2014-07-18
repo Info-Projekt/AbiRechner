@@ -75,7 +75,9 @@ public class OptSearcher {
             if(thisWahlfach.getSubjectType()==FOREIGN_LANG) results.add(thisWahlfach);
         }
         if(results.isEmpty())   throw new NoSuchElementException();
-        return (Subject[]) results.toArray();
+        Subject[] resultsArr = new Subject[results.size()];
+        resultsArr = results.toArray(resultsArr);
+        return resultsArr;
     }
     
     /**
