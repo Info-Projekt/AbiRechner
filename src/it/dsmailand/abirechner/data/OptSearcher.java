@@ -9,6 +9,7 @@ package it.dsmailand.abirechner.data;
 import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
 import static it.dsmailand.abirechner.subjects.Subject.SubjectType.*;
+import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;

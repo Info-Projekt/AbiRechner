@@ -71,6 +71,7 @@ public class Subject implements Serializable, ActionListener{
     }
     
     public SubjectType getSubjectType() {
+        if(subjectIndex==1) return FOREIGN_LANG;
         if(subjectIndex<9) return STANDARD;
         if(wahlfachType<3)  {
             return FOREIGN_LANG;
