@@ -21,7 +21,9 @@ public class OutputPanel extends javax.swing.JPanel {
         scoreLabel.setText(String.valueOf(score));
         finalMarkLabel.setText(finalMark);
         nextBetterLabel.setText(String.valueOf(diff[0]));
-        nextWorseLabel.setText(String.valueOf(diff[1]));
+        if(diff.length==2) {nextWorseLabel.setText(String.valueOf(diff[1]));}
+        else {nextWorseLabel.setText("Du, schlechter geht's nicht."); 
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.

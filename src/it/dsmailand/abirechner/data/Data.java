@@ -79,6 +79,7 @@ public class Data implements Serializable {
     public int[] getScoreDiff() {
         int markTier = calculateMarkTier(finalPoints);
         int better = LBARRIER[markTier+1] - finalPoints;
+        if(markTier==-1) return new int[]{better};
         int worse = finalPoints - LBARRIER[markTier];
         return new int[]{better, worse};
     }
