@@ -70,6 +70,7 @@ public class OptSearcher {
     
         public static Subject[] findFLangSubjects(Data myData)  {
         List<Subject> results = new ArrayList<>();
+        results.add(myData.subjects[ITA]);
         for(Subject thisWahlfach:myData.getWahlfaecher())   {
             if(thisWahlfach.getSubjectType()==FOREIGN_LANG) results.add(thisWahlfach);
         }
