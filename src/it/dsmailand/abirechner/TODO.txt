@@ -6,6 +6,7 @@ Abort the calculation if the input is not correct
 Review Optimizer.optimizeFLangOrNatSc
 
 Secondary:
+Allow a maximum of 2 chars in the JTextFields
 Add a tooltip to the OutputPanel.scoreLabel to show the composition of the score (GK, LK, ABI)
 Apply the highlighting system to the choicePanel as well
 Update the options in the ChoicePanel when the user changes optional subjects
