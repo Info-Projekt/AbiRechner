@@ -1,5 +1,4 @@
 Priorities:
-Update the ComboBoxes in ChoicePanel when the ChoiceSubjets are updated
 Debug Optimizer
 Filter A-Level subjects in ChoicePanel according to eligibility
 Abort the calculation if the input is not correct
