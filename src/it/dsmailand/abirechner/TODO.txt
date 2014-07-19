@@ -1,19 +1,15 @@
 Priorities:
 Debug Optimizer
 Filter A-Level subjects in ChoicePanel according to eligibility
-Abort the calculation if the input is not correct
 Review Optimizer.optimizeFLangOrNatSc
 
 Secondary:
+Enable live updating
 Allow a maximum of 2 chars in the JTextFields
 Add a tooltip to the OutputPanel.scoreLabel to show the composition of the score (GK, LK, ABI)
 Apply the highlighting system to the choicePanel as well
-Update the options in the ChoicePanel when the user changes optional subjects
-Do something with the exceptions thrown in Data (mark below 1,0?)
-Populate the ChoicePanel according to chosen subjects
 Jump to the next TextField when a valid number is entered
 Think about the choice of colors in SubjectUI.setMarkInputFieldHighlight
-Output saved choices to outputPanel
 
 
 If we got nothing better to do:

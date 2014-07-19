@@ -28,7 +28,7 @@ public class Subject implements Serializable, ActionListener{
     public int abinote;
     
     //Listeners that are notified when content is updated
-    private final ArrayList<ActionListener> listeners = new ArrayList<>();
+    private final transient ArrayList<ActionListener> listeners = new ArrayList<>();
     
     public Subject(int subjectIndex) {
         for(int i = 0;i<4;i++)  {
