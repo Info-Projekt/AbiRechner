@@ -257,7 +257,7 @@ public class ChoicePanel extends javax.swing.JPanel {
             //Check for multiple choices of the same subject
             for (int j = 0; j < i; j++) {
                 if (examComboBoxes.get(j).getSelectedItem().equals(selectedSubject)) {
-                    highlightTemporarily(examComboBoxes.get(j));
+                    highlightTemporarily(examComboBoxes.get(j), null);
                     throw new IllegalChoicesException();
                 }
 
@@ -272,6 +272,7 @@ public class ChoicePanel extends javax.swing.JPanel {
     }
 
     public void updateOutput(Data data) {
+        assignSubjects(data.subjects);
         Subject[] writtenExamSubjects = OptSearcher.findWESubjects(data);
         Subject oralExamSubject = OptSearcher.findOESubject(data);
 
