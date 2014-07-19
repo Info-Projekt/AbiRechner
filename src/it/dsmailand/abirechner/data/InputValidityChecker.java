@@ -21,11 +21,11 @@ public class InputValidityChecker {
     private static final Logger logger = Logger.getLogger(InputValidityChecker.class.getName());
 
     public static boolean checkData(Data data) {
-        if (!checkNumberOfWESubjects(data)) {
+        if (!checkNumberOfWESubjects(data.subjects)) {
             logger.log(Level.SEVERE, "Falsche Anzahl an schriftlichen Abiturfächern");
             return false;
         }
-        if (!checkNumberOfOESubjects(data)) {
+        if (!checkNumberOfOESubjects(data.subjects)) {
             logger.log(Level.SEVERE, "Falsche Anzahl an mündlichen Abiturfächern");
             return false;
         }
@@ -55,20 +55,20 @@ public class InputValidityChecker {
         return mark;
     }
 
-    public static boolean checkNumberOfWESubjects(Data data) {
+    public static boolean checkNumberOfWESubjects(Subject[] subjects) {
         int wESubjects = 0;
-        for (int subjectNo = 0; subjectNo < 12; subjectNo++) {
-            if (data.subjects[subjectNo].writtenExamSubject == true) {
+        for (Subject thisSubject:subjects) {
+            if (thisSubject.writtenExamSubject == true) {
                 wESubjects++;
             }
         }
         return (wESubjects == 3);
     }
 
-    public static boolean checkNumberOfOESubjects(Data data) {
+    public static boolean checkNumberOfOESubjects(Subject[] subjects) {
         int oESubjects = 0;
-        for (int subjectNo = 0; subjectNo < 12; subjectNo++) {
-            if (data.subjects[subjectNo].oralExamSubject == true) {
+        for (Subject thisSubject:subjects) {
+            if (thisSubject.oralExamSubject == true) {
                 oESubjects++;
             }
         }

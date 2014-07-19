@@ -1,6 +1,7 @@
                                                     <static>Funktionen zur Datenverarbeitung</static>
                                                     <static>FileIO</static>
 Abirechner
-Data       --updates->     MainFrame                           Listeners
-                           UserInputPanel  OutputPanel
-Subjects    <=is passed==  SubjectUI[]
+            Listeners
+Data        --update--      MainFrame
+                            UserInputPanel  OutputPanel
+Subjects    --listen to->   SubjectUI[]
