@@ -18,14 +18,17 @@ import javax.swing.JComponent;
  * @author Carl
  */
 public class ComponentHighlighter {
-    public static void highlightTemporarily(final javax.swing.JComponent cmp) {
-        final Color originalColor = cmp.getBackground();
+    public static void highlightTemporarily(final javax.swing.JComponent cmp, String toolTipText) {
+        final Color originalColor = cmp.getForeground();
 
-        cmp.setBackground(Color.RED);
+        cmp.setForeground(Color.RED);
+        cmp.setToolTipText(toolTipText);
+        
         cmp.addFocusListener(new FocusListener()    {
             @Override
             public void focusGained(FocusEvent fe) {
-                cmp.setBackground(originalColor);
+                cmp.setForeground(originalColor);
+                cmp.setToolTipText(null);
              cmp.removeFocusListener(this);
             }
             @Override

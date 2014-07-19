@@ -59,9 +59,11 @@ public class AbiRechner {
         for(Subject thisSubject : data.getVariableSubjects())   {
             thisSubject.addActionListener(mainFrame.choicePanel.optionUpdater);
         }
+        //Add data.subjects, UserInputPanel listener to SubjectUI instances
         for(int i=6; i<mainFrame.userInputPanel.subjectUI.length; i++)    {
         mainFrame.userInputPanel.subjectUI[i].addActionListener(data.subjects[i]);
+        mainFrame.userInputPanel.subjectUI[i].addActionListener(mainFrame.userInputPanel);
         }
-    
+        
     }
 }

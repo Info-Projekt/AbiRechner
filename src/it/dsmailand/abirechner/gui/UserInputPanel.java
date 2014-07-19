@@ -5,13 +5,16 @@
 package it.dsmailand.abirechner.gui;
 
 import it.dsmailand.abirechner.data.Data;
+import it.dsmailand.abirechner.subjects.Subject;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Carl
  */
-public class UserInputPanel extends javax.swing.JPanel {
+public class UserInputPanel extends javax.swing.JPanel implements ActionListener {
 
     /**
      * Creates new form UserInputPanel
@@ -1178,7 +1181,40 @@ public class UserInputPanel extends javax.swing.JPanel {
         //Combobox-Management
         //choiceManagement.setComboBoxes(subjectUI[SubjectNumber.WAHLFACH4].comboBox, subjectUI[SubjectNumber.WAHLFACH3_1].comboBox, subjectUI[SubjectNumber.WAHLFACH3_2].comboBox);
         //choiceManagement.initialize();
-
         //subjectUI[SubjectNumber.WAHLFACH4].comboBox.addActionListener(choiceManagement.actionPerformed);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //If a choiceSubject comboBox has been changed
+        if (ae.getSource() instanceof SubjectUI) {
+
+            //See if the selection is correct
+            int[] selectedIndices = new int[3];
+            int fLang = 0;
+            int natSci = 0;
+            for (int i = SubjectNumber.WAHLFACH4; i < subjectUI.length; i++) {
+                int j = i - SubjectNumber.WAHLFACH4;
+                selectedIndices[j] = subjectUI[i].comboBox.getSelectedIndex();
+                if (selectedIndices[j] < 3) {
+                    fLang++;
+                } else {
+                    natSci++;
+                }
+            }
+            //mark the comboBoxes that have the same selectedIndex
+            for (int i = 0; i < 2; i++) {
+                for (int j = 1; j < 3; j++) {
+                    if (selectedIndices[i] == selectedIndices[j]) {
+                        ComponentHighlighter.highlightTemporarily(subjectUI[i + 9].comboBox, "Doppelte Auswahl!");
+                        ComponentHighlighter.highlightTemporarily(subjectUI[j + 9].comboBox, "Doppelte Auswahl!");
+                    }
+                }
+            }
+            if(fLang==0||natSci==0)
+                for (int i = SubjectNumber.WAHLFACH4; i < subjectUI.length; i++) {
+                        ComponentHighlighter.highlightTemporarily(subjectUI[i].comboBox, "Keine " + (fLang==0 ? "Fremdsprache":"Naturwissenschaft") + " ausgewählt");
+                }
+        }
     }
 }
