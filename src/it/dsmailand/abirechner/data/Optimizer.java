@@ -72,7 +72,11 @@ public class Optimizer {
         cScore += oESubject.semesters[3].mark;
         oESubject.semesters[3].usedState = Semester.UsedState.mandatory;
         
-        //examScore TODO
+        //examScore
+        for(Subject thisWESubject:wESubjects){
+            cScore += 4 * thisWESubject.abinote;
+        }
+        cScore += 4 * oESubject.abinote;
     }
     
     private void optimizeMathe(){

@@ -1,7 +1,6 @@
 Priorities:
 Debug Optimizer
 Filter A-Level subjects in ChoicePanel according to eligibility
-Review Optimizer.optimizeFLangOrNatSc
 
 Secondary:
 Enable live updating
