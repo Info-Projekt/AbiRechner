@@ -8,6 +8,7 @@ import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.data.OptSearcher;
 import static it.dsmailand.abirechner.gui.ComponentHighlighter.highlightTemporarily;
 import it.dsmailand.abirechner.subjects.Subject;
+import it.dsmailand.abirechner.subjects.SubjectNumber;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +22,7 @@ import javax.swing.JTextField;
  *
  * @author Luca13
  */
-public class ChoicePanel extends javax.swing.JPanel {
+public class ChoicePanel extends javax.swing.JPanel implements ActionListener   {
 
     //private JComboBox<Subject>[] examComboBoxes = new JComboBox<Subject>[4];
     private ArrayList<JComboBox<Subject>> examComboBoxes = new ArrayList<>();
@@ -29,6 +30,7 @@ public class ChoicePanel extends javax.swing.JPanel {
     Color defaultComboBoxColor;
     public OptionUpdater optionUpdater;
     private Subject[] subjects;
+    private final WahlfachHighlighter wahlfachHighlighter;
 
     /**
      * Creates new form ChoicePanel
@@ -46,6 +48,14 @@ public class ChoicePanel extends javax.swing.JPanel {
         markInputField[1] = markTextField2;
         markInputField[2] = markTextField3;
         markInputField[3] = markTextField4;
+        
+        JComboBox[] choiceBoxes;
+        choiceBoxes = examComboBoxes.toArray(new JComboBox[examComboBoxes.size()]);
+        choiceBoxes = Arrays.copyOfRange(choiceBoxes, 1, 4);
+        wahlfachHighlighter = new WahlfachHighlighter(choiceBoxes);
+        for(JComboBox thisBox:choiceBoxes)  {
+            thisBox.addActionListener(this);
+        }
     }
 
     /**
@@ -302,6 +312,22 @@ public class ChoicePanel extends javax.swing.JPanel {
 
     private void resetBackground(JComboBox source) {
         source.setBackground(defaultComboBoxColor);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        //Called when an action is performed on a ComboBox
+        //See if the selection is correct
+
+            //mark the comboBoxes that have the same selectedIndex
+            for (int i = 1; i < 4; i++) {
+                for (int j = i + 1; j < 4; j++) {
+                    if (examComboBoxes.get(i).getSelectedIndex() == examComboBoxes.get(j).getSelectedIndex()) {
+                        wahlfachHighlighter.highlightBox(examComboBoxes.get(i), "Doppelte Auswahl!");
+                        wahlfachHighlighter.highlightBox(examComboBoxes.get(j), "Doppelte Auswahl!");
+                    }
+                }
+            }
     }
 
     class OptionUpdater implements ActionListener   {

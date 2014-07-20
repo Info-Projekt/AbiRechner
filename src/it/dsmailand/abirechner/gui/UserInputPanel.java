@@ -28,7 +28,8 @@ public class UserInputPanel extends javax.swing.JPanel implements ActionListener
         }
         initComponents();
         addReferences();
-        this.wahlfachHighlighter = new WahlfachHighlighter(sWahlfach3_1ComboBox, sWahlfach3_2ComboBox, sWahlfach4ComboBox);
+        JComboBox[] choiceBoxes = {sWahlfach3_1ComboBox, sWahlfach3_2ComboBox, sWahlfach4ComboBox};
+        this.wahlfachHighlighter = new WahlfachHighlighter(choiceBoxes);
     }
     public SubjectUI[] subjectUI;
     WahlfachHighlighter wahlfachHighlighter;
@@ -497,39 +498,4 @@ public class UserInputPanel extends javax.swing.JPanel implements ActionListener
         }
     }
     
-    private class WahlfachHighlighter  {
-        private final JComboBox box0;
-        private final JComboBox box1;
-        private final JComboBox box2;
-        private final Color originalColor;
-        
-        WahlfachHighlighter(JComboBox box0, JComboBox box1, JComboBox box2)   {
-            this.box0 = box0;
-            this.box1 = box1;
-            this.box2 = box2;
-            originalColor = box0.getForeground();
-        }
-        
-        void highlightBox(final JComboBox box, String toolTipText) {
-
-        box.setForeground(Color.RED);
-        box.setToolTipText(toolTipText);
-        
-        box.addFocusListener(new FocusListener()    {
-            @Override
-            public void focusGained(FocusEvent fe) {
-                box0.setForeground(originalColor);
-                box0.setToolTipText(null);
-                box1.setForeground(originalColor);
-                box1.setToolTipText(null);
-                box2.setForeground(originalColor);
-                box2.setToolTipText(null);
-             box.removeFocusListener(this);
-            }
-            @Override
-            public void focusLost(FocusEvent fe) {}
-        }   );
-
-    }
-    }
 }
