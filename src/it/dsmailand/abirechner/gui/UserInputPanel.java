@@ -123,22 +123,6 @@ public class UserInputPanel extends javax.swing.JPanel implements ActionListener
 
         sSportLabel.setText("Sport");
 
-<<<<<<< HEAD
-        sWahlfach4ComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sWahlfach4ComboBoxActionPerformed(evt);
-            }
-        });
-=======
-        sKunstMusikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kunst", "Musik" }));
-
-        sPoWiComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "PoWi bilingual", "PoWi deutsch" }));
-
-        sReligionEthikComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Religion", "Ethik" }));
-
-        sWahlfach4ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Platzhalter" }));
->>>>>>> origin/master
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
