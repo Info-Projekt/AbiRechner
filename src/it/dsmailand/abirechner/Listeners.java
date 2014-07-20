@@ -4,6 +4,7 @@
  */
 package it.dsmailand.abirechner;
 
+import it.dsmailand.abirechner.data.Data;
 import it.dsmailand.abirechner.data.FileIO;
 import it.dsmailand.abirechner.data.InputValidityChecker;
 import it.dsmailand.abirechner.data.Optimizer;
@@ -47,7 +48,12 @@ public class Listeners {
             if(!InputValidityChecker.checkData(mainClass.data)) return;
             //Process all the data
             mainClass.optimizer = new Optimizer(mainClass.data);
-            mainClass.optimizer.optimize();
+            try {
+                mainClass.optimizer.optimize();
+            } catch (Data.YouFailException ex) {
+                //TODO handle this shit
+                Logger.getLogger(Listeners.class.getName()).log(Level.SEVERE, null, ex);
+            }
             mainClass.mainFrame.outputPanel1.setOutput(mainClass.data.finalPoints, mainClass.data.getMark(), mainClass.data.getScoreDiff());
         }
 

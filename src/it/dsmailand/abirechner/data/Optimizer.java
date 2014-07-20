@@ -6,6 +6,7 @@
 
 package it.dsmailand.abirechner.data;
 
+import it.dsmailand.abirechner.data.Data.YouFailException;
 import it.dsmailand.abirechner.subjects.Semester;
 import it.dsmailand.abirechner.subjects.Subject;
 import static it.dsmailand.abirechner.subjects.SubjectNumber.*;
@@ -22,15 +23,17 @@ public class Optimizer {
     Subject oESubject;
     Subject[] natScSubjects;
     Subject[] fLangSubjects;
+    StudentFailer failer;
     int aScore = 0;
     int cScore = 0;
     int bScore = 0;
     
     public Optimizer(Data myData){
         this.myData = myData;
+        failer = new StudentFailer();
     }
     
-    public void optimize(){
+    public void optimize() throws YouFailException{
         myData.resetUsedStates();
         wESubjects = OptSearcher.findWESubjects(myData);
         oESubject = OptSearcher.findOESubject(myData);
@@ -48,35 +51,45 @@ public class Optimizer {
         optimizeFLangOrNatSc(false); // optimizes FLangSubjects
         optimizeFLangAndNatSc();
         fillUp();
+        if(!StudentFailer.checkFor0Points(myData)) throw new YouFailException();
         myData.setFinalPoints(aScore, bScore, cScore);
     }
                     
-    private void createAScore(){
+    private void createAScore() throws YouFailException{
         //A: (12.1, 12.2, 13.1 of all wESubjects) * 2
         for(Subject thisWESubject:wESubjects){
             for(int hj=0; hj<3; hj++){
                 aScore += thisWESubject.semesters[hj].mark;
                 thisWESubject.semesters[hj].usedState = Semester.UsedState.mandatory;
+                if(thisWESubject.semesters[hj].mark>=5) failer.add1ToCounter();
             }
         }
         aScore = 2 * aScore;
+        
+        if (!failer.checkCounter('a')) throw new YouFailException();
+        if (!failer.checkPoints(aScore, 'a')) throw new YouFailException();
     }
     
-    private void createCScore(){
-        //C: (13.2 + 4*examScore) of all wESubjects and oESubject
+    private void createCScore() throws YouFailException{
+        //C: (4*examScore + 13.2) of all wESubjects and oESubject
         //13.2
+        int tempScore = 0;
         for(Subject thisWESubject:wESubjects){
-            cScore += thisWESubject.semesters[3].mark;
+            tempScore += 4 * thisWESubject.abinote;
+            tempScore += thisWESubject.semesters[3].mark;
             thisWESubject.semesters[3].usedState = Semester.UsedState.mandatory;
+            if(tempScore>=25) failer.add1ToCounter();
+            cScore += tempScore;
+            tempScore = 0;
         }
-        cScore += oESubject.semesters[3].mark;
+        tempScore += 4 * oESubject.abinote;
+        tempScore += oESubject.semesters[3].mark;
         oESubject.semesters[3].usedState = Semester.UsedState.mandatory;
+        if(tempScore>=25) failer.add1ToCounter();
+        cScore += tempScore;
         
-        //examScore
-        for(Subject thisWESubject:wESubjects){
-            cScore += 4 * thisWESubject.abinote;
-        }
-        cScore += 4 * oESubject.abinote;
+        if(!failer.checkPoints(cScore, 'c')) throw new YouFailException();
+        if(!failer.checkCounter('c')) throw new YouFailException();
     }
     
     private void optimizeMathe(){
@@ -90,6 +103,8 @@ public class Optimizer {
             for(int hj=0; hj<hjsToAdd; hj++){
                 bScore += myData.subjects[MATHE].semesters[hj].mark;
                 myData.subjects[MATHE].semesters[hj].usedState = Semester.UsedState.mandLegible;
+                
+                if (myData.subjects[MATHE].semesters[hj].mark>=5) failer.add1ToCounter();
             }
         }
     }
@@ -108,6 +123,8 @@ public class Optimizer {
                 bestSemester = OptSearcher.findBestSubjectSemester(myData.subjects[GESCHICHTE]);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.mandLegible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
             }
         }
     }
@@ -124,6 +141,8 @@ public class Optimizer {
             bestSemester = OptSearcher.findBestSubjectSemester(myData.subjects[KUNST_MUSIK]);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.mandLegible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
         }
     }
     
@@ -141,6 +160,8 @@ public class Optimizer {
             Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.mandLegible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
         }
     }
     
@@ -173,6 +194,8 @@ public class Optimizer {
             Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.mandLegible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
         }
         
     }
@@ -215,17 +238,23 @@ public class Optimizer {
             Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.mandLegible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
         }
     }
     
-    private void fillUp(){
+    private void fillUp() throws YouFailException{
         int hjsToAdd = 35 - OptSearcher.countAlreadyUsed(myData); //ought to be >= 29
         for(int i=0; i<hjsToAdd; i++){
             Subject bestSubject = OptSearcher.findSubjectOfBestHj(myData, myData.subjects);
             Semester bestSemester = OptSearcher.findBestSubjectSemester(bestSubject);
             bScore += bestSemester.mark;
             bestSemester.usedState = Semester.UsedState.eligible;
+            
+            if(bestSemester.mark>=5) failer.add1ToCounter();
         }
+        
+        if (!failer.checkPoints(bScore, 'b')) throw new YouFailException();
+        if (!failer.checkCounter('b')) throw new YouFailException();
     }
-
 }
