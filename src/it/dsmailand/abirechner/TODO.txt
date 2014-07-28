@@ -7,7 +7,6 @@ Enable live updating
 Allow a maximum of 2 chars in the JTextFields
 Add a tooltip to the OutputPanel.scoreLabel to show the composition of the score (GK, LK, ABI)
 Apply the highlighting system to the choicePanel as well
-Jump to the next TextField when a valid number is entered
 Think about the choice of colors in SubjectUI.setMarkInputFieldHighlight
 
 

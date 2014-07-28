@@ -8,13 +8,21 @@ import it.dsmailand.abirechner.subjects.Semester.UsedState;
 import it.dsmailand.abirechner.subjects.Subject;
 import it.dsmailand.abirechner.subjects.SubjectNumber;
 import java.awt.Color;
+import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
 
 /**
  * Contains the references to all of the GUI elements that belong to a certain
@@ -25,7 +33,7 @@ import javax.swing.*;
  *
  * @author MasterCarl
  */
-public class SubjectUI implements FocusListener, ActionListener, Serializable {
+public class SubjectUI implements FocusListener, ActionListener, DocumentListener, Serializable {
 
     final int index;
     JTextField[] semesterMarkInputField = new JTextField[4];
@@ -35,7 +43,7 @@ public class SubjectUI implements FocusListener, ActionListener, Serializable {
     private boolean usedStateHighlightersSet = false;
     DefaultComboBoxModel<String> model;
     private final ArrayList<ActionListener> listeners = new ArrayList<>();
-    
+
     public SubjectUI(int index) {
         this.index = index;
     }
@@ -46,7 +54,7 @@ public class SubjectUI implements FocusListener, ActionListener, Serializable {
 
         comboBox.addActionListener(this);
         //Populate the list of available choices according to SubjectNumber.name[index]
-        
+
         model = new DefaultComboBoxModel<>(SubjectNumber.name[index]);
         comboBox.setModel(model);
     }
@@ -55,8 +63,8 @@ public class SubjectUI implements FocusListener, ActionListener, Serializable {
         subject.setMarks(this.getMarks());
         subject.wahlfachType = this.getComboBoxState();
     }
-    
-    void updateOutput(Subject subject)  {
+
+    void updateOutput(Subject subject) {
         setMarks(subject.getMarks());
         setComboBoxState(subject.wahlfachType);
     }
@@ -86,13 +94,14 @@ public class SubjectUI implements FocusListener, ActionListener, Serializable {
         semesterMarkInputField[2] = s13_1;
         semesterMarkInputField[3] = s13_2;
 
-        //Add focusListener
+        //Add focusListener, actionListener
         for (int i = 0; i < 4; i++) {
             semesterMarkInputField[i].addFocusListener(this);
+            semesterMarkInputField[i].getDocument().addDocumentListener(this);
         }
     }
 
-    public int[] getMarks() throws NumberFormatException{
+    public int[] getMarks() throws NumberFormatException {
         int[] marks = new int[4];
         for (int i = 0; i < 4; i++) {
             marks[i] = Integer.parseInt(semesterMarkInputField[i].getText());
@@ -213,27 +222,57 @@ public class SubjectUI implements FocusListener, ActionListener, Serializable {
         }
     }
 
-    private Object makeObj(final String item)  {
-     return new Object() { public String toString() { return item; } };
-   }
+    private Object makeObj(final String item) {
+        return new Object() {
+            public String toString() {
+                return item;
+            }
+        };
+    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         //Notify all listeners that a comboBox has changed
-        if(ae.getSource().equals(comboBox)) {
-            if(!listeners.isEmpty())  {
-                for(ActionListener thisListener:listeners)  {
+        if (ae.getSource().equals(comboBox)) {
+            if (!listeners.isEmpty()) {
+                for (ActionListener thisListener : listeners) {
                     thisListener.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, null));
                 }
             }
         }
     }
 
-    public void addActionListener(ActionListener al)    {
+    public void addActionListener(ActionListener al) {
         listeners.add(al);
     }
-    public void removeActionListener(ActionListener al)    {
+
+    public void removeActionListener(ActionListener al) {
         listeners.remove(al);
+    }
+    
+    @Override
+    public void insertUpdate(DocumentEvent de) {
+    //Skip to the next TextField if input is valid and complete
+            try {
+                String text = de.getDocument().getText(0, de.getDocument().getLength());
+                int inputNumber = Integer.parseInt(text);
+                if ((inputNumber >= 2 && inputNumber <= 15) || text.equals("01") || text.equals("00")) {
+                    KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+                    manager.focusNextComponent();
+                }
+            } catch (NumberFormatException e) {
+                //Do nothing
+            } catch (BadLocationException ex) {
+            Logger.getLogger(SubjectUI.class.getName()).log(Level.SEVERE, "Why is this happening?", ex);
+        }
+    }
+
+    @Override
+    public void removeUpdate(DocumentEvent de) {}
+
+    @Override
+    public void changedUpdate(DocumentEvent de) {
+        
     }
 
     public enum HighlightMode {
