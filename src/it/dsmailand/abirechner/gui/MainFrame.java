@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
         calculateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("AbiRechner");
         setMinimumSize(new java.awt.Dimension(450, 508));
 
         clearJButton.setText("Clear");

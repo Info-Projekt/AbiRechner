@@ -3,7 +3,6 @@ Debug Optimizer
 Filter A-Level subjects in ChoicePanel according to eligibility
 
 Secondary:
-ClearButton should clear ChoicePanel
 Enable live updating
 Allow a maximum of 2 chars in the JTextFields
 Add a tooltip to the OutputPanel.scoreLabel to show the composition of the score (GK, LK, ABI)

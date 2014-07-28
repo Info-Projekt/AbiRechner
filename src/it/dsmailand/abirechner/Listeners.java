@@ -131,6 +131,7 @@ public class Listeners {
                 thisSubjectUI.clearInput();
                 thisSubjectUI.resetComboBox();
             }
+            mainClass.mainFrame.choicePanel.clearInput();
         }
 
     };

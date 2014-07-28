@@ -330,6 +330,12 @@ public class ChoicePanel extends javax.swing.JPanel implements ActionListener   
             }
     }
 
+    public void clearInput() {
+        for(int i=0; i<4; i++)  {
+            markInputField[i].setText("");
+        }
+    }
+
     class OptionUpdater implements ActionListener   {
 
         @Override
